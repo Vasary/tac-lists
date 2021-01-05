@@ -1,0 +1,7 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+
+  App\Domain\Repository\ShoppingListRepositoryInterface: '@App\Infrastructure\Persistence\Doctrine\ShoppingListRepository'
+  App\Domain\Repository\UnitRepositoryInterface: '@App\Infrastructure\Persistence\Doctrine\UnitRepository'

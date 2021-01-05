@@ -6,10 +6,18 @@ services:
         autoconfigure: true
 
     App\:
-        resource: '../src/'
+        resource: '../src/*'
         exclude:
+            - '../src/Domain/'
+            - '../src/Application/Request/'
+            - '../src/Application/Response/'
+            - '../src/Infrastructure/Persistence/Type/'
+            - '../src/Infrastructure/Persistence/Mapping/'
             - '../src/Kernel.php'
+            - '../src/tests/'
 
-    App\UI\Controller:
-        resource: '../src/UI/Controller/'
-        tags: ['controller.service_arguments']
+    App\UI\Rest\Controller\:
+        resource: '../src/UI/Rest/Controller/*'
+        calls:
+            - method: setContainer
+              arguments: ['@service_container']

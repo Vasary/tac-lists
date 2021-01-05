@@ -1,0 +1,23 @@
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                   https://raw.github.com/doctrine/doctrine2/master/doctrine-mapping.xsd
+                   https://gediminasm.org/schemas/orm/doctrine-extensions-mapping"
+                  xmlns:gedmo="http://gediminasm.org/schemas/orm/doctrine-extensions-mapping"
+>
+    <entity name="App\Domain\Entity\RegistryImage" table="registries_images">
+        <id name="id" column="id" type="uuid">
+            <generator strategy="CUSTOM"/>
+            <custom-id-generator class="Symfony\Bridge\Doctrine\IdGenerator\UuidV4Generator"/>
+        </id>
+        <field name="createdAt" type="datetime_immutable">
+            <gedmo:timestampable on="create"/>
+        </field>
+        <field name="updatedAt" type="datetime_immutable">
+            <gedmo:timestampable on="update"/>
+        </field>
+
+        <field name="link" type="unicode_string" length="255"/>
+        <many-to-one field="registry" target-entity="App\Domain\Entity\Registry"/>
+    </entity>
+</doctrine-mapping>
