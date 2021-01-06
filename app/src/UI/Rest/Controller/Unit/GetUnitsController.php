@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\UI\Rest\Controller\Unit;
 
-use App\Application\Command\Unit\GetUnitsCommand;
-use App\Application\Service\Builder\ResponseBuilder;
+use App\Application\Unit\Command\GetUnitsCommand;
+use App\Domain\ResponseBuilder\ResponseBuilderInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Messenger\HandleTrait;
@@ -16,9 +16,9 @@ final class GetUnitsController
 {
     use HandleTrait;
 
-    private ResponseBuilder $responseBuilder;
+    private ResponseBuilderInterface $responseBuilder;
 
-    public function __construct(MessageBusInterface $messageBus, ResponseBuilder $responseBuilder)
+    public function __construct(MessageBusInterface $messageBus, ResponseBuilderInterface $responseBuilder)
     {
         $this->messageBus = $messageBus;
         $this->responseBuilder = $responseBuilder;
@@ -29,6 +29,6 @@ final class GetUnitsController
     {
         $command = new GetUnitsCommand();
 
-        return $this->responseBuilder->build($this->handle($command), $command->request);
+        return $this->responseBuilder->build($this->handle($command));
     }
 }

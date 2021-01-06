@@ -19,9 +19,9 @@ final class UnitRepository extends ServiceEntityRepository implements UnitReposi
         $this->manager = $registry;
     }
 
-    public function get(UuidInterface $id): ?Unit
+    public function get(string $id): ?Unit
     {
-        return $this->findOneBy(['id' => $id->toString()]);
+        return $this->findOneBy(['id' => $id]);
     }
 
     public function all(): array

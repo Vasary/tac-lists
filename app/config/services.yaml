@@ -20,3 +20,5 @@ services:
     App\UI\Rest\Controller\:
         resource: '../src/UI/Rest/Controller/'
         tags: ['controller.service_arguments']
+
+    App\Domain\ResponseBuilder\ResponseBuilderInterface: '@App\Infrastructure\ResponseBuilder\ResponseBuilder'

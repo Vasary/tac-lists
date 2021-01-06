@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\UI\Rest\Controller\Unit;
 
-use App\Application\Command\Unit\GetUnitByIdCommand;
-use App\Application\Service\Builder\ResponseBuilder;
+use App\Application\Unit\Command\GetUnitByIdCommand;
+use App\Domain\ResponseBuilder\ResponseBuilderInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,9 +17,9 @@ final class GetUnitByIdController extends AbstractController
 {
     use HandleTrait;
 
-    private ResponseBuilder $responseBuilder;
+    private ResponseBuilderInterface $responseBuilder;
 
-    public function __construct(MessageBusInterface $messageBus, ResponseBuilder $responseBuilder)
+    public function __construct(MessageBusInterface $messageBus, ResponseBuilderInterface $responseBuilder)
     {
         $this->messageBus = $messageBus;
         $this->responseBuilder = $responseBuilder;
@@ -30,6 +30,6 @@ final class GetUnitByIdController extends AbstractController
     {
         $command = new GetUnitByIdCommand(json_encode(['id' => $request->get('id')]));
 
-        return $this->responseBuilder->build($this->handle($command), $command->request);
+        return $this->responseBuilder->build($this->handle($command));
     }
 }

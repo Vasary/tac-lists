@@ -24,6 +24,10 @@
         "symfony/framework-bundle": "*",
         "symfony/monolog-bundle": "^3.6",
         "symfony/uid": "5.2.*",
+        "symfony/messenger": "5.2.*",
+        "symfony/serializer": "5.2.*",
+        "symfony/property-access": "5.2.*",
+        "symfony/property-info": "5.2.*",
         "symfony/yaml": "*"
     },
     "config": {

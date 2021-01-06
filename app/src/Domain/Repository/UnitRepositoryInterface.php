@@ -7,7 +7,7 @@ use Ramsey\Uuid\UuidInterface;
 
 interface UnitRepositoryInterface
 {
-    public function get(UuidInterface $id): ?Unit;
+    public function get(string $id): ?Unit;
 
     public function all(): array;
 }

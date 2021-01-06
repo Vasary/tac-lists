@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\UI\Rest\Controller\ShoppingList;
 
-use App\Application\Command\ShoppingList\CreateShoppingListCommand;
-use App\Application\Service\Builder\ResponseBuilder;
+use App\Application\List\Command\CreateShoppingListCommand;
+use App\Domain\ResponseBuilder\ResponseBuilderInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,9 +17,9 @@ final class CreateController extends AbstractController
 {
     use HandleTrait;
 
-    private ResponseBuilder $responseBuilder;
+    private ResponseBuilderInterface $responseBuilder;
 
-    public function __construct(MessageBusInterface $messageBus, ResponseBuilder $responseBuilder)
+    public function __construct(MessageBusInterface $messageBus, ResponseBuilderInterface $responseBuilder)
     {
         $this->messageBus = $messageBus;
         $this->responseBuilder = $responseBuilder;
@@ -30,6 +30,6 @@ final class CreateController extends AbstractController
     {
         $command = new CreateShoppingListCommand($request->getContent());
 
-        return $this->responseBuilder->build($this->handle($command), $command->request);
+        return $this->responseBuilder->build($this->handle($command));
     }
 }
