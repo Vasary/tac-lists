@@ -9,6 +9,8 @@ use Symfony\Component\String\UnicodeString;
 
 final class GetUnitByIdResponse extends AbstractResponse
 {
+    public UnicodeString $id;
+
     public UnicodeString $name;
 
     public UnicodeString $short;
@@ -17,8 +19,9 @@ final class GetUnitByIdResponse extends AbstractResponse
 
     public array $values;
 
-    public function __construct(UnicodeString $name, UnicodeString $short, UnicodeString $region, array $values)
+    public function __construct(UnicodeString $id, UnicodeString $name, UnicodeString $short, UnicodeString $region, array $values)
     {
+        $this->id = $id;
         $this->name = $name;
         $this->short = $short;
         $this->region = $region;

@@ -20,7 +20,7 @@ final class IndexController extends AbstractController
         $this->responseBuilder = $responseBuilder;
     }
 
-    #[Route(path: '/', methods: ['GET', 'HEAD'])]
+    #[Route('/', methods: ['GET', 'HEAD'])]
     public function __invoke(Request $request, string $projectDir): Response
     {
         $data = json_decode(file_get_contents( $projectDir . '/composer.json'), true);

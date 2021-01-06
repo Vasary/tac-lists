@@ -25,7 +25,7 @@ final class CreateController extends AbstractController
         $this->responseBuilder = $responseBuilder;
     }
 
-    #[Route(path: '/api/v1/shopping_list', name: 'lists_create', methods: ['POST'])]
+    #[Route('/api/v1/shopping_list', name: 'lists_create', methods: ['POST'])]
     public function __invoke(Request $request): Response
     {
         $command = new CreateShoppingListCommand($request->getContent());

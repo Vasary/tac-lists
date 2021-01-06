@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\UI\Rest\Controller\Unit;
 
-use App\Application\Unit\Command\GetUnitsCommand;
+use App\Application\Unit\Query\GetUnitsQuery;
 use App\Domain\ResponseBuilder\ResponseBuilderInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -24,11 +24,11 @@ final class GetUnitsController
         $this->responseBuilder = $responseBuilder;
     }
 
-    #[Route(path: '/api/v1/units', name: 'units_get', methods: ['GET'])]
+    #[Route('/api/v1/units', name: 'units_get', methods: ['GET'])]
     public function __invoke(Request $request): Response
     {
-        $command = new GetUnitsCommand();
+        $query = new GetUnitsQuery();
 
-        return $this->responseBuilder->build($this->handle($command));
+        return $this->responseBuilder->build($this->handle($query));
     }
 }
