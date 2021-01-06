@@ -4,6 +4,8 @@ services:
     _defaults:
         autowire: true
         autoconfigure: true
+        bind:
+            $projectDir: '%kernel.project_dir%'
 
     App\:
         resource: '../src/*'
@@ -14,10 +16,7 @@ services:
             - '../src/Infrastructure/Persistence/Type/'
             - '../src/Infrastructure/Persistence/Mapping/'
             - '../src/Kernel.php'
-            - '../src/tests/'
 
     App\UI\Rest\Controller\:
-        resource: '../src/UI/Rest/Controller/*'
-        calls:
-            - method: setContainer
-              arguments: ['@service_container']
+        resource: '../src/UI/Rest/Controller/'
+        tags: ['controller.service_arguments']

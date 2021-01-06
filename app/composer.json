@@ -1,10 +1,17 @@
 {
-    "name": "symfony/skeleton",
+    "name": "vasary/lists",
     "type": "project",
     "license": "MIT",
     "description": "A minimal Symfony project recommended to create bare bones applications",
     "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "Gievoi Viktor",
+            "email": "gievoi.v@gmail.com"
+        }
+    ],
     "prefer-stable": true,
+    "version": "0.1.0",
     "require": {
         "php": ">=8.0",
         "ext-ctype": "*",

@@ -10,21 +10,16 @@ use Symfony\Component\Serializer\SerializerInterface;
 
 final class ResponseBuilder
 {
-    protected SerializerInterface $serializer;
-
-    public function __construct(SerializerInterface $serializer)
-    {
-        $this->serializer = $serializer;
-    }
-
     public function build(AbstractValueObjectInterface $data, array $request = []): Response
     {
+
+
         return
             new Response(
-                $this->serializer->serialize($data, 'json'),
+                '',
                 Response::HTTP_OK,
                 [
-                    'Content-Type' => 'text/json'
+                    'Content-Type' => 'application/json'
                 ]
             )
         ;

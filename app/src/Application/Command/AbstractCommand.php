@@ -11,6 +11,7 @@ abstract class AbstractCommand
     public array $request;
 
     /**
+     * @param string|null $requestParams
      * @throws JsonException
      */
     public function __construct(string $requestParams = null)
