@@ -8,7 +8,7 @@ trait RegionCode
 {
     protected UnicodeString $region;
 
-    public function region(): string
+    public function region(): UnicodeString
     {
         return $this->region;
     }

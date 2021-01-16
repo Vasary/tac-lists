@@ -17,7 +17,7 @@ class Item
 
     protected int $value;
 
-    protected Registry $registry;
+    protected Template $template;
 
     protected ShoppingList $list;
 
@@ -29,9 +29,9 @@ class Item
 
     protected Collection $images;
 
-    public function __construct(Registry $registry, ShoppingList $list, Unit $units, Collection $labels, int $value)
+    public function __construct(Template $template, ShoppingList $list, Unit $units, Collection $labels, int $value)
     {
-        $this->registry = $registry;
+        $this->template = $template;
         $this->list = $list;
         $this->unit = $units;
         $this->labels = $labels;
@@ -53,9 +53,9 @@ class Item
         return $this->ordering;
     }
 
-    public function registry(): Registry
+    public function registry(): Template
     {
-        return $this->registry;
+        return $this->template;
     }
 
     public function list(): ShoppingList

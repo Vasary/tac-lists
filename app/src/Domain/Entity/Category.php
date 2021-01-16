@@ -16,7 +16,7 @@ class Category
 
     protected UnicodeString $marker;
 
-    protected Collection $registries;
+    protected Collection $templates;
 
     public function __construct(UnicodeString $name, UnicodeString $marker, UnicodeString $region)
     {
@@ -35,8 +35,8 @@ class Category
         return $this->marker;
     }
 
-    public function registries(): Collection
+    public function templates(): Collection
     {
-        return $this->registries;
+        return $this->templates;
     }
 }

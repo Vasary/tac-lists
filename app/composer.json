@@ -2,7 +2,7 @@
     "name": "vasary/lists",
     "type": "project",
     "license": "MIT",
-    "description": "A minimal Symfony project recommended to create bare bones applications",
+    "description": "Shopping list component",
     "minimum-stability": "dev",
     "authors": [
         {
@@ -11,7 +11,7 @@
         }
     ],
     "prefer-stable": true,
-    "version": "0.1.0",
+    "version": "0.0.1",
     "require": {
         "php": ">=8.0",
         "ext-ctype": "*",
@@ -22,12 +22,13 @@
         "symfony/dotenv": "*",
         "symfony/flex": "^1.3.1",
         "symfony/framework-bundle": "*",
-        "symfony/monolog-bundle": "^3.6",
-        "symfony/uid": "5.2.*",
         "symfony/messenger": "5.2.*",
-        "symfony/serializer": "5.2.*",
+        "symfony/monolog-bundle": "^3.6",
         "symfony/property-access": "5.2.*",
         "symfony/property-info": "5.2.*",
+        "symfony/serializer": "5.2.*",
+        "symfony/uid": "5.2.*",
+        "symfony/validator": "5.2.*",
         "symfony/yaml": "*"
     },
     "config": {

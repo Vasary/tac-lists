@@ -18,7 +18,23 @@ services:
             - '../src/Kernel.php'
 
     App\UI\Rest\Controller\:
-        resource: '../src/UI/Rest/Controller/'
+        resource: '../src/UI/Rest/Controller/*Controller*'
         tags: ['controller.service_arguments']
 
     App\Domain\ResponseBuilder\ResponseBuilderInterface: '@App\Infrastructure\ResponseBuilder\ResponseBuilder'
+
+    App\UI\Rest\Controller\Unit\ArgumentResolver\UnitIdArgumentResolver:
+        tags:
+            - { name: controller.argument_value_resolver}
+
+    App\UI\Rest\Controller\Category\ArgumentResolver\CategoryArgumentResolver:
+        tags:
+            - { name: controller.argument_value_resolver}
+
+    App\UI\Rest\Controller\Category\ArgumentResolver\CategoryIdArgumentResolver:
+        tags:
+            - { name: controller.argument_value_resolver}
+
+    App\UI\Rest\EventListener\ExceptionListener:
+        tags:
+            - { name: kernel.event_listener, event: kernel.exception }

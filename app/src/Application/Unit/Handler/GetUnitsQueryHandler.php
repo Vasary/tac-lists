@@ -6,7 +6,8 @@ namespace App\Application\Unit\Handler;
 
 use App\Application\Unit\Provider\UnitProvider;
 use App\Application\Unit\Query\GetUnitsQuery;
-use App\Application\Unit\Response\GetUnitByIdResponse;
+use App\Application\Unit\Response\GetImagesResponse;
+use App\Application\Unit\Response\GetUnitResponse;
 use App\Application\Unit\Response\GetUnitsResponse;
 use App\Domain\Entity\Unit;
 use App\Domain\Handler\AbstractQueryHandler;
@@ -25,7 +26,7 @@ final class GetUnitsQueryHandler extends AbstractQueryHandler implements Message
     public function __invoke(GetUnitsQuery $command): GetUnitsResponse
     {
         $units = array_map(
-            fn(Unit $unit) => new GetUnitByIdResponse(
+            fn(Unit $unit) => new GetUnitResponse(
                 u($unit->id()),
                 u($unit->name()),
                 u($unit->shortName()),

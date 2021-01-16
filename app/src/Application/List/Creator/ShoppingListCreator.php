@@ -17,8 +17,8 @@ final class ShoppingListCreator
         $this->repository = $repository;
     }
 
-    public function create(UnicodeString $string): ShoppingList
+    public function create(UnicodeString $name): ShoppingList
     {
-        return new ShoppingList();
+        return $this->repository->create($name);
     }
 }

@@ -6,26 +6,41 @@ namespace App\Application\List\Handler;
 
 use App\Application\List\Command\CreateShoppingListCommand;
 use App\Application\List\Creator\ShoppingListCreator;
-use App\Application\Response\ShoppingList\CreateShoppingListResponse;
+use App\Application\List\Response\CreateShoppingListResponse;
+use App\Application\Person\Command\AddToListCommand;
 use App\Domain\Handler\AbstractCommandHandler;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
+use Symfony\Component\Messenger\HandleTrait;
+use Symfony\Component\Messenger\MessageBusInterface;
+use function Symfony\Component\String\u;
 
 final class CreateShoppingListCommandHandler extends AbstractCommandHandler implements MessageHandlerInterface
 {
+    use HandleTrait;
+
     private ShoppingListCreator $creator;
 
-    public function __construct(ShoppingListCreator $creator)
+    public function __construct(ShoppingListCreator $creator, MessageBusInterface $messageBus)
     {
         $this->creator = $creator;
+        $this->messageBus = $messageBus;
     }
 
     public function __invoke(CreateShoppingListCommand $command): CreateShoppingListResponse
     {
-//        /** @var CreateShoppingListRequest $request */
-//        $request = $this->serializer->fromArray($command->request, CreateShoppingListRequest::class);
-//
-//        $response = $this->creator->create(new UnicodeString($request->name));
+        $list = $this->creator->create($command->name());
 
-        return new CreateShoppingListResponse();
+        foreach ($command->membersIds() as $id) {
+            $this->messageBus->dispatch(new AddToListCommand($list, u($id)));
+        }
+
+        return
+            new CreateShoppingListResponse(
+                u($list->id()->__toString()),
+                $list->name(),
+                $list->created(),
+                $list->updated()
+            )
+        ;
     }
 }

@@ -6,14 +6,23 @@ namespace App\Application\List\Response;
 
 use App\Domain\Response\AbstractResponse;
 use DateTimeImmutable;
+use Symfony\Component\String\UnicodeString;
 
 final class CreateShoppingListResponse extends AbstractResponse
 {
-    public string $id;
+    public UnicodeString $id;
 
-    public string $name;
+    public UnicodeString $name;
 
-    public DateTimeImmutable $createdAt;
+    public DateTimeImmutable $created;
 
-    public DateTimeImmutable $updatedAt;
+    public DateTimeImmutable $updated;
+
+    public function __construct(UnicodeString $id, UnicodeString $name, DateTimeImmutable $created, DateTimeImmutable $updated)
+    {
+        $this->id = $id;
+        $this->name = $name;
+        $this->created = $created;
+        $this->updated = $updated;
+    }
 }

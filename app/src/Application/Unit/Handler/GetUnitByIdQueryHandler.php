@@ -6,7 +6,7 @@ namespace App\Application\Unit\Handler;
 
 use App\Application\Unit\Provider\UnitProvider;
 use App\Application\Unit\Query\GetUnitByIdQuery;
-use App\Application\Unit\Response\GetUnitByIdResponse;
+use App\Application\Unit\Response\GetUnitResponse;
 use App\Domain\Handler\AbstractQueryHandler;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 use function Symfony\Component\String\u;
@@ -20,12 +20,12 @@ final class GetUnitByIdQueryHandler extends AbstractQueryHandler implements Mess
         $this->provider = $provider;
     }
 
-    public function __invoke(GetUnitByIdQuery $query): GetUnitByIdResponse
+    public function __invoke(GetUnitByIdQuery $query): GetUnitResponse
     {
         $unit = $this->provider->get($query->getId()->toString());
 
         return
-            new GetUnitByIdResponse(
+            new GetUnitResponse(
                 u($unit->id()),
                 u($unit->name()),
                 u($unit->shortName()),

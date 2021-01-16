@@ -6,7 +6,6 @@ use App\Domain\Entity\Unit;
 use App\Domain\Repository\UnitRepositoryInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
-use Ramsey\Uuid\UuidInterface;
 
 final class UnitRepository extends ServiceEntityRepository implements UnitRepositoryInterface
 {
@@ -19,7 +18,7 @@ final class UnitRepository extends ServiceEntityRepository implements UnitReposi
         $this->manager = $registry;
     }
 
-    public function get(string $id): ?Unit
+    public function get(string $id): Unit | null
     {
         return $this->findOneBy(['id' => $id]);
     }

@@ -2,11 +2,13 @@
 
 namespace App\Domain\Entity\Traits;
 
+use Symfony\Component\Uid\UuidV4;
+
 trait UUIDIdentifier
 {
-    protected string $id;
+    protected UuidV4 $id;
 
-    public function id(): string
+    public function id(): UuidV4
     {
         return $this->id;
     }

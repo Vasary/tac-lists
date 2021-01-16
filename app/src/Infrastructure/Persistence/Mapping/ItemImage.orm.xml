@@ -10,14 +10,20 @@
             <generator strategy="CUSTOM"/>
             <custom-id-generator class="Symfony\Bridge\Doctrine\IdGenerator\UuidV4Generator" />
         </id>
-        <field name="createdAt" type="datetime_immutable">
-            <gedmo:timestampable on="create"/>
+
+        <field name="created" type="datetime_immutable">
+            <gedmo:timestampable on="create" field="updated" />
         </field>
-        <field name="updatedAt" type="datetime_immutable">
-            <gedmo:timestampable on="update"/>
+        <field name="updated" type="datetime_immutable">
+            <gedmo:timestampable on="update" field="updated"/>
         </field>
 
         <field name="link" type="unicode_string" length="255"/>
         <many-to-one field="item" target-entity="App\Domain\Entity\Item"/>
+
+        <lifecycle-callbacks>
+            <lifecycle-callback type="prePersist" method="onPrePersist" />
+            <lifecycle-callback type="preUpdate" method="onPreUpdate" />
+        </lifecycle-callbacks>
     </entity>
 </doctrine-mapping>

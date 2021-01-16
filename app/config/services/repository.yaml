@@ -5,3 +5,8 @@ services:
 
   App\Domain\Repository\ShoppingListRepositoryInterface: '@App\Infrastructure\Persistence\Doctrine\ShoppingListRepository'
   App\Domain\Repository\UnitRepositoryInterface: '@App\Infrastructure\Persistence\Doctrine\UnitRepository'
+  App\Domain\Repository\LabelRepositoryInterface: '@App\Infrastructure\Persistence\Doctrine\LabelRepository'
+  App\Domain\Repository\ImageRepositoryInterface: '@App\Infrastructure\Persistence\Doctrine\ImageRepository'
+  App\Domain\Repository\CategoryRepositoryInterface: '@App\Infrastructure\Persistence\Doctrine\CategoryRepository'
+  App\Domain\Repository\PersonRepositoryInterface: '@App\Infrastructure\Persistence\Doctrine\PersonRepository'
+  App\Domain\Repository\TemplateRepositoryInterface: '@App\Infrastructure\Persistence\Doctrine\TemplateRepository'

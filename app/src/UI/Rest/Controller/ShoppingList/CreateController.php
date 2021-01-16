@@ -6,6 +6,7 @@ namespace App\UI\Rest\Controller\ShoppingList;
 
 use App\Application\List\Command\CreateShoppingListCommand;
 use App\Domain\ResponseBuilder\ResponseBuilderInterface;
+use App\UI\Rest\Controller\ShoppingList\Argument\Create;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -25,10 +26,10 @@ final class CreateController extends AbstractController
         $this->responseBuilder = $responseBuilder;
     }
 
-    #[Route('/api/v1/shopping_list', name: 'lists_create', methods: ['POST'])]
-    public function __invoke(Request $request): Response
+    #[Route('/api/v1/list', name: 'lists_create', methods: ['POST'])]
+    public function __invoke(Create $argument): Response
     {
-        $command = new CreateShoppingListCommand($request->getContent());
+        $command = new CreateShoppingListCommand($argument->name(), $argument->members());
 
         return $this->responseBuilder->build($this->handle($command));
     }

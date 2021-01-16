@@ -39,4 +39,9 @@ class ShoppingList
     {
         return $this->members;
     }
+
+    public function addPerson(Person $person): void
+    {
+        $this->members->add($person);
+    }
 }

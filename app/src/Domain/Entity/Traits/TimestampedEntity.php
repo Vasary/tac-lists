@@ -2,21 +2,33 @@
 
 namespace App\Domain\Entity\Traits;
 
-use DateTimeInterface;
+use DateTimeImmutable;
 
 trait TimestampedEntity
 {
-    protected DateTimeInterface $createdAt;
+    protected DateTimeImmutable $created;
 
-    protected DateTimeInterface $updatedAt;
+    protected DateTimeImmutable $updated;
 
-    public function createdAt(): DateTimeInterface
+    public function created(): DateTimeImmutable
     {
-        return $this->createdAt;
+        return $this->created;
     }
 
-    public function updatedAt(): DateTimeInterface
+    public function updated(): DateTimeImmutable
     {
-        return $this->updatedAt;
+        return $this->updated;
+    }
+
+    public function onPrePersist(): void
+    {
+        $this->created = new DateTimeImmutable();
+        $this->updated = new DateTimeImmutable();
+    }
+
+    public function onPreUpdate(): void
+    {
+        $this->updated = new DateTimeImmutable();
     }
 }
+

@@ -10,22 +10,28 @@
             <generator strategy="CUSTOM"/>
             <custom-id-generator class="Symfony\Bridge\Doctrine\IdGenerator\UuidV4Generator" />
         </id>
-        <field name="createdAt" type="datetime_immutable">
-            <gedmo:timestampable on="create"/>
+
+        <field name="created" type="datetime_immutable">
+            <gedmo:timestampable on="create" field="updated" />
         </field>
-        <field name="updatedAt" type="datetime_immutable">
-            <gedmo:timestampable on="update"/>
+        <field name="updated" type="datetime_immutable">
+            <gedmo:timestampable on="update" field="updated"/>
         </field>
 
         <field name="isPurchased" type="boolean" length="255"/>
         <field name="ordering" type="integer" length="255"/>
         <field name="value" type="integer" length="255"/>
 
-        <many-to-one field="registry" target-entity="App\Domain\Entity\Registry"/>
+        <many-to-one field="template" target-entity="App\Domain\Entity\Template"/>
         <many-to-one field="list" target-entity="App\Domain\Entity\ShoppingList"/>
         <many-to-one field="unit" target-entity="App\Domain\Entity\Unit" inversed-by="unit"/>
         <one-to-many field="labels" target-entity="App\Domain\Entity\Label" mapped-by="item"/>
         <one-to-many field="geoPoints" target-entity="App\Domain\Entity\GeoPoint" mapped-by="item"/>
         <one-to-many field="images" target-entity="App\Domain\Entity\ItemImage" mapped-by="item"/>
+
+        <lifecycle-callbacks>
+            <lifecycle-callback type="prePersist" method="onPrePersist" />
+            <lifecycle-callback type="preUpdate" method="onPreUpdate" />
+        </lifecycle-callbacks>
     </entity>
 </doctrine-mapping>
