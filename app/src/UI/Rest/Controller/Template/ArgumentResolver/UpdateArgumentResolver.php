@@ -6,17 +6,19 @@ namespace App\UI\Rest\Controller\Template\ArgumentResolver;
 
 use App\UI\Rest\ArgumentResolver\AbstractArgumentResolver;
 use App\UI\Rest\Controller\Template\Argument\Create;
+use App\UI\Rest\Controller\Template\Argument\Update;
 use Generator;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadata;
+use Symfony\Component\Uid\UuidV4;
 use Symfony\Component\Validator\Constraints as Assert;
 use function Symfony\Component\String\u;
 
-final class TemplateArgumentResolver extends AbstractArgumentResolver
+final class UpdateArgumentResolver extends AbstractArgumentResolver
 {
     public function supports(Request $request, ArgumentMetadata $argument): bool
     {
-        return Create::class === $argument->getType();
+        return Update::class === $argument->getType();
     }
 
     public function resolve(Request $request, ArgumentMetadata $argument): Generator
@@ -25,13 +27,28 @@ final class TemplateArgumentResolver extends AbstractArgumentResolver
 
         $this->validate($data);
 
-        yield new Create(u($data['name']), u($data['category']), u($data['author']), u($data['icon']), $data['images']);
+        yield new Update(
+            UuidV4::fromString($data['id']),
+            UuidV4::fromString($data['category']),
+            u($data['name']),
+            u($data['icon']),
+            array_map(
+                function (string $imageUrl) {
+                    return u($imageUrl);
+                },
+                $data['images']
+            )
+        );
     }
 
     protected function getForm(): Assert\Collection
     {
         return
             new Assert\Collection([
+                'id' => [
+                    new Assert\NotBlank(),
+                    new Assert\Uuid(message: 'Template id should looks like UUID'),
+                ],
                 'name' => [
                     new Assert\NotBlank(),
                     new Assert\Length(
@@ -43,15 +60,11 @@ final class TemplateArgumentResolver extends AbstractArgumentResolver
                 ],
                 'category' => [
                     new Assert\NotBlank(),
-                    new Assert\Uuid(),
+                    new Assert\Uuid(message: 'Category id must have UUID type'),
                 ],
                 'icon' => [
                     new Assert\NotBlank(),
                     new Assert\Length(min: 3, max: 255),
-                ],
-                'author' => [
-                    new Assert\NotBlank(),
-                    new Assert\Uuid(),
                 ],
                 'images' => [
                     new Assert\Type('array'),

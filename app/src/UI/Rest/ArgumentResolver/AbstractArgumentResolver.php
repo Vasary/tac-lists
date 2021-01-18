@@ -6,7 +6,6 @@ namespace App\UI\Rest\ArgumentResolver;
 
 use App\UI\Rest\Exception\BadRequestException;
 use Symfony\Component\HttpKernel\Controller\ArgumentValueResolverInterface;
-use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\Validator\Constraints\Collection;
 use Symfony\Component\Validator\ConstraintViolation;
 use Symfony\Component\Validator\Validator\ValidatorInterface;

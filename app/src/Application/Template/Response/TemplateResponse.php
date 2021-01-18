@@ -11,43 +11,16 @@ use Symfony\Component\Uid\UuidV4;
 
 final class TemplateResponse extends AbstractResponse
 {
-    public UuidV4 $id;
-
-    public UnicodeString $region;
-
-    public UuidV4 $category;
-
-    public UnicodeString $icon;
-
-    public UuidV4 $author;
-
-    public bool $common;
-
-    public array $images;
-
-    public DateTimeImmutable $created;
-
-    public DateTimeImmutable $updated;
-
     public function __construct(
-        UuidV4 $id,
-        UnicodeString $region,
-        UuidV4 $category,
-        UnicodeString $icon,
-        UuidV4 $author,
-        bool $common,
-        array $images,
-        DateTimeImmutable $created,
-        DateTimeImmutable $updated
-    ) {
-        $this->id = $id;
-        $this->region = $region;
-        $this->category = $category;
-        $this->icon = $icon;
-        $this->author = $author;
-        $this->common = $common;
-        $this->images = $images;
-        $this->created = $created;
-        $this->updated = $updated;
-    }
+        public UuidV4 $id,
+        public UnicodeString $name,
+        public UnicodeString $region,
+        public UuidV4 $category,
+        public UnicodeString $icon,
+        public UuidV4 $author,
+        public bool $common,
+        public array $images,
+        public DateTimeImmutable $created,
+        public DateTimeImmutable $updated
+    ) {}
 }

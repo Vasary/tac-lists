@@ -7,8 +7,10 @@ namespace App\UI\Rest\Controller\Template\Argument;
 use Symfony\Component\String\UnicodeString;
 use Symfony\Component\Uid\UuidV4;
 
-final class Create
+final class Update
 {
+    private UuidV4 $id;
+
     private UnicodeString $name;
 
     private UuidV4 $category;
@@ -18,15 +20,22 @@ final class Create
     private array $images;
 
     public function __construct(
-        UnicodeString $name,
+        UuidV4 $id,
         UuidV4 $category,
+        UnicodeString $name,
         UnicodeString $icon,
         array $images
     ) {
+        $this->id = $id;
         $this->name = $name;
         $this->category = $category;
         $this->icon = $icon;
         $this->images = $images;
+    }
+
+    public function id(): UuidV4
+    {
+        return $this->id;
     }
 
     public function name(): UnicodeString

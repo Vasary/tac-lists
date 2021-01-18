@@ -75,4 +75,19 @@ class Template
     {
         return $this->isCommon;
     }
+
+    public function applyName(UnicodeString $name): void
+    {
+        $this->name = $name;
+    }
+
+    public function applyCategory(Category $category): void
+    {
+        $this->category = $category;
+    }
+
+    public function applyIcon(UnicodeString $icon): void
+    {
+        $this->icon = $icon;
+    }
 }

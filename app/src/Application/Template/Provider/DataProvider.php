@@ -4,19 +4,23 @@ declare(strict_types=1);
 
 namespace App\Application\Template\Provider;
 
+use App\Domain\Repository\PersonRepositoryInterface;
 use App\Domain\Repository\TemplateRepositoryInterface;
+use Symfony\Component\Uid\UuidV4;
 
 final class DataProvider
 {
-    private TemplateRepositoryInterface $repository;
+    public function __construct(
+        private TemplateRepositoryInterface $repository,
+        private PersonRepositoryInterface $personRepository
+    ) {}
 
-    public function __construct(TemplateRepositoryInterface $repository)
+    public function all(UuidV4 $personId): array
     {
-        $this->repository = $repository;
-    }
-
-    public function all(): array
-    {
-        return $this->repository->all();
+        return
+            $this->repository->getPersonalized(
+                $this->personRepository->get($personId)
+            )
+        ;
     }
 }

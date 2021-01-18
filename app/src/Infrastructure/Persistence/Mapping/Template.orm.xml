@@ -24,7 +24,11 @@
         <many-to-one field="category" target-entity="App\Domain\Entity\Category"/>
         <many-to-one field="author" target-entity="App\Domain\Entity\Person"/>
         <one-to-many field="items" target-entity="App\Domain\Entity\Item" mapped-by="template"/>
-        <one-to-many field="images" target-entity="App\Domain\Entity\TemplateImage" mapped-by="template"/>
+        <one-to-many field="images" target-entity="App\Domain\Entity\TemplateImage" mapped-by="template">
+            <cascade>
+                <cascade-all />
+            </cascade>
+        </one-to-many>
 
         <lifecycle-callbacks>
             <lifecycle-callback type="prePersist" method="onPrePersist" />

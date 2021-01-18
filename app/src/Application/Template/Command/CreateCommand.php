@@ -5,33 +5,20 @@ declare(strict_types=1);
 namespace App\Application\Template\Command;
 
 use App\Domain\Command\AbstractCommand;
+use JetBrains\PhpStorm\Immutable;
 use Symfony\Component\String\UnicodeString;
+use Symfony\Component\Uid\UuidV4;
 
+#[Immutable]
 final class CreateCommand extends AbstractCommand
 {
-    private UnicodeString $name;
-
-    private UnicodeString $icon;
-
-    private UnicodeString $author;
-
-    private UnicodeString $category;
-
-    private array $images;
-
     public function __construct(
-        UnicodeString $name,
-        UnicodeString $icon,
-        UnicodeString $author,
-        UnicodeString $category,
-        array $images
-    ) {
-        $this->name = $name;
-        $this->icon = $icon;
-        $this->author = $author;
-        $this->category = $category;
-        $this->images = $images;
-    }
+        private UnicodeString $name,
+        private UnicodeString $icon,
+        private UuidV4 $author,
+        private UuidV4 $category,
+        private array $images
+    ) {}
 
     public function name(): UnicodeString
     {
@@ -43,12 +30,12 @@ final class CreateCommand extends AbstractCommand
         return $this->icon;
     }
 
-    public function author(): UnicodeString
+    public function author(): UuidV4
     {
         return $this->author;
     }
 
-    public function category(): UnicodeString
+    public function category(): UuidV4
     {
         return $this->category;
     }
