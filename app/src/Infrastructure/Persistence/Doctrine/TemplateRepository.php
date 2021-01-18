@@ -10,7 +10,6 @@ use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\String\UnicodeString;
 use Symfony\Component\Uid\UuidV4;
-use function Doctrine\ORM\QueryBuilder;
 
 final class TemplateRepository extends ServiceEntityRepository implements TemplateRepositoryInterface
 {

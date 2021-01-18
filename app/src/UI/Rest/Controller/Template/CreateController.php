@@ -26,7 +26,7 @@ final class CreateController extends AbstractController
         $this->responseBuilder = $responseBuilder;
     }
 
-    #[Route('/api/v1/template', name: 'template_create', methods: ['POST'])]
+    #[Route('/api/v1/template', methods: ['POST'])]
     public function __invoke(Create $argument, Person $person): Response
     {
         $command = new CreateCommand(

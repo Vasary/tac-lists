@@ -2,11 +2,12 @@
 
 declare(strict_types=1);
 
-namespace App\UI\Rest\Controller\Template\Argument;
+namespace App\Application\Unit\Query;
 
+use App\Domain\Query\AbstractQuery;
 use Symfony\Component\Uid\UuidV4;
 
-final class Delete
+final class UnitQuery extends AbstractQuery
 {
     public function __construct(private UuidV4 $id) {}
 

@@ -9,29 +9,13 @@ use Symfony\Component\Uid\UuidV4;
 
 final class Update
 {
-    private UuidV4 $id;
-
-    private UnicodeString $name;
-
-    private UuidV4 $category;
-
-    private UnicodeString $icon;
-
-    private array $images;
-
     public function __construct(
-        UuidV4 $id,
-        UuidV4 $category,
-        UnicodeString $name,
-        UnicodeString $icon,
-        array $images
-    ) {
-        $this->id = $id;
-        $this->name = $name;
-        $this->category = $category;
-        $this->icon = $icon;
-        $this->images = $images;
-    }
+        private UuidV4 $id,
+        private UuidV4 $category,
+        private UnicodeString $name,
+        private UnicodeString $icon,
+        private array $images
+    ) {}
 
     public function id(): UuidV4
     {

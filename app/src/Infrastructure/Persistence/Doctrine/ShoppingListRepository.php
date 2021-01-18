@@ -7,6 +7,7 @@ use App\Domain\Repository\ShoppingListRepositoryInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\String\UnicodeString;
+use Symfony\Component\Uid\UuidV4;
 
 final class ShoppingListRepository extends ServiceEntityRepository implements ShoppingListRepositoryInterface
 {
@@ -27,5 +28,16 @@ final class ShoppingListRepository extends ServiceEntityRepository implements Sh
         $this->manager->getManager()->flush();
 
         return $list;
+    }
+
+    public function get(UuidV4 $id): ShoppingList
+    {
+        return $this->findOneBy(['id' => $id]);
+    }
+
+    public function update(ShoppingList $list): void
+    {
+        $this->manager->getManager()->persist($list);
+        $this->manager->getManager()->flush();
     }
 }

@@ -6,7 +6,7 @@ namespace App\UI\Rest\Controller\Template\Argument;
 
 use Symfony\Component\Uid\UuidV4;
 
-final class Delete
+final class Template
 {
     public function __construct(private UuidV4 $id) {}
 

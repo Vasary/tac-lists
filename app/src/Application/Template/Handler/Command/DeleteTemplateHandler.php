@@ -7,7 +7,7 @@ namespace App\Application\Template\Handler\Command;
 use App\Application\Template\Command\DeleteCommand;
 use App\Application\Template\Creator\TemplateCreator;
 use App\Application\Template\Response\DeleteTemplateResponse;
-use App\Domain\ErrorCodes;
+use App\Domain\SystemCodes;
 use App\Domain\Handler\AbstractCommandHandler;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 
@@ -19,6 +19,6 @@ final class DeleteTemplateHandler extends AbstractCommandHandler implements Mess
     {
         $this->creator->delete($command->id(), $command->person());
 
-        return new DeleteTemplateResponse($command->id(), ErrorCodes::SUCCESS);
+        return new DeleteTemplateResponse($command->id(), SystemCodes::SUCCESS);
     }
 }

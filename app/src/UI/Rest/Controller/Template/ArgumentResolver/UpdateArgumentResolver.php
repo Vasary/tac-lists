@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\UI\Rest\Controller\Template\ArgumentResolver;
 
 use App\UI\Rest\ArgumentResolver\AbstractArgumentResolver;
-use App\UI\Rest\Controller\Template\Argument\Create;
 use App\UI\Rest\Controller\Template\Argument\Update;
 use Generator;
 use Symfony\Component\HttpFoundation\Request;

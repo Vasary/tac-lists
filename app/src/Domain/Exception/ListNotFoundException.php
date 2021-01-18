@@ -7,11 +7,11 @@ use DomainException;
 use JetBrains\PhpStorm\Pure;
 use Symfony\Component\Uid\UuidV4;
 
-final class PersonNotFoundException extends DomainException
+final class ListNotFoundException extends DomainException
 {
     #[Pure]
     public function __construct(UuidV4 $id)
     {
-        parent::__construct(sprintf('Person %s not found', $id), SystemCodes::PERSON_NOT_FOUND);
+        parent::__construct(sprintf('List %s not found', $id), SystemCodes::LIST_NOT_FOUND);
     }
 }

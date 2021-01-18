@@ -17,15 +17,12 @@ final class CreateController extends AbstractController
 {
     use HandleTrait;
 
-    private ResponseBuilderInterface $responseBuilder;
-
-    public function __construct(MessageBusInterface $messageBus, ResponseBuilderInterface $responseBuilder)
+    public function __construct(private ResponseBuilderInterface $responseBuilder, MessageBusInterface $messageBus)
     {
         $this->messageBus = $messageBus;
-        $this->responseBuilder = $responseBuilder;
     }
 
-    #[Route('/api/v1/person', name: 'person_create', methods: ['POST'])]
+    #[Route('/api/v1/person', methods: ['POST'])]
     public function __invoke(Create $argument): Response
     {
         return

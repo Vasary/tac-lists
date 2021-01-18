@@ -7,17 +7,13 @@ namespace App\Application\Unit\Provider;
 use App\Domain\Entity\Unit;
 use App\Domain\Exception\UnitNotFoundException;
 use App\Domain\Repository\UnitRepositoryInterface;
+use Symfony\Component\Uid\UuidV4;
 
 final class UnitProvider
 {
-    private UnitRepositoryInterface $repository;
+    public function __construct(private UnitRepositoryInterface $repository) {}
 
-    public function __construct(UnitRepositoryInterface $repository)
-    {
-        $this->repository = $repository;
-    }
-
-    public function get(string $id): Unit
+    public function get(UuidV4 $id): Unit
     {
         if (null === $unit = $this->repository->get($id)) {
             throw new UnitNotFoundException($id);
@@ -26,7 +22,7 @@ final class UnitProvider
         return $unit;
     }
 
-    public function getAll(): array
+    public function all(): array
     {
         return $this->repository->all();
     }

@@ -2,12 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Application\List\Handler;
+namespace App\Application\List\Handler\Command;
 
 use App\Application\List\Command\CreateShoppingListCommand;
 use App\Application\List\Creator\ShoppingListCreator;
-use App\Application\List\Response\CreateShoppingListResponse;
-use App\Application\Person\Command\AddToListCommand;
+use App\Application\List\Response\CreateResponse;
 use App\Domain\Handler\AbstractCommandHandler;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 use Symfony\Component\Messenger\HandleTrait;
@@ -26,16 +25,12 @@ final class CreateShoppingListCommandHandler extends AbstractCommandHandler impl
         $this->messageBus = $messageBus;
     }
 
-    public function __invoke(CreateShoppingListCommand $command): CreateShoppingListResponse
+    public function __invoke(CreateShoppingListCommand $command): CreateResponse
     {
         $list = $this->creator->create($command->name());
 
-        foreach ($command->membersIds() as $id) {
-            $this->messageBus->dispatch(new AddToListCommand($list, u($id)));
-        }
-
         return
-            new CreateShoppingListResponse(
+            new CreateResponse(
                 u($list->id()->__toString()),
                 $list->name(),
                 $list->created(),

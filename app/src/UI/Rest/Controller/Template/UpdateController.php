@@ -26,7 +26,7 @@ final class UpdateController extends AbstractController
         $this->responseBuilder = $responseBuilder;
     }
 
-    #[Route('/api/v1/template/{id}', name: 'template_update', methods: ['PUT'])]
+    #[Route('/api/v1/template/{id}', methods: ['PUT'])]
     public function __invoke(Update $argument, Person $person): Response
     {
         $command = new UpdateCommand(

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\UI\Rest\Controller\Unit;
 
-use App\Application\Unit\Query\GetUnitByIdQuery;
+use App\Application\Unit\Query\UnitQuery;
 use App\Domain\ResponseBuilder\ResponseBuilderInterface;
 use App\UI\Rest\Controller\Unit\Argument\UnitId;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -25,9 +25,9 @@ final class GetUnitController extends AbstractController
         $this->responseBuilder = $responseBuilder;
     }
 
-    #[Route('/api/v1/unit/{id}', name: 'units_get_unit_by_id', methods: ['GET'])]
+    #[Route('/api/v1/unit/{id}', methods: ['GET'])]
     public function __invoke(UnitId $argument): Response
     {
-        return $this->responseBuilder->build($this->handle(new GetUnitByIdQuery($argument->id())));
+        return $this->responseBuilder->build($this->handle(new UnitQuery($argument->id())));
     }
 }

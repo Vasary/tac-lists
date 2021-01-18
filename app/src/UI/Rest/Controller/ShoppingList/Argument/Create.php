@@ -8,15 +8,7 @@ use Symfony\Component\String\UnicodeString;
 
 final class Create
 {
-    private UnicodeString $name;
-
-    private array $members;
-
-    public function __construct(UnicodeString $name, array $members)
-    {
-        $this->name = $name;
-        $this->members = $members;
-    }
+    public function __construct(private UnicodeString $name,  private array $members) {}
 
     public function name(): UnicodeString
     {

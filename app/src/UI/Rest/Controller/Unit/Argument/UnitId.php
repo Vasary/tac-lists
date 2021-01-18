@@ -4,18 +4,13 @@ declare(strict_types=1);
 
 namespace App\UI\Rest\Controller\Unit\Argument;
 
-use Symfony\Component\String\UnicodeString;
+use Symfony\Component\Uid\UuidV4;
 
 final class UnitId
 {
-    private UnicodeString $id;
+    public function __construct(private UuidV4 $id) {}
 
-    public function __construct(UnicodeString $id)
-    {
-        $this->id = $id;
-    }
-
-    public function id(): UnicodeString
+    public function id(): UuidV4
     {
         return $this->id;
     }

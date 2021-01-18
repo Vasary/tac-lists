@@ -25,7 +25,7 @@ final class TemplatesController extends AbstractController
         $this->responseBuilder = $responseBuilder;
     }
 
-    #[Route('/api/v1/templates', name: 'template_get_lists', methods: ['GET'])]
+    #[Route('/api/v1/templates', methods: ['GET'])]
     public function __invoke(Person $person): Response
     {
         return $this->responseBuilder->build($this->handle(new GetTemplatesQuery($person->id())));

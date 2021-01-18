@@ -4,16 +4,17 @@ declare(strict_types=1);
 
 namespace App\UI\Rest\Controller\ShoppingList;
 
-use App\Application\List\Command\CreateShoppingListCommand;
+use App\Application\List\Command\AddPersonToListCommand;
 use App\Domain\ResponseBuilder\ResponseBuilderInterface;
-use App\UI\Rest\Controller\ShoppingList\Argument\Create;
+use App\UI\Rest\Argument\Person;
+use App\UI\Rest\Controller\ShoppingList\Argument\AddPersonToList;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Messenger\HandleTrait;
 use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
-final class CreateController extends AbstractController
+final class AddPersonController extends AbstractController
 {
     use HandleTrait;
 
@@ -22,10 +23,14 @@ final class CreateController extends AbstractController
         $this->messageBus = $messageBus;
     }
 
-    #[Route('/api/v1/list', name: 'lists_create', methods: ['POST'])]
-    public function __invoke(Create $argument): Response
+    #[Route('/api/v1/list/person/add', name: 'lists_add_person', methods: ['PUT'])]
+    public function __invoke(AddPersonToList $argument, Person $initiator): Response
     {
-        $command = new CreateShoppingListCommand($argument->name(), $argument->members());
+        $command = new AddPersonToListCommand(
+            $argument->list(),
+            $argument->person(),
+            $initiator->id()
+        );
 
         return $this->responseBuilder->build($this->handle($command));
     }

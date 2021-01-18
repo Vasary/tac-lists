@@ -6,6 +6,6 @@ namespace App\Application\Unit\Query;
 
 use App\Domain\Query\AbstractQuery;
 
-final class GetUnitsQuery extends AbstractQuery
+final class UnitsQuery extends AbstractQuery
 {
 }
