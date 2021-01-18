@@ -27,7 +27,7 @@ final class CreateArgumentResolver extends AbstractArgumentResolver
 
         yield new Create(
             UuidV4::fromString($data['template']),
-            UuidV4::fromString($data['category']),
+            UuidV4::fromString($data['list']),
             UuidV4::fromString($data['unit']),
             $data['value'],
             $data['places'],
@@ -43,7 +43,7 @@ final class CreateArgumentResolver extends AbstractArgumentResolver
                     new Assert\NotBlank(),
                     new Assert\Uuid(),
                 ],
-                'category' => [
+                'list' => [
                     new Assert\NotBlank(),
                     new Assert\Uuid(),
                 ],

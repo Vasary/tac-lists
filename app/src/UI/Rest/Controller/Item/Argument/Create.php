@@ -10,7 +10,7 @@ final class Create
 {
     public function __construct(
         private UuidV4 $template,
-        private UuidV4 $category,
+        private UuidV4 $list,
         private UuidV4 $unit,
         private int $value,
         private array $places,
@@ -22,9 +22,9 @@ final class Create
         return $this->template;
     }
 
-    public function category(): UuidV4
+    public function list(): UuidV4
     {
-        return $this->category;
+        return $this->list;
     }
 
     public function unit(): UuidV4

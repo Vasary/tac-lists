@@ -11,3 +11,4 @@ services:
   App\Domain\Repository\PersonRepositoryInterface: '@App\Infrastructure\Persistence\Doctrine\PersonRepository'
   App\Domain\Repository\TemplateRepositoryInterface: '@App\Infrastructure\Persistence\Doctrine\TemplateRepository'
   App\Domain\Repository\TemplateImageRepositoryInterface: '@App\Infrastructure\Persistence\Doctrine\TemplateImageRepository'
+  App\Domain\Repository\ItemRepositoryInterface: '@App\Infrastructure\Persistence\Doctrine\ItemRepository'

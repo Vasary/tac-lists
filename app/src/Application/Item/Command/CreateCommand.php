@@ -10,7 +10,7 @@ final class CreateCommand
 {
     public function __construct(
         private UuidV4 $template,
-        private UuidV4 $cagegory,
+        private UuidV4 $list,
         private UuidV4 $unit,
         private int $value,
         private array $places,
@@ -23,9 +23,9 @@ final class CreateCommand
         return $this->template;
     }
 
-    public function category(): UuidV4
+    public function list(): UuidV4
     {
-        return $this->cagegory;
+        return $this->list;
     }
 
     public function unit(): UuidV4

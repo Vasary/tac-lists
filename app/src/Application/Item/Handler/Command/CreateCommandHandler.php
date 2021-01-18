@@ -19,15 +19,28 @@ final class CreateCommandHandler  extends AbstractCommandHandler implements Mess
         $images = [];
         $places = [];
 
-        $this->creator->create(
-            $command->template(),
-            $command->category(),
-            $command->unit(),
-            $command->value(),
-            $images,
-            $places
-        );
+        $item =
+            $this->creator->create(
+                $command->template(),
+                $command->list(),
+                $command->unit(),
+                $command->value(),
+            )
+        ;
 
-        return new ItemResponse();
+        return
+            new ItemResponse(
+                $item->id(),
+                $item->template()->id(),
+                $item->list()->id(),
+                $item->unit()->id(),
+                $item->value(),
+                [],
+                [],
+                [],
+                $item->created(),
+                $item->updated(),
+            )
+        ;
     }
 }

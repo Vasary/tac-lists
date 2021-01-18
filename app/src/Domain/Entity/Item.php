@@ -29,16 +29,16 @@ class Item
 
     protected Collection $images;
 
-    public function __construct(Template $template, ShoppingList $list, Unit $units, Collection $labels, int $value)
+    public function __construct(Template $template, ShoppingList $list, Unit $units, int $value)
     {
         $this->template = $template;
         $this->list = $list;
         $this->unit = $units;
-        $this->labels = $labels;
         $this->isPurchased = false;
         $this->ordering = 0;
         $this->value = $value;
 
+        $this->labels = new ArrayCollection();
         $this->geoPoints = new ArrayCollection();
         $this->images = new ArrayCollection();
     }
@@ -53,7 +53,7 @@ class Item
         return $this->ordering;
     }
 
-    public function registry(): Template
+    public function template(): Template
     {
         return $this->template;
     }
@@ -63,7 +63,7 @@ class Item
         return $this->list;
     }
 
-    public function units(): Unit
+    public function unit(): Unit
     {
         return $this->unit;
     }

@@ -29,7 +29,7 @@ final class CreateController extends AbstractController
         $command =
             new CreateCommand(
                 $argument->template(),
-                $argument->category(),
+                $argument->list(),
                 $argument->unit(),
                 $argument->value(),
                 $argument->places(),
