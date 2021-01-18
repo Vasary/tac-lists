@@ -21,7 +21,7 @@ final class EmptyController extends AbstractController
         $this->messageBus = $messageBus;
     }
 
-    #[Route('/api/v1/list/{id}/clear', name: 'lists_clear_list', methods: ['POST'])]
+    #[Route('/api/v1/list/{id}/clear', methods: ['POST'])]
     public function __invoke(Create $argument): Response
     {
         throw new \RuntimeException('Not implemented');

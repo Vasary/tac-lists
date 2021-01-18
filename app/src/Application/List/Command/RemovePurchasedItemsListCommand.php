@@ -6,6 +6,6 @@ namespace App\Application\List\Command;
 
 use App\Domain\Command\AbstractCommand;
 
-final class RenameShoppingListCommand extends AbstractCommand
+final class RemovePurchasedItemsListCommand extends AbstractCommand
 {
 }

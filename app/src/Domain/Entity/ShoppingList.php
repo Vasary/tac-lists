@@ -40,8 +40,8 @@ class ShoppingList
         return $this->members;
     }
 
-    public function addPerson(Person $person): void
+    public function applyName(UnicodeString $name): void
     {
-        $this->members->add($person);
+        $this->name = $name;
     }
 }

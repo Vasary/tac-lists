@@ -7,6 +7,7 @@ namespace App\Application\List\Handler\Command;
 use App\Application\List\Command\CreateShoppingListCommand;
 use App\Application\List\Creator\ShoppingListCreator;
 use App\Application\List\Response\CreateResponse;
+use App\Domain\Entity\Person;
 use App\Domain\Handler\AbstractCommandHandler;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 use Symfony\Component\Messenger\HandleTrait;
@@ -29,10 +30,15 @@ final class CreateShoppingListCommandHandler extends AbstractCommandHandler impl
     {
         $list = $this->creator->create($command->name());
 
+        foreach ($command->membersIds() as $membersId) {
+            $this->creator->addToList($list, $membersId);
+        }
+
         return
             new CreateResponse(
-                u($list->id()->__toString()),
+                $list->id(),
                 $list->name(),
+                array_map(fn(Person $person) => $person->id(), $list->members()->toArray()),
                 $list->created(),
                 $list->updated()
             )

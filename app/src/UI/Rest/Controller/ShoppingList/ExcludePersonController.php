@@ -23,7 +23,7 @@ final class ExcludePersonController extends AbstractController
         $this->messageBus = $messageBus;
     }
 
-    #[Route('/api/v1/list/person/exclude', name: 'lists_person_delete', methods: ['PUT'])]
+    #[Route('/api/v1/list/person/exclude', methods: ['PUT'])]
     public function __invoke(RemovePersonFromList $argument, Person $person): Response
     {
         $command = new ExcludePersonFromListCommand($argument->list(), $argument->person(), $person->id());

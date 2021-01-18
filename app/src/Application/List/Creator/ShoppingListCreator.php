@@ -55,6 +55,13 @@ final class ShoppingListCreator
         $this->repository->update($list);
     }
 
+    public function rename(UnicodeString $newName, ShoppingList $list): void
+    {
+        $list->applyName($newName);
+
+        $this->repository->update($list);
+    }
+
     private function comparePersons(UuidV4 $id): callable
     {
         return fn(int $_, Person $person) => $person->id()->toBinary() === $id->toBinary();

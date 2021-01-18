@@ -4,15 +4,17 @@ declare(strict_types=1);
 
 namespace App\UI\Rest\Controller\ShoppingList;
 
+use App\Application\List\Command\RenameListCommand;
 use App\Domain\ResponseBuilder\ResponseBuilderInterface;
-use App\UI\Rest\Controller\ShoppingList\Argument\Create;
+use App\UI\Rest\Argument\Person;
+use App\UI\Rest\Controller\ShoppingList\Argument\Rename;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Messenger\HandleTrait;
 use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
-final class ClearController extends AbstractController
+final class RenameController extends AbstractController
 {
     use HandleTrait;
 
@@ -21,9 +23,11 @@ final class ClearController extends AbstractController
         $this->messageBus = $messageBus;
     }
 
-    #[Route('/api/v1/list/{id}/empty', methods: ['POST'])]
-    public function __invoke(Create $argument): Response
+    #[Route('/api/v1/list', methods: ['PUT'])]
+    public function __invoke(Rename $argument, Person $initiator): Response
     {
-        throw new \RuntimeException('Not implemented');
+        $command = new RenameListCommand($argument->list(), $initiator->id(), $argument->name());
+
+        return $this->responseBuilder->build($this->handle($command));
     }
 }
