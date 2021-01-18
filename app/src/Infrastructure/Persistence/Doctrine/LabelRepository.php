@@ -25,6 +25,6 @@ final class LabelRepository extends ServiceEntityRepository implements LabelRepo
 
     public function all(): array
     {
-        return $this->findBy([], ['createdAt' => 'DESC']);
+        return $this->findBy([], ['created' => 'DESC']);
     }
 }

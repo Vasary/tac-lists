@@ -5,7 +5,6 @@ namespace App\Infrastructure\Persistence\Doctrine;
 use App\Domain\Entity\Category;
 use App\Domain\Entity\Person;
 use App\Domain\Entity\Template;
-use App\Domain\Entity\Unit;
 use App\Domain\Repository\TemplateRepositoryInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -17,7 +16,7 @@ final class TemplateRepository extends ServiceEntityRepository implements Templa
 
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Unit::class);
+        parent::__construct($registry, Template::class);
 
         $this->manager = $registry;
     }
@@ -30,5 +29,10 @@ final class TemplateRepository extends ServiceEntityRepository implements Templa
         $this->manager->getManager()->flush();
 
         return $template;
+    }
+
+    public function all(): array
+    {
+        return $this->findBy([], ['created' => 'DESC']);
     }
 }

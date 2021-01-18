@@ -25,6 +25,6 @@ final class ImageRepository extends ServiceEntityRepository implements ImageRepo
 
     public function all(): array
     {
-        return $this->findBy([], ['createdAt' => 'DESC']);
+        return $this->findBy([], ['created' => 'DESC']);
     }
 }

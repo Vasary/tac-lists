@@ -12,17 +12,17 @@ final class GetLabelResponse extends AbstractResponse
 {
     private UnicodeString $id;
 
-    private DateTimeImmutable $createdAt;
+    private DateTimeImmutable $created;
 
-    private DateTimeImmutable $updatedAt;
+    private DateTimeImmutable $updated;
 
     private UnicodeString $text;
 
-    public function __construct(UnicodeString $id, DateTimeImmutable $createdAt, DateTimeImmutable $updatedAt, UnicodeString $text)
+    public function __construct(UnicodeString $id, DateTimeImmutable $created, DateTimeImmutable $updated, UnicodeString $text)
     {
         $this->id = $id;
-        $this->createdAt = $createdAt;
-        $this->updatedAt = $updatedAt;
+        $this->created = $created;
+        $this->updated = $updated;
         $this->text = $text;
     }
 }

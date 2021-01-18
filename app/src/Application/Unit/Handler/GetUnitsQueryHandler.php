@@ -27,10 +27,10 @@ final class GetUnitsQueryHandler extends AbstractQueryHandler implements Message
     {
         $units = array_map(
             fn(Unit $unit) => new GetUnitResponse(
-                u($unit->id()),
+                $unit->id(),
                 u($unit->name()),
                 u($unit->shortName()),
-                u($unit->region()),
+                $unit->region(),
                 $unit->values()
             ),
             $this->provider->getAll(),

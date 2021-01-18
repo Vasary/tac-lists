@@ -9,7 +9,7 @@ use DateTimeImmutable;
 use Symfony\Component\String\UnicodeString;
 use Symfony\Component\Uid\UuidV4;
 
-final class CreateTemplateResponse extends AbstractResponse
+final class TemplateResponse extends AbstractResponse
 {
     public UuidV4 $id;
 
@@ -23,6 +23,8 @@ final class CreateTemplateResponse extends AbstractResponse
 
     public bool $common;
 
+    public array $images;
+
     public DateTimeImmutable $created;
 
     public DateTimeImmutable $updated;
@@ -34,6 +36,7 @@ final class CreateTemplateResponse extends AbstractResponse
         UnicodeString $icon,
         UuidV4 $author,
         bool $common,
+        array $images,
         DateTimeImmutable $created,
         DateTimeImmutable $updated
     ) {
@@ -43,6 +46,7 @@ final class CreateTemplateResponse extends AbstractResponse
         $this->icon = $icon;
         $this->author = $author;
         $this->common = $common;
+        $this->images = $images;
         $this->created = $created;
         $this->updated = $updated;
     }

@@ -10,4 +10,6 @@ use Symfony\Component\String\UnicodeString;
 interface TemplateRepositoryInterface
 {
     public function create(UnicodeString $name, UnicodeString $icon, Category $category, Person $person): Template;
+
+    public function all(): array;
 }

@@ -31,8 +31,13 @@ final class TemplateCreator
         $this->templateRepository = $templateRepository;
     }
 
-    public function create(UnicodeString $name, UnicodeString $icon, UuidV4 $categoryId, UuidV4 $personId): Template
-    {
+    public function create(
+        UnicodeString $name,
+        UnicodeString $icon,
+        UuidV4 $categoryId,
+        UuidV4 $personId,
+        array $images
+    ): Template {
         if (null === $category = $this->categoryRepository->get($categoryId)) {
             throw new CategoryNotFoundException($category->id()->__toString());
         }
@@ -40,6 +45,8 @@ final class TemplateCreator
         if (null === $person = $this->personRepository->get($personId)) {
             throw new PersonNotFoundException($person->id()->__toString());
         }
+
+        // TODO: Save images url
 
         return $this->templateRepository->create($name, $icon, $category, $person);
     }

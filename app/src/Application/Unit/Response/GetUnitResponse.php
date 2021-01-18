@@ -6,10 +6,11 @@ namespace App\Application\Unit\Response;
 
 use App\Domain\Response\AbstractResponse;
 use Symfony\Component\String\UnicodeString;
+use Symfony\Component\Uid\UuidV4;
 
 final class GetUnitResponse extends AbstractResponse
 {
-    public UnicodeString $id;
+    public UuidV4 $id;
 
     public UnicodeString $name;
 
@@ -19,7 +20,7 @@ final class GetUnitResponse extends AbstractResponse
 
     public array $values;
 
-    public function __construct(UnicodeString $id, UnicodeString $name, UnicodeString $short, UnicodeString $region, array $values)
+    public function __construct(UuidV4 $id, UnicodeString $name, UnicodeString $short, UnicodeString $region, array $values)
     {
         $this->id = $id;
         $this->name = $name;

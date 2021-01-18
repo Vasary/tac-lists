@@ -37,6 +37,6 @@ final class CategoryRepository extends ServiceEntityRepository implements Catego
 
     public function all(): array
     {
-        return $this->findBy([], ['createdAt' => 'DESC']);
+        return $this->findBy([], ['created' => 'DESC']);
     }
 }

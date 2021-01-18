@@ -25,6 +25,6 @@ final class UnitRepository extends ServiceEntityRepository implements UnitReposi
 
     public function all(): array
     {
-        return $this->findBy([], ['createdAt' => 'DESC']);
+        return $this->findBy([], ['created' => 'DESC']);
     }
 }
