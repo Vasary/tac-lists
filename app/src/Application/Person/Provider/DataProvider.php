@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Application\Person\Provider;
 
 use App\Domain\Entity\Person;
+use App\Domain\Exception\PersonNotFoundException;
 use App\Domain\Repository\PersonRepositoryInterface;
 use Symfony\Component\Uid\UuidV4;
 
@@ -19,6 +20,10 @@ final class DataProvider
 
     public function get(UuidV4 $id): Person
     {
-        return $this->repository->get($id);
+        if (null === $person = $this->repository->get($id)) {
+            throw new PersonNotFoundException($id);
+        }
+
+        return $person;
     }
 }

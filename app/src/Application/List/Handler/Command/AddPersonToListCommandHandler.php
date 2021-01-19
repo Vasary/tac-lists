@@ -30,7 +30,6 @@ final class AddPersonToListCommandHandler extends AbstractCommandHandler impleme
 
     public function __invoke(AddPersonToListCommand $command): AddPersonToListResponse
     {
-
         $list = $this->provider->get($command->list());
 
         $list->members()->forAll(

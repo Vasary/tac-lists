@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace App\Application\List\Creator;
 
+use App\Domain\Entity\Item;
 use App\Domain\Entity\Person;
 use App\Domain\Entity\ShoppingList;
 use App\Domain\Exception\PersonNotFoundException;
+use App\Domain\Repository\ItemRepositoryInterface;
 use App\Domain\Repository\PersonRepositoryInterface;
 use App\Infrastructure\Persistence\Doctrine\ShoppingListRepository;
 use Symfony\Component\String\UnicodeString;
@@ -17,6 +19,7 @@ final class ShoppingListCreator
     public function __construct(
         private ShoppingListRepository $repository,
         private PersonRepositoryInterface $personRepository,
+        private ItemRepositoryInterface $itemRepository,
     ) {}
 
     public function create(UnicodeString $name): ShoppingList
@@ -58,6 +61,14 @@ final class ShoppingListCreator
     public function rename(UnicodeString $newName, ShoppingList $list): void
     {
         $list->applyName($newName);
+
+        $this->repository->update($list);
+    }
+
+    public function removeItem(ShoppingList $list, Item $item): void
+    {
+        $list->items()->removeElement($item);
+        $this->itemRepository->delete($item);
 
         $this->repository->update($list);
     }

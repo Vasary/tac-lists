@@ -10,13 +10,5 @@ use Symfony\Component\Uid\UuidV4;
 
 final class PersonResponse extends AbstractResponse
 {
-    public UuidV4 $id;
-
-    public UnicodeString $region;
-
-    public function __construct(UuidV4 $id, UnicodeString $region)
-    {
-        $this->id = $id;
-        $this->region = $region;
-    }
+    public function __construct(public UuidV4 $id, public UnicodeString $region, public array $lists) {}
 }

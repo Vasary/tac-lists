@@ -16,7 +16,7 @@
         <field name="name" type="unicode_string" length="255"/>
         <field name="marker" type="unicode_string" length="7"/>
 
-        <one-to-many field="templates" target-entity="App\Domain\Entity\Template" mapped-by="category" />
+        <one-to-many field="templates" target-entity="App\Domain\Entity\Template" mapped-by="category" fetch="EXTRA_LAZY"/>
 
         <lifecycle-callbacks>
             <lifecycle-callback type="prePersist" method="onPrePersist" />

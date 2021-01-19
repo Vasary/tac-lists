@@ -1,8 +1,7 @@
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
-                   https://raw.github.com/doctrine/doctrine2/master/doctrine-mapping.xsd
-                   https://gediminasm.org/schemas/orm/doctrine-extensions-mapping"
+                   https://raw.github.com/doctrine/doctrine2/master/doctrine-mapping.xsd"
                   xmlns:gedmo="http://gediminasm.org/schemas/orm/doctrine-extensions-mapping"
 >
     <entity name="App\Domain\Entity\ItemImage" table="items_images">
@@ -19,7 +18,7 @@
         </field>
 
         <field name="link" type="unicode_string" length="255"/>
-        <many-to-one field="item" target-entity="App\Domain\Entity\Item"/>
+        <many-to-one field="item" target-entity="App\Domain\Entity\Item" fetch="EXTRA_LAZY"/>
 
         <lifecycle-callbacks>
             <lifecycle-callback type="prePersist" method="onPrePersist" />

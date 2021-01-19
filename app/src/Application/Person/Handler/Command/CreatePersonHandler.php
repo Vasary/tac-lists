@@ -24,6 +24,6 @@ final class CreatePersonHandler extends AbstractCommandHandler implements Messag
     {
         $person = $this->creator->create(UuidV4::fromString($command->personId()->toString()), $command->region());
 
-        return new PersonResponse($person->id(), $person->region());
+        return new PersonResponse($person->id(), $person->region(), []);
     }
 }

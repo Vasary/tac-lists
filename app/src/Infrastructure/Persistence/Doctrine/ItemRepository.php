@@ -9,6 +9,7 @@ use App\Domain\Entity\Unit;
 use App\Domain\Repository\ItemRepositoryInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Component\Uid\UuidV4;
 
 final class ItemRepository extends ServiceEntityRepository implements ItemRepositoryInterface
 {
@@ -29,5 +30,22 @@ final class ItemRepository extends ServiceEntityRepository implements ItemReposi
         $this->manager->getManager()->flush();
 
         return $item;
+    }
+
+    public function update(Item $item): void
+    {
+        $this->manager->getManager()->persist($item);
+        $this->manager->getManager()->flush();
+    }
+
+    public function delete(Item $item): void
+    {
+        $this->manager->getManager()->remove($item);
+        $this->manager->getManager()->flush();
+    }
+
+    public function get(UuidV4 $id): Item
+    {
+        return $this->findOneBy(['id' => $id]);
     }
 }

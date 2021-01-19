@@ -35,8 +35,8 @@ class Item
         $this->list = $list;
         $this->unit = $units;
         $this->isPurchased = false;
-        $this->ordering = 0;
         $this->value = $value;
+        $this->ordering = 0;
 
         $this->labels = new ArrayCollection();
         $this->geoPoints = new ArrayCollection();
@@ -86,5 +86,15 @@ class Item
     public function images(): Collection
     {
         return $this->images;
+    }
+
+    public function applyBought(): void
+    {
+        $this->isPurchased = true;
+    }
+
+    public function applyNotBought(): void
+    {
+        $this->isPurchased = false;
     }
 }

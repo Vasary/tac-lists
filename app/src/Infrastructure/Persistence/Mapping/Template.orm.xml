@@ -21,10 +21,10 @@
             </options>
         </field>
 
-        <many-to-one field="category" target-entity="App\Domain\Entity\Category"/>
-        <many-to-one field="author" target-entity="App\Domain\Entity\Person"/>
-        <one-to-many field="items" target-entity="App\Domain\Entity\Item" mapped-by="template"/>
-        <one-to-many field="images" target-entity="App\Domain\Entity\TemplateImage" mapped-by="template">
+        <many-to-one field="category" target-entity="App\Domain\Entity\Category" fetch="EXTRA_LAZY"/>
+        <many-to-one field="author" target-entity="App\Domain\Entity\Person" fetch="EXTRA_LAZY"/>
+        <one-to-many field="items" target-entity="App\Domain\Entity\Item" mapped-by="template" fetch="EXTRA_LAZY"/>
+        <one-to-many field="images" target-entity="App\Domain\Entity\TemplateImage" mapped-by="template" fetch="EXTRA_LAZY">
             <cascade>
                 <cascade-all />
             </cascade>

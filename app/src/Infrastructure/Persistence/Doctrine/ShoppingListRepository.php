@@ -30,7 +30,7 @@ final class ShoppingListRepository extends ServiceEntityRepository implements Sh
         return $list;
     }
 
-    public function get(UuidV4 $id): ShoppingList
+    public function get(UuidV4 $id): ShoppingList | null
     {
         return $this->findOneBy(['id' => $id]);
     }

@@ -13,11 +13,17 @@
         <field name="updated" type="datetime_immutable"/>
         <field name="name" type="unicode_string" length="255"/>
 
-        <many-to-many field="members" target-entity="App\Domain\Entity\Person" inversed-by="lists">
+        <many-to-many field="members" target-entity="App\Domain\Entity\Person" inversed-by="lists" fetch="EXTRA_LAZY">
             <cascade>
                 <cascade-all />
             </cascade>
         </many-to-many>
+
+        <one-to-many field="items" target-entity="App\Domain\Entity\Item" mapped-by="list" fetch="EXTRA_LAZY">
+            <cascade>
+                <cascade-all />
+            </cascade>
+        </one-to-many>
 
         <lifecycle-callbacks>
             <lifecycle-callback type="prePersist" method="onPrePersist" />

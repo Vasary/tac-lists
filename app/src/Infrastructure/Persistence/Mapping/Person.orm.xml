@@ -13,7 +13,7 @@
         <field name="created" type="datetime_immutable"/>
         <field name="updated" type="datetime_immutable"/>
 
-        <many-to-many field="lists" target-entity="App\Domain\Entity\ShoppingList" mapped-by="members">
+        <many-to-many field="lists" target-entity="App\Domain\Entity\ShoppingList" mapped-by="members" fetch="EXTRA_LAZY">
             <cascade>
                 <cascade-all />
             </cascade>
