@@ -20,8 +20,13 @@ class ItemImage
         $this->item = $item;
     }
 
-    public function link(): string
+    public function link(): UnicodeString
     {
         return $this->link;
+    }
+
+    public function item(): Item
+    {
+        return $this->item;
     }
 }

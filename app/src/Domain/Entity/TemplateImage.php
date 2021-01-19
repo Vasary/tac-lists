@@ -20,8 +20,13 @@ class TemplateImage
         $this->template = $template;
     }
 
-    public function link(): string
+    public function link(): UnicodeString
     {
         return $this->link;
+    }
+
+    public function template(): string
+    {
+        return $this->template;
     }
 }

@@ -25,6 +25,11 @@ final class UnicodeStringType extends Type
         return $value->toString();
     }
 
+    public function getDefaultLength(AbstractPlatform $platform): int
+    {
+        return $platform->getVarcharDefaultLength();
+    }
+
     public function getName(): string
     {
         return self::NAME;

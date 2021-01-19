@@ -8,6 +8,7 @@ use App\Domain\Repository\ItemImageRepositoryInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\String\UnicodeString;
+use Symfony\Component\Uid\UuidV4;
 
 final class ItemImageRepository extends ServiceEntityRepository implements ItemImageRepositoryInterface
 {
@@ -34,5 +35,10 @@ final class ItemImageRepository extends ServiceEntityRepository implements ItemI
     {
         $this->manager->getManager()->remove($image);
         $this->manager->getManager()->flush();
+    }
+
+    public function get(UuidV4 $id): ItemImage
+    {
+        return $this->findOneBy(['id' => $id]);
     }
 }

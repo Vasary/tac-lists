@@ -44,7 +44,7 @@ final class ItemRepository extends ServiceEntityRepository implements ItemReposi
         $this->manager->getManager()->flush();
     }
 
-    public function get(UuidV4 $id): Item
+    public function get(UuidV4 $id): Item | null
     {
         return $this->findOneBy(['id' => $id]);
     }

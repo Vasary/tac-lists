@@ -8,6 +8,7 @@ use App\Domain\Repository\TemplateImageRepositoryInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\String\UnicodeString;
+use Symfony\Component\Uid\UuidV4;
 
 final class TemplateImageRepository extends ServiceEntityRepository implements TemplateImageRepositoryInterface
 {
@@ -34,5 +35,10 @@ final class TemplateImageRepository extends ServiceEntityRepository implements T
     {
         $this->manager->getManager()->remove($image);
         $this->manager->getManager()->flush();
+    }
+
+    public function get(UuidV4 $id): TemplateImage | null
+    {
+        return $this->findOneBy(['id' => $id]);
     }
 }

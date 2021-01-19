@@ -14,7 +14,7 @@ interface ItemRepositoryInterface
 
     public function update(Item $item): void;
 
-    public function get(UuidV4 $id): Item;
+    public function get(UuidV4 $id): Item | null;
 
     public function delete(Item $item): void;
 }
