@@ -16,6 +16,7 @@
         "php": ">=8.0",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "ext-zend-opcache": "*",
         "doctrine/doctrine-bundle": "^2.2",
         "doctrine/orm": "^2.8",
         "symfony/console": "*",

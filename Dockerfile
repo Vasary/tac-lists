@@ -12,3 +12,5 @@ RUN set -xe \
     && chown -R www-data:www-data /var/application \
     && apk add --no-cache --no-progress --update postgresql-dev libpq \
     && docker-php-ext-install pdo_pgsql opcache
+
+COPY docker/php-fpm/config/opcache.ini /usr/local/etc/php-fpm.d
