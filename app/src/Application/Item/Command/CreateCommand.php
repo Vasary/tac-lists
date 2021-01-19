@@ -13,7 +13,7 @@ final class CreateCommand
         private UuidV4 $list,
         private UuidV4 $unit,
         private int $value,
-        private array $places,
+        private array $points,
         private array $images,
         private UuidV4 $initiator
     ) {}
@@ -38,9 +38,9 @@ final class CreateCommand
         return $this->value;
     }
 
-    public function places(): array
+    public function points(): array
     {
-        return $this->places;
+        return $this->points;
     }
 
     public function images(): array

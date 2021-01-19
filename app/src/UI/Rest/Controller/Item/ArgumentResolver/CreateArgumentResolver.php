@@ -6,6 +6,8 @@ namespace App\UI\Rest\Controller\Item\ArgumentResolver;
 
 use App\UI\Rest\ArgumentResolver\AbstractArgumentResolver;
 use App\UI\Rest\Controller\Item\Argument\Create;
+use App\UI\Rest\Validator\Location\Latitude;
+use App\UI\Rest\Validator\Location\Longitude;
 use Generator;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadata;
@@ -30,7 +32,7 @@ final class CreateArgumentResolver extends AbstractArgumentResolver
             UuidV4::fromString($data['list']),
             UuidV4::fromString($data['unit']),
             $data['value'],
-            $data['places'],
+            $data['points'],
             $data['images'],
         );
     }
@@ -56,11 +58,15 @@ final class CreateArgumentResolver extends AbstractArgumentResolver
                     new Assert\NotBlank(),
                     new Assert\GreaterThan(0)
                 ],
-                'places' => [
+                'points' => [
                     new Assert\Type('array'),
                     new Assert\Count(min: 0, max: 25),
                     new Assert\All([
-                        new Assert\Length(min: 0, max: 255)
+                        new Assert\Collection([
+                            'longitude' => new Longitude(),
+                            'latitude' => new Latitude(),
+                            'comment' => new Assert\Length(min: 0, max: 255)
+                        ])
                     ])
                 ],
                 'images' => [

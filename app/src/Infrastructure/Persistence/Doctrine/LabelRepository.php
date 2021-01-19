@@ -6,6 +6,7 @@ use App\Domain\Entity\Label;
 use App\Domain\Repository\LabelRepositoryInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Component\Uid\UuidV4;
 
 final class LabelRepository extends ServiceEntityRepository implements LabelRepositoryInterface
 {
@@ -18,7 +19,7 @@ final class LabelRepository extends ServiceEntityRepository implements LabelRepo
         $this->manager = $registry;
     }
 
-    public function get(string $id): Label | null
+    public function get(UuidV4 $id): Label | null
     {
         return $this->findOneBy(['id' => $id]);
     }

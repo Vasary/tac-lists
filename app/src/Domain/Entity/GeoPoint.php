@@ -18,11 +18,12 @@ class GeoPoint
 
     protected Item $item;
 
-    public function __construct(float $latitude, float $longitude, UnicodeString $comment)
+    public function __construct(float $latitude, float $longitude, UnicodeString $comment, Item $item)
     {
         $this->latitude = $latitude;
         $this->longitude = $longitude;
         $this->comment = $comment;
+        $this->item = $item;
     }
 
     public function latitude(): float
@@ -35,7 +36,7 @@ class GeoPoint
         return $this->longitude;
     }
 
-    public function comment(): ?string
+    public function comment(): null | UnicodeString
     {
         return $this->comment;
     }

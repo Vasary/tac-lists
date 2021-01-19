@@ -20,7 +20,7 @@ class Label
         $this->item = $item;
     }
 
-    public function text(): string
+    public function text(): UnicodeString
     {
         return $this->text;
     }

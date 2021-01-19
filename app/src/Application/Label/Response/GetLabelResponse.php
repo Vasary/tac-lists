@@ -7,22 +7,14 @@ namespace App\Application\Label\Response;
 use App\Domain\Response\AbstractResponse;
 use DateTimeImmutable;
 use Symfony\Component\String\UnicodeString;
+use Symfony\Component\Uid\UuidV4;
 
 final class GetLabelResponse extends AbstractResponse
 {
-    private UnicodeString $id;
-
-    private DateTimeImmutable $created;
-
-    private DateTimeImmutable $updated;
-
-    private UnicodeString $text;
-
-    public function __construct(UnicodeString $id, DateTimeImmutable $created, DateTimeImmutable $updated, UnicodeString $text)
-    {
-        $this->id = $id;
-        $this->created = $created;
-        $this->updated = $updated;
-        $this->text = $text;
-    }
+    public function __construct(
+        public UuidV4 $id,
+        public DateTimeImmutable $created,
+        public DateTimeImmutable $updated,
+        public UnicodeString $text
+    ) {}
 }

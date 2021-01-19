@@ -6,19 +6,16 @@ namespace App\Application\Item\Handler\Command;
 
 use App\Application\Item\Command\CreateCommand;
 use App\Application\Item\Creator\Creator;
+use App\Application\Item\Handler\BaseHandler;
 use App\Application\Item\Response\ItemResponse;
-use App\Domain\Handler\AbstractCommandHandler;
-use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
+use function Symfony\Component\String\u;
 
-final class CreateCommandHandler  extends AbstractCommandHandler implements MessageHandlerInterface
+final class CreateCommandHandler extends BaseHandler
 {
     public function __construct(private Creator $creator) {}
 
     public function __invoke(CreateCommand $command): ItemResponse
     {
-        $images = [];
-        $places = [];
-
         $item =
             $this->creator->create(
                 $command->template(),
@@ -28,19 +25,14 @@ final class CreateCommandHandler  extends AbstractCommandHandler implements Mess
             )
         ;
 
-        return
-            new ItemResponse(
-                $item->id(),
-                $item->template()->id(),
-                $item->list()->id(),
-                $item->unit()->id(),
-                $item->value(),
-                [],
-                [],
-                [],
-                $item->created(),
-                $item->updated(),
-            )
-        ;
+        foreach ($command->points() as $point) {
+            $this->creator->addPoint($item, $point['longitude'], $point['latitude'], u($point['comment']),);
+        }
+
+        foreach ($command->images() as $image) {
+            $this->creator->addImage($item, u($image));
+        }
+
+        return $this->createResponse($item);
     }
 }

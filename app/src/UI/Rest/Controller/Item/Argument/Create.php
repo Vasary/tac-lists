@@ -13,7 +13,7 @@ final class Create
         private UuidV4 $list,
         private UuidV4 $unit,
         private int $value,
-        private array $places,
+        private array $points,
         private array $images
     ) {}
 
@@ -37,9 +37,9 @@ final class Create
         return $this->value;
     }
 
-    public function places(): array
+    public function points(): array
     {
-        return $this->places;
+        return $this->points;
     }
 
     public function images(): array

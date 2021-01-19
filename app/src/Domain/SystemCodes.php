@@ -17,4 +17,5 @@ final class SystemCodes
     public const LIST_NOT_FOUND = 9;
     public const ALREADY_EXISTS = 10;
     public const ITEM_NOT_FOUND = 11;
+    public const POINT_NOT_FOUND = 12;
 }

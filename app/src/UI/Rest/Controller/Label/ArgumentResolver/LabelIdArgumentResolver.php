@@ -9,6 +9,7 @@ use App\UI\Rest\Controller\Label\Argument\LabelId;
 use Generator;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadata;
+use Symfony\Component\Uid\UuidV4;
 use Symfony\Component\Validator\Constraints as Assert;
 use function Symfony\Component\String\u;
 
@@ -25,7 +26,7 @@ final class LabelIdArgumentResolver extends AbstractArgumentResolver
 
         $this->validate($data);
 
-        yield new LabelId(u($data['id']));
+        yield new LabelId(UuidV4::fromString($data['id']));
     }
 
     protected function getForm(): Assert\Collection

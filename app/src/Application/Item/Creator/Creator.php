@@ -8,10 +8,13 @@ use App\Domain\Entity\Item;
 use App\Domain\Exception\ListNotFoundException;
 use App\Domain\Exception\TemplateNotFoundException;
 use App\Domain\Exception\UnitNotFoundException;
+use App\Domain\Repository\ItemImageRepositoryInterface;
 use App\Domain\Repository\ItemRepositoryInterface;
+use App\Domain\Repository\PointRepositoryInterface;
 use App\Domain\Repository\ShoppingListRepositoryInterface;
 use App\Domain\Repository\TemplateRepositoryInterface;
 use App\Domain\Repository\UnitRepositoryInterface;
+use Symfony\Component\String\UnicodeString;
 use Symfony\Component\Uid\UuidV4;
 
 final class Creator
@@ -21,6 +24,8 @@ final class Creator
         private ShoppingListRepositoryInterface $listRepository,
         private UnitRepositoryInterface $unitRepository,
         private ItemRepositoryInterface $itemRepository,
+        private PointRepositoryInterface $pointRepository,
+        private ItemImageRepositoryInterface $imageRepository,
     ) {}
 
     public function create(
@@ -44,6 +49,31 @@ final class Creator
         return $this->itemRepository->create($template, $list, $unit, $value);
     }
 
+    public function changeUnit(Item $item, UuidV4 $unitId): void
+    {
+        if (null === $unit = $this->unitRepository->get($unitId)) {
+            throw new UnitNotFoundException($unitId);
+        }
+
+        $item->applyUnit($unit);
+
+        $this->itemRepository->update($item);
+    }
+
+    public function changeOrder(Item $item, int $order): void
+    {
+        $item->applyOrder($order);
+
+        $this->itemRepository->update($item);
+    }
+
+    public function changeValue(Item $item, int $value): void
+    {
+        $item->applyValue($value);
+
+        $this->itemRepository->update($item);
+    }
+
     public function setBoughtState(Item $item): void
     {
         $item->isPurchased() ? $item->applyNotBought() : $item->applyBought();
@@ -51,7 +81,40 @@ final class Creator
         $this->itemRepository->update($item);
     }
 
-    public function addImage(): void {}
-    public function addPoint(): void {}
-    public function addLabel(): void {}
+    public function delete(Item $item): void
+    {
+        $this->itemRepository->delete($item);
+    }
+
+    public function addImage(Item $item, UnicodeString $imageURL): void
+    {
+        $image = $this->imageRepository->create($item, $imageURL);
+        $item->images()->add($image);
+
+        $this->itemRepository->update($item);
+    }
+
+    public function addPoint(Item $item, float $latitude, float $longitude, UnicodeString $comment): void
+    {
+        $point = $this->pointRepository->create($longitude, $latitude, $item, $comment);
+        $item->points()->add($point);
+
+        $this->itemRepository->update($item);
+    }
+
+    public function deletePoints(Item $item): void
+    {
+        foreach ($item->points() as $index => $point) {
+            $this->pointRepository->delete($point);
+            $item->points()->remove($index);
+        }
+    }
+
+    public function deleteImages(Item $item): void
+    {
+        foreach ($item->images() as $index => $image) {
+            $this->imageRepository->delete($image);
+            $item->images()->remove($index);
+        }
+    }
 }

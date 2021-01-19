@@ -48,7 +48,7 @@ class Item
         return $this->isPurchased;
     }
 
-    public function ordering(): int
+    public function order(): int
     {
         return $this->ordering;
     }
@@ -78,7 +78,7 @@ class Item
         return $this->value;
     }
 
-    public function geoPoints(): Collection
+    public function points(): Collection
     {
         return $this->geoPoints;
     }
@@ -96,5 +96,20 @@ class Item
     public function applyNotBought(): void
     {
         $this->isPurchased = false;
+    }
+
+    public function applyUnit(Unit $unit): void
+    {
+        $this->unit = $unit;
+    }
+
+    public function applyOrder(int $order): void
+    {
+        $this->ordering = $order;
+    }
+
+    public function applyValue(int $value): void
+    {
+        $this->value = $value;
     }
 }

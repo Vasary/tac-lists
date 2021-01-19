@@ -32,7 +32,7 @@ final class CreateController extends AbstractController
                 $argument->list(),
                 $argument->unit(),
                 $argument->value(),
-                $argument->places(),
+                $argument->points(),
                 $argument->images(),
                 $initiator->id()
             )
