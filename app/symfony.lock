@@ -288,5 +288,11 @@
     },
     "symfony/yaml": {
         "version": "v5.2.1"
+    },
+    "vasary/tracer-bundle": {
+        "version": "0.1.2"
+    },
+    "vasary/x-trace-id": {
+        "version": "0.1.2"
     }
 }

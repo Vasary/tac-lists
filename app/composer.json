@@ -31,7 +31,8 @@
         "symfony/serializer": "5.2.*",
         "symfony/uid": "5.2.*",
         "symfony/validator": "5.2.*",
-        "symfony/yaml": "*"
+        "symfony/yaml": "*",
+        "vasary/tracer-bundle": "^0.1.2"
     },
     "config": {
         "optimize-autoloader": true,

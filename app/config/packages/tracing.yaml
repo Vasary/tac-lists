@@ -1,0 +1,4 @@
+tracing:
+  header_name: x-trace-id
+  log_field_name: x-trace-id
+  application_name: 'lists'
