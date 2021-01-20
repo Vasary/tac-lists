@@ -59,6 +59,18 @@
     "doctrine/sql-formatter": {
         "version": "1.1.1"
     },
+    "ekreative/health-check-bundle": {
+        "version": "1.5",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "1.5",
+            "ref": "c20022e2c2ea4d733f09d57cc55304e7fbb9391c"
+        },
+        "files": [
+            "config/routes/ekreative_health_check.yaml"
+        ]
+    },
     "monolog/monolog": {
         "version": "2.2.0"
     },

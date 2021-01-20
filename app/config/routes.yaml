@@ -2,6 +2,9 @@ api:
   resource: '../src/UI/Rest/Controller'
   type: annotation
 
+health_check:
+  resource: '@EkreativeHealthCheckBundle/Resources/config/routes.xml'
+
 kernel:
   resource: '../src/Kernel.php'
   type: annotation
