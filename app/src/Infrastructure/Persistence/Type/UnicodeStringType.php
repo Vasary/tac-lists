@@ -12,7 +12,7 @@ final class UnicodeStringType extends Type
 
     public function getSQLDeclaration(array $column, AbstractPlatform $platform): string
     {
-        return 'varchar';
+        return $platform->getVarcharTypeDeclarationSQL($column);
     }
 
     public function convertToPHPValue($value, AbstractPlatform $platform): UnicodeString
