@@ -25,7 +25,7 @@ final class AllController extends AbstractController
         $this->responseBuilder = $responseBuilder;
     }
 
-    #[Route('/api/v1/categories', name: 'category_get_all', methods: ['GET'])]
+    #[Route('/api/v1/categories', methods: ['GET'])]
     public function __invoke(Request $request): Response
     {
         return $this->responseBuilder->build($this->handle(new GetCategories()));

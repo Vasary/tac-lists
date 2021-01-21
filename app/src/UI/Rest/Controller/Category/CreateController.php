@@ -6,6 +6,7 @@ namespace App\UI\Rest\Controller\Category;
 
 use App\Application\Category\Command\CreateCategoryCommand;
 use App\Domain\ResponseBuilder\ResponseBuilderInterface;
+use App\UI\Rest\Argument\Person;
 use App\UI\Rest\Controller\Category\Argument\Create;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -25,8 +26,8 @@ final class CreateController extends AbstractController
         $this->responseBuilder = $responseBuilder;
     }
 
-    #[Route('/api/v1/category', name: 'category_create', methods: ['POST'])]
-    public function __invoke(Create $argument): Response
+    #[Route('/api/v1/category', methods: ['POST'])]
+    public function __invoke(Create $argument, Person $person): Response
     {
         $command = new CreateCategoryCommand($argument->name(), $argument->color());
 

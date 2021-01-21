@@ -38,6 +38,7 @@ final class CreateShoppingListCommandHandler extends AbstractCommandHandler impl
             new CreateResponse(
                 $list->id(),
                 $list->name(),
+                [],
                 array_map(fn(Person $person) => $person->id(), $list->members()->toArray()),
                 $list->created(),
                 $list->updated()

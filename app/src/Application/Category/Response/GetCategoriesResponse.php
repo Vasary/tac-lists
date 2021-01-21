@@ -8,10 +8,5 @@ use App\Domain\Response\AbstractResponse;
 
 final class GetCategoriesResponse extends AbstractResponse
 {
-    public array $categories;
-
-    public function __construct(array $categories)
-    {
-        $this->categories = $categories;
-    }
+    public function __construct(public array $categories) {}
 }

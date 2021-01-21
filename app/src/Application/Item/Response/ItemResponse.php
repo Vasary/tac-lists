@@ -17,6 +17,7 @@ final class ItemResponse extends AbstractResponse
         public UuidV4 $unit,
         public int $order,
         public int $value,
+        public bool $isPurchased,
         public array $labels,
         public array $images,
         public array $points,

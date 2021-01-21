@@ -7,28 +7,16 @@ namespace App\Application\Category\Response;
 use App\Domain\Response\AbstractResponse;
 use DateTimeImmutable;
 use Symfony\Component\String\UnicodeString;
+use Symfony\Component\Uid\UuidV4;
 
 final class GetCategoryResponse extends AbstractResponse
 {
-    public UnicodeString $id;
-
-    public UnicodeString $name;
-
-    public UnicodeString $color;
-
-    public UnicodeString $region;
-
-    public DateTimeImmutable $created;
-
-    public DateTimeImmutable $updated;
-
-    public function __construct(UnicodeString $id, UnicodeString $name, UnicodeString $color, UnicodeString $region, DateTimeImmutable $created, DateTimeImmutable $updated)
-    {
-        $this->id = $id;
-        $this->name = $name;
-        $this->color = $color;
-        $this->region = $region;
-        $this->created = $created;
-        $this->updated = $updated;
-    }
+    public function __construct(
+        public UuidV4 $id,
+        public UnicodeString $name,
+        public UnicodeString $color,
+        public UnicodeString $region,
+        public DateTimeImmutable $created,
+        public DateTimeImmutable $updated
+    ) {}
 }

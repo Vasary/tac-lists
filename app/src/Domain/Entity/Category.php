@@ -25,12 +25,12 @@ class Category
         $this->region = $region;
     }
 
-    public function name(): string
+    public function name(): UnicodeString
     {
         return $this->name;
     }
 
-    public function marker(): string
+    public function marker(): UnicodeString
     {
         return $this->marker;
     }

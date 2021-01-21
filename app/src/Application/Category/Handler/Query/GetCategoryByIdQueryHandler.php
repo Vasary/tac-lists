@@ -26,10 +26,10 @@ final class GetCategoryByIdQueryHandler extends AbstractQueryHandler implements 
 
         return
             new GetCategoryResponse(
-                u($category->id()),
-                u($category->name()),
-                u($category->marker()),
-                u($category->region()),
+                $category->id(),
+                $category->name(),
+                $category->marker(),
+                $category->region(),
                 $category->updated(),
                 $category->created()
             );

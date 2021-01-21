@@ -24,6 +24,7 @@ abstract class BaseHandler extends AbstractCommandHandler implements MessageHand
                 $item->unit()->id(),
                 $item->order(),
                 $item->value(),
+                $item->isPurchased(),
                 $this->getLabels($item),
                 $this->getImages($item),
                 $this->getPoints($item),

@@ -14,6 +14,7 @@ final class CreateResponse extends AbstractResponse
     public function __construct(
         public UuidV4 $id,
         public UnicodeString $name,
+        public array $items,
         public array $members,
         public DateTimeImmutable $created,
         public DateTimeImmutable $updated

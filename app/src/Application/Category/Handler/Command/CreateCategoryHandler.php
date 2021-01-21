@@ -28,7 +28,7 @@ final class CreateCategoryHandler extends AbstractCommandHandler implements Mess
 
         return
             new CreateCategoryResponse(
-                $category->id()->__toString(),
+                $category->id(),
                 $category->name(),
                 $category->marker(),
                 $category->region(),

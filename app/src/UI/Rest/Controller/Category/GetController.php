@@ -27,7 +27,7 @@ final class GetController extends AbstractController
         $this->responseBuilder = $responseBuilder;
     }
 
-    #[Route('/api/v1/category/{id}', name: 'category_get_by_id', methods: ['GET'])]
+    #[Route('/api/v1/category/{id}', methods: ['GET'])]
     public function __invoke(CategoryId $argument): Response
     {
         return $this->responseBuilder->build($this->handle(new GetCategory($argument->id())));

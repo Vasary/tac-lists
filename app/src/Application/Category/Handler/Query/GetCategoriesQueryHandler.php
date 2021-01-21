@@ -11,7 +11,6 @@ use App\Application\Category\Response\GetCategoryResponse;
 use App\Domain\Entity\Category;
 use App\Domain\Handler\AbstractQueryHandler;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
-use function Symfony\Component\String\u;
 
 final class GetCategoriesQueryHandler extends AbstractQueryHandler implements MessageHandlerInterface
 {
@@ -26,10 +25,10 @@ final class GetCategoriesQueryHandler extends AbstractQueryHandler implements Me
     {
         $categories = array_map(
             fn(Category $category) => new GetCategoryResponse(
-                u($category->id()),
-                u($category->name()),
-                u($category->marker()),
-                u($category->region()),
+                $category->id(),
+                $category->name(),
+                $category->marker(),
+                $category->region(),
                 $category->updated(),
                 $category->created()
             ),
