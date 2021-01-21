@@ -28,10 +28,7 @@ final class GetAllTemplatesQueryHandler extends AbstractQueryHandler implements 
                 $template->icon(),
                 $template->author()->id(),
                 $template->common(),
-                array_map(
-                    fn (TemplateImage $image) => ['id' => $image->id(), 'link' => $image->link()],
-                    $template->images()->toArray()
-                ),
+                array_map(fn (TemplateImage $image) => $image->id(), $template->images()->toArray()),
                 $template->created(),
                 $template->updated()
             ),
