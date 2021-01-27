@@ -32,13 +32,13 @@ final class AddPersonToListCommandHandler extends AbstractCommandHandler impleme
     {
         $list = $this->provider->get($command->list());
 
-        $list->members()->forAll(
-            function (int $_, Person $person) use ($command, $list) {
-                if ($person->id()->toBinary() === $command->person()->toBinary()) {
-                    throw new AlreadyExistsException($command->person(), $list->id());
-                }
+        foreach ($list->members() as $member) {
+            /** @var Person $member */
+
+            if ($member->id()->equals($command->person())) {
+                throw new AlreadyExistsException($command->person(), $list->id());
             }
-        );
+        }
 
         $this->creator->addToList($list, $command->person());
 

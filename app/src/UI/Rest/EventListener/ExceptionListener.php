@@ -7,6 +7,7 @@ namespace App\UI\Rest\EventListener;
 use App\Domain\SystemCodes;
 use App\UI\Rest\Exception\BadRequestException;
 use Doctrine\DBAL\Exception\UniqueConstraintViolationException;
+use DomainException;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Event\ExceptionEvent;
@@ -26,8 +27,13 @@ final class ExceptionListener
             $data['message'] = $exception->errors();
         }
 
-        if ($exception instanceof UniqueConstraintViolationException) {
+        if (0 === $exception->getCode() && !($exception instanceof DomainException)) {
+            $data['code'] = SystemCodes::SYSTEM_MALFORMED;
+        }
+
+        if ($exception->getPrevious() instanceof UniqueConstraintViolationException) {
             $data['message'] = 'Duplication error';
+            $data['code'] = SystemCodes::ALREADY_EXISTS;
         }
 
         $event->setResponse(new JsonResponse($data, $this->resolveStatusCode($exception)));
