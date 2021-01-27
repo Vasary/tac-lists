@@ -29,7 +29,7 @@ final class CreateController extends AbstractController
     #[Route('/api/v1/category', methods: ['POST'])]
     public function __invoke(Create $argument, Person $person): Response
     {
-        $command = new CreateCategoryCommand($argument->name(), $argument->color());
+        $command = new CreateCategoryCommand($argument->name(), $argument->color(), $person->id());
 
         return $this->responseBuilder->build($this->handle($command));
     }

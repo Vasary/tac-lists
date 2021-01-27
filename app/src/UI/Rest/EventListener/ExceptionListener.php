@@ -6,6 +6,7 @@ namespace App\UI\Rest\EventListener;
 
 use App\Domain\SystemCodes;
 use App\UI\Rest\Exception\BadRequestException;
+use Doctrine\DBAL\Exception\UniqueConstraintViolationException;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Event\ExceptionEvent;
@@ -23,6 +24,10 @@ final class ExceptionListener
         if ($exception instanceof BadRequestException) {
             /** @var BadRequestException $exception **/
             $data['message'] = $exception->errors();
+        }
+
+        if ($exception instanceof UniqueConstraintViolationException) {
+            $data['message'] = 'Duplication error';
         }
 
         $event->setResponse(new JsonResponse($data, $this->resolveStatusCode($exception)));

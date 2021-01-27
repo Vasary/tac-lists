@@ -29,7 +29,7 @@ final class UpdateCommandHandler extends BaseHandler
         }
 
         if ($command->order() !== $item->order()) {
-            $this->creator->changeValue($item, $command->order());
+            $this->creator->changeOrder($item, $command->order());
         }
 
         if ($command->unit()->toBinary() !== $item->unit()->id()->toBinary()) {

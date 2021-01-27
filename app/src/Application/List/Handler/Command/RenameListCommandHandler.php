@@ -51,7 +51,7 @@ final class RenameListCommandHandler extends AbstractCommandHandler implements M
             new ListResponse(
                 $list->id(),
                 $list->name(),
-                array_map(fn(Item $item) => $item->id(), $list->members()->toArray()),
+                array_map(fn(Item $item) => $item->id(), $list->items()->toArray()),
                 array_map(fn(Person $person) => $person->id(), $list->members()->toArray()),
                 $list->created(),
                 $list->updated()

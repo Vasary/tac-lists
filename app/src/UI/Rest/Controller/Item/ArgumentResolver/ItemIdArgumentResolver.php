@@ -21,7 +21,7 @@ final class ItemIdArgumentResolver extends AbstractArgumentResolver
 
     public function resolve(Request $request, ArgumentMetadata $argument): Generator
     {
-        if ('GET' === $request->getMethod()) {
+        if (in_array($request->getMethod(), ['GET', 'DELETE'], true)) {
             $data['id'] = $request->get('id');
         } else {
             $data = json_decode($request->getContent(), true, flags: JSON_THROW_ON_ERROR);
