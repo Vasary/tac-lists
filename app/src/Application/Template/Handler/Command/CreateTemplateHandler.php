@@ -13,7 +13,9 @@ use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 
 final class CreateTemplateHandler extends AbstractCommandHandler implements MessageHandlerInterface
 {
-    public function __construct(private TemplateCreator $creator) {}
+    public function __construct(private TemplateCreator $creator)
+    {
+    }
 
     public function __invoke(CreateCommand $command): TemplateResponse
     {

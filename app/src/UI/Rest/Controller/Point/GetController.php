@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\UI\Rest\Controller\Point;
 
-use App\Application\Label\Query\GetLabelQuery;
 use App\Application\Point\Query\GetPointQuery;
 use App\Domain\ResponseBuilder\ResponseBuilderInterface;
 use App\UI\Rest\Argument\Person;

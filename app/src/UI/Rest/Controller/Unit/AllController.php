@@ -7,7 +7,6 @@ namespace App\UI\Rest\Controller\Unit;
 use App\Application\Unit\Query\UnitsQuery;
 use App\Domain\ResponseBuilder\ResponseBuilderInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Messenger\HandleTrait;
 use Symfony\Component\Messenger\MessageBusInterface;

@@ -22,5 +22,6 @@ final class TemplateResponse extends AbstractResponse
         public array $images,
         public DateTimeImmutable $created,
         public DateTimeImmutable $updated
-    ) {}
+    ) {
+    }
 }

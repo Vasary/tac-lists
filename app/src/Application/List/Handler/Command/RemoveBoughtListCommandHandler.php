@@ -36,7 +36,7 @@ final class RemoveBoughtListCommandHandler extends AbstractCommandHandler implem
             $list
                 ->members()
                 ->exists(
-                    fn(int $_, Person $person) => $person->id()->toBinary() === $command->initiator()->toBinary()
+                    fn (int $_, Person $person) => $person->id()->toBinary() === $command->initiator()->toBinary()
                 )
             ;
 
@@ -44,7 +44,7 @@ final class RemoveBoughtListCommandHandler extends AbstractCommandHandler implem
             throw new PermissionDeniedException($command->initiator(), $list->id());
         }
 
-        $bought = $list->items()->filter(fn(Item $item) => $item->isPurchased());
+        $bought = $list->items()->filter(fn (Item $item) => $item->isPurchased());
         foreach ($bought->toArray() as $item) {
             $this->creator->removeItem($list, $item);
         }
@@ -53,8 +53,8 @@ final class RemoveBoughtListCommandHandler extends AbstractCommandHandler implem
             new ListResponse(
                 $list->id(),
                 $list->name(),
-                array_values(array_map(fn(Item $item) => $item->id(), $list->items()->toArray())),
-                array_values(array_map(fn(Person $person) => $person->id(), $list->members()->toArray())),
+                array_values(array_map(fn (Item $item) => $item->id(), $list->items()->toArray())),
+                array_values(array_map(fn (Person $person) => $person->id(), $list->members()->toArray())),
                 $list->created(),
                 $list->updated()
             )

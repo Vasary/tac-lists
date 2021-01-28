@@ -19,7 +19,8 @@ final class UpdateCommand extends AbstractCommand
         private UuidV4 $author,
         private UuidV4 $category,
         private array $images
-    ) {}
+    ) {
+    }
 
     public function id(): UuidV4
     {

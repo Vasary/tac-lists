@@ -66,7 +66,7 @@ final class UpdateArgumentResolver extends AbstractArgumentResolver
                 'value' => [
                     new Assert\Type('integer'),
                     new Assert\NotBlank(),
-                    new Assert\GreaterThan(0)
+                    new Assert\GreaterThan(0),
                 ],
                 'points' => [
                     new Assert\Type('array'),
@@ -75,17 +75,17 @@ final class UpdateArgumentResolver extends AbstractArgumentResolver
                         new Assert\Collection([
                             'longitude' => new Longitude(),
                             'latitude' => new Latitude(),
-                            'comment' => new Assert\Length(min: 0, max: 255)
-                        ])
-                    ])
+                            'comment' => new Assert\Length(min: 0, max: 255),
+                        ]),
+                    ]),
                 ],
                 'images' => [
                     new Assert\Type('array'),
                     new Assert\Count(min: 0, max: 25),
                     new Assert\All([
-                        new Assert\Url()
-                    ])
-                ]
+                        new Assert\Url(),
+                    ]),
+                ],
             ]);
     }
 }

@@ -7,7 +7,6 @@ namespace App\UI\Rest\Controller\ShoppingList;
 use App\Application\List\Command\RemoveBoughtItemsListCommand;
 use App\Domain\ResponseBuilder\ResponseBuilderInterface;
 use App\UI\Rest\Argument\Person;
-use App\UI\Rest\Controller\ShoppingList\Argument\Id;
 use App\UI\Rest\Controller\ShoppingList\Argument\ListId;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;

@@ -11,7 +11,9 @@ use Symfony\Component\Uid\UuidV4;
 
 final class UnitProvider
 {
-    public function __construct(private UnitRepositoryInterface $repository) {}
+    public function __construct(private UnitRepositoryInterface $repository)
+    {
+    }
 
     public function get(UuidV4 $id): Unit
     {

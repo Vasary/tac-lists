@@ -8,7 +8,8 @@ use Symfony\Component\String\UnicodeString;
 
 class TemplateImage
 {
-    use TimestampedEntity, UUIDIdentifier;
+    use TimestampedEntity;
+    use UUIDIdentifier;
 
     protected UnicodeString $link;
 

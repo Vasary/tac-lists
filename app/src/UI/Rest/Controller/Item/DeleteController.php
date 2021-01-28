@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\UI\Rest\Controller\Item;
 
 use App\Application\Item\Command\DeleteCommand;
-use App\Application\Item\Command\TouchCommand;
 use App\Domain\ResponseBuilder\ResponseBuilderInterface;
 use App\UI\Rest\Argument\Person;
 use App\UI\Rest\Controller\Item\Argument\ItemId;

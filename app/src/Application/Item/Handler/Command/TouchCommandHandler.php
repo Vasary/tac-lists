@@ -15,7 +15,9 @@ final class TouchCommandHandler extends BaseHandler
 {
     use ObjectAccess;
 
-    public function __construct(private Creator $creator, private DataProvider $provider) {}
+    public function __construct(private Creator $creator, private DataProvider $provider)
+    {
+    }
 
     public function __invoke(TouchCommand $command): ItemResponse
     {

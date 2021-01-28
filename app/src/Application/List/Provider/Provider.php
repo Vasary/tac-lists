@@ -15,7 +15,8 @@ final class Provider
     public function __construct(
         private ShoppingListRepositoryInterface $repository,
         private PersonRepositoryInterface $personRepository
-    ) {}
+    ) {
+    }
 
     public function get(UuidV4 $id): ShoppingList
     {

@@ -9,7 +9,9 @@ use Symfony\Component\Uid\UuidV4;
 
 final class GetTemplateQuery extends AbstractQuery
 {
-    public function __construct(private UuidV4 $id, private UuidV4 $person) {}
+    public function __construct(private UuidV4 $id, private UuidV4 $person)
+    {
+    }
 
     public function id(): UuidV4
     {

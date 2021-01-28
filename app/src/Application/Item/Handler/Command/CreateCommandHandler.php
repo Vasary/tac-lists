@@ -12,7 +12,9 @@ use function Symfony\Component\String\u;
 
 final class CreateCommandHandler extends BaseHandler
 {
-    public function __construct(private Creator $creator) {}
+    public function __construct(private Creator $creator)
+    {
+    }
 
     public function __invoke(CreateCommand $command): ItemResponse
     {
@@ -26,7 +28,7 @@ final class CreateCommandHandler extends BaseHandler
         ;
 
         foreach ($command->points() as $point) {
-            $this->creator->addPoint($item, $point['longitude'], $point['latitude'], u($point['comment']),);
+            $this->creator->addPoint($item, $point['longitude'], $point['latitude'], u($point['comment']), );
         }
 
         foreach ($command->images() as $image) {

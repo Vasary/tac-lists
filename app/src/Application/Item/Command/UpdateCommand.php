@@ -18,7 +18,8 @@ final class UpdateCommand
         private array $points,
         private array $images,
         private UuidV4 $initiator
-    ) {}
+    ) {
+    }
 
     public function id(): UuidV4
     {

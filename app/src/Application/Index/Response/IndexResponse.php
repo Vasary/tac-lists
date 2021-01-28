@@ -14,5 +14,6 @@ final class IndexResponse extends AbstractResponse
         public string $license,
         public string $description,
         public array $authors
-    ) {}
+    ) {
+    }
 }

@@ -13,7 +13,9 @@ use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 
 final class GetQueryHandler extends AbstractQueryHandler implements MessageHandlerInterface
 {
-    public function __construct(private DataProvider $provider) {}
+    public function __construct(private DataProvider $provider)
+    {
+    }
 
     public function __invoke(GetQuery $query): PersonResponse
     {
@@ -23,7 +25,7 @@ final class GetQueryHandler extends AbstractQueryHandler implements MessageHandl
             new PersonResponse(
                 $person->id(),
                 $person->region(),
-                array_map(fn(ShoppingList $list) => $list->id(), $person->lists()->toArray())
+                array_map(fn (ShoppingList $list) => $list->id(), $person->lists()->toArray())
             )
         ;
     }

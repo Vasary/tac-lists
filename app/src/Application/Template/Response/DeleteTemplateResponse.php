@@ -9,5 +9,7 @@ use Symfony\Component\Uid\UuidV4;
 
 final class DeleteTemplateResponse extends AbstractResponse
 {
-    public function __construct(public UuidV4 $id, public int $code) {}
+    public function __construct(public UuidV4 $id, public int $code)
+    {
+    }
 }

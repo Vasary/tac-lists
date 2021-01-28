@@ -16,7 +16,8 @@ final class CreateCommand
         private array $points,
         private array $images,
         private UuidV4 $initiator
-    ) {}
+    ) {
+    }
 
     public function template(): UuidV4
     {

@@ -14,7 +14,8 @@ final class RenameListCommand extends AbstractCommand
         private UuidV4 $list,
         private UuidV4 $initiator,
         private UnicodeString $name
-    ) {}
+    ) {
+    }
 
     public function list(): UuidV4
     {

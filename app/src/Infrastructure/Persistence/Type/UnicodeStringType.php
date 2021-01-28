@@ -2,8 +2,8 @@
 
 namespace App\Infrastructure\Persistence\Type;
 
-use Doctrine\DBAL\Types\Type;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
+use Doctrine\DBAL\Types\Type;
 use Symfony\Component\String\UnicodeString;
 
 final class UnicodeStringType extends Type

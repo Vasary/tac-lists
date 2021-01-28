@@ -16,7 +16,9 @@ final class UpdateCommandHandler extends BaseHandler
 {
     use ObjectAccess;
 
-    public function __construct(private Creator $creator, private DataProvider $provider) {}
+    public function __construct(private Creator $creator, private DataProvider $provider)
+    {
+    }
 
     public function __invoke(UpdateCommand $command): ItemResponse
     {
@@ -38,7 +40,7 @@ final class UpdateCommandHandler extends BaseHandler
 
         $this->creator->deletePoints($item);
         foreach ($command->points() as $point) {
-            $this->creator->addPoint($item, $point['longitude'], $point['latitude'], u($point['comment']),);
+            $this->creator->addPoint($item, $point['longitude'], $point['latitude'], u($point['comment']), );
         }
 
         $this->creator->deleteImages($item);

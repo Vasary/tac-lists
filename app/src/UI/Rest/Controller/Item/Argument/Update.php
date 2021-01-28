@@ -17,7 +17,8 @@ final class Update
         private int $value,
         private array $points,
         private array $images
-    ) {}
+    ) {
+    }
 
     public function id(): UuidV4
     {

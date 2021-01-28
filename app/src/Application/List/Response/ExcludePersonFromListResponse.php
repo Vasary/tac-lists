@@ -13,5 +13,6 @@ final class ExcludePersonFromListResponse extends AbstractResponse
         public UuidV4 $list,
         public UuidV4 $person,
         public int $status
-    ) {}
+    ) {
+    }
 }

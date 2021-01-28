@@ -18,5 +18,6 @@ final class ListResponse extends AbstractResponse
         public array $members,
         public DateTimeImmutable $created,
         public DateTimeImmutable $updated
-    ) {}
+    ) {
+    }
 }

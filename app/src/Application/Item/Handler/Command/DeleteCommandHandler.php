@@ -16,7 +16,9 @@ final class DeleteCommandHandler extends BaseHandler
 {
     use ObjectAccess;
 
-    public function __construct(private Creator $creator, private DataProvider $provider) {}
+    public function __construct(private Creator $creator, private DataProvider $provider)
+    {
+    }
 
     public function __invoke(DeleteCommand $command): DeleteItemResponse
     {

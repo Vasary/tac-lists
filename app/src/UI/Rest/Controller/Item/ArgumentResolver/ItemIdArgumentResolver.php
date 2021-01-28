@@ -39,7 +39,7 @@ final class ItemIdArgumentResolver extends AbstractArgumentResolver
                 'id' => [
                     new Assert\NotBlank(),
                     new Assert\Uuid(),
-                ]
+                ],
             ]);
     }
 }

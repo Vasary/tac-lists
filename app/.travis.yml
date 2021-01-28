@@ -1,0 +1,17 @@
+language: php
+dist: bionic
+os: linux
+
+jobs:
+  fast_finish: false
+  include:
+    - php: 8.0.1
+  allow_failures:
+    - php: nightly
+
+before_script:
+  - composer global require --no-progress --no-scripts --no-plugins symfony/flex
+  - composer install
+
+script:
+  - ./vendor/bin/php-cs-fixer fix --dry-run --diff

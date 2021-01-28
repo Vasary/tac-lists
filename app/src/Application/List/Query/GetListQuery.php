@@ -12,7 +12,8 @@ final class GetListQuery extends AbstractQuery
     public function __construct(
         private UuidV4 $list,
         private UuidV4 $person
-    ) {}
+    ) {
+    }
 
     public function list(): UuidV4
     {

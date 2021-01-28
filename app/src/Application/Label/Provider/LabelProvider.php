@@ -11,7 +11,9 @@ use Symfony\Component\Uid\UuidV4;
 
 final class LabelProvider
 {
-    public function __construct(private LabelRepositoryInterface $repository) {}
+    public function __construct(private LabelRepositoryInterface $repository)
+    {
+    }
 
     public function get(UuidV4 $id): Label
     {

@@ -15,5 +15,6 @@ final class PointResponse extends AbstractResponse
         public float $latitude,
         public float $longitude,
         public null | UnicodeString $comment
-    ) {}
+    ) {
+    }
 }

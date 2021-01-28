@@ -8,12 +8,10 @@ use App\Application\Category\Query\GetCategory;
 use App\Domain\ResponseBuilder\ResponseBuilderInterface;
 use App\UI\Rest\Controller\Category\Argument\CategoryId;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Messenger\HandleTrait;
 use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Routing\Annotation\Route;
-use function Symfony\Component\String\u;
 
 final class GetController extends AbstractController
 {

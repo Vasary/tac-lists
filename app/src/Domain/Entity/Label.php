@@ -8,7 +8,8 @@ use Symfony\Component\String\UnicodeString;
 
 class Label
 {
-    use TimestampedEntity, UUIDIdentifier;
+    use TimestampedEntity;
+    use UUIDIdentifier;
 
     protected UnicodeString $text;
 

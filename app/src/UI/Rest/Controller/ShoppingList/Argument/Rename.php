@@ -12,7 +12,8 @@ final class Rename
     public function __construct(
         private UuidV4 $list,
         private UnicodeString $name,
-    ) {}
+    ) {
+    }
 
     public function list(): UuidV4
     {

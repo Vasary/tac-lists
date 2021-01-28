@@ -15,7 +15,7 @@ trait ObjectAccess
     {
         $isInitiatorMemberOfList =
             $membersList
-                ->exists(fn(int $_, Person $person) => $person->id()->toBinary() === $initiator->toBinary())
+                ->exists(fn (int $_, Person $person) => $person->id()->toBinary() === $initiator->toBinary())
         ;
 
         if (!$isInitiatorMemberOfList) {

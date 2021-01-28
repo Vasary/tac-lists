@@ -23,11 +23,11 @@ final class LatitudeValidator extends ConstraintValidator
             throw new UnexpectedValueException($value, 'float');
         }
 
-        if (!preg_match(self::EXPRESSION, (string)$value, $matches)) {
+        if (!preg_match(self::EXPRESSION, (string) $value, $matches)) {
             $this
                 ->context
                 ->buildViolation($constraint->message)
-                ->setParameter('{{ string }}', (string)$value)
+                ->setParameter('{{ string }}', (string) $value)
                 ->addViolation();
         }
     }

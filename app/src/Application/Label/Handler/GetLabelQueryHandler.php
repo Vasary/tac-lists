@@ -15,7 +15,9 @@ final class GetLabelQueryHandler extends AbstractQueryHandler implements Message
 {
     use ObjectAccess;
 
-    public function __construct(private LabelProvider $provider) {}
+    public function __construct(private LabelProvider $provider)
+    {
+    }
 
     public function __invoke(GetLabelQuery $query): GetLabelResponse
     {

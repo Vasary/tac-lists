@@ -11,7 +11,9 @@ use Symfony\Component\Uid\UuidV4;
 #[Immutable]
 final class DeleteCommand extends AbstractCommand
 {
-    public function __construct(private UuidV4 $id, private UuidV4 $person) {}
+    public function __construct(private UuidV4 $id, private UuidV4 $person)
+    {
+    }
 
     public function id(): UuidV4
     {

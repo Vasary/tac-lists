@@ -11,7 +11,8 @@ final class TouchCommand
     public function __construct(
         private UuidV4 $id,
         private UuidV4 $initiator
-    ) {}
+    ) {
+    }
 
     public function id(): UuidV4
     {

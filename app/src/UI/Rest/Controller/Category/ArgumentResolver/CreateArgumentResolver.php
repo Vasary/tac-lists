@@ -9,8 +9,8 @@ use App\UI\Rest\Controller\Category\Argument\Create;
 use Generator;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadata;
-use Symfony\Component\Validator\Constraints as Assert;
 use function Symfony\Component\String\u;
+use Symfony\Component\Validator\Constraints as Assert;
 
 final class CreateArgumentResolver extends AbstractArgumentResolver
 {
@@ -48,7 +48,7 @@ final class CreateArgumentResolver extends AbstractArgumentResolver
                         max: 7,
                         minMessage: 'Color show be like #FFFFFF',
                         maxMessage: 'Color show be like #FFFFFF'
-                    )
+                    ),
                 ],
             ]);
     }

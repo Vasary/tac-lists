@@ -8,7 +8,9 @@ use Symfony\Component\Uid\UuidV4;
 
 final class AddPersonToList
 {
-    public function __construct(private UuidV4 $list, private UuidV4 $person) {}
+    public function __construct(private UuidV4 $list, private UuidV4 $person)
+    {
+    }
 
     public function list(): UuidV4
     {

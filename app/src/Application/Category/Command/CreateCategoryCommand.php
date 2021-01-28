@@ -14,7 +14,8 @@ final class CreateCategoryCommand extends AbstractCommand
         private UnicodeString $name,
         private UnicodeString $color,
         private UuidV4 $initializer
-    ) {}
+    ) {
+    }
 
     public function name(): UnicodeString
     {

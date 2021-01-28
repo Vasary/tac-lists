@@ -11,7 +11,8 @@ use Symfony\Component\Uid\UuidV4;
 
 class Person
 {
-    use TimestampedEntity, UUIDIdentifier;
+    use TimestampedEntity;
+    use UUIDIdentifier;
 
     protected Collection $lists;
 

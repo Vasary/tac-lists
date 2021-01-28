@@ -16,5 +16,6 @@ final class GetLabelResponse extends AbstractResponse
         public DateTimeImmutable $created,
         public DateTimeImmutable $updated,
         public UnicodeString $text
-    ) {}
+    ) {
+    }
 }

@@ -25,7 +25,7 @@ final class ResponseBuilder implements ResponseBuilderInterface
                 $this->serializer->serialize($data, 'json'),
                 Response::HTTP_OK,
                 [
-                    'Content-Type' => 'application/json'
+                    'Content-Type' => 'application/json',
                 ]
             )
         ;

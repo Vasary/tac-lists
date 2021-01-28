@@ -15,7 +15,8 @@ final class Create
         private int $value,
         private array $points,
         private array $images
-    ) {}
+    ) {
+    }
 
     public function template(): UuidV4
     {

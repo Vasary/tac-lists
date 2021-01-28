@@ -20,7 +20,8 @@ final class ShoppingListCreator
         private ShoppingListRepository $repository,
         private PersonRepositoryInterface $personRepository,
         private ItemRepositoryInterface $itemRepository,
-    ) {}
+    ) {
+    }
 
     public function create(UnicodeString $name): ShoppingList
     {
@@ -48,7 +49,6 @@ final class ShoppingListCreator
         $memberIndex = null;
         foreach ($list->members()->toArray() as $index => $member) {
             /** @var Person $member */
-
             if ($this->comparePersons($personId)($index, $member)) {
                 $list->members()->removeElement($member);
                 break;
@@ -75,6 +75,6 @@ final class ShoppingListCreator
 
     private function comparePersons(UuidV4 $id): callable
     {
-        return fn(int $_, Person $person) => $person->id()->toBinary() === $id->toBinary();
+        return fn (int $_, Person $person) => $person->id()->toBinary() === $id->toBinary();
     }
 }

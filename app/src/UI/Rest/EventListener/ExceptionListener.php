@@ -23,7 +23,7 @@ final class ExceptionListener
         $data['code'] = $exception->getCode();
 
         if ($exception instanceof BadRequestException) {
-            /** @var BadRequestException $exception **/
+            /* @var BadRequestException $exception **/
             $data['message'] = $exception->errors();
         }
 
@@ -43,20 +43,19 @@ final class ExceptionListener
     {
         return
             match ($exception->getCode()) {
-                SystemCodes::SHOPPING_LIST_CREATION_ERROR   => Response::HTTP_INTERNAL_SERVER_ERROR,
-                SystemCodes::PERMISSION_DENIED              => Response::HTTP_FORBIDDEN,
-                SystemCodes::UNIT_NOT_FOUND                 => Response::HTTP_NOT_FOUND,
-                SystemCodes::LABEL_NOT_FOUND                => Response::HTTP_NOT_FOUND,
-                SystemCodes::IMAGE_NOT_FOUND                => Response::HTTP_NOT_FOUND,
-                SystemCodes::CATEGORY_NOT_FOUND             => Response::HTTP_NOT_FOUND,
-                SystemCodes::PERSON_NOT_FOUND               => Response::HTTP_NOT_FOUND,
-                SystemCodes::TEMPLATE_NOT_FOUND             => Response::HTTP_NOT_FOUND,
-                SystemCodes::LIST_NOT_FOUND                 => Response::HTTP_NOT_FOUND,
-                SystemCodes::ALREADY_EXISTS                 => Response::HTTP_NOT_FOUND,
-                SystemCodes::ITEM_NOT_FOUND                 => Response::HTTP_NOT_FOUND,
-                SystemCodes::POINT_NOT_FOUND                => Response::HTTP_NOT_FOUND,
-                default                                     => Response::HTTP_INTERNAL_SERVER_ERROR
-            }
-        ;
+                SystemCodes::SHOPPING_LIST_CREATION_ERROR => Response::HTTP_INTERNAL_SERVER_ERROR,
+                SystemCodes::PERMISSION_DENIED => Response::HTTP_FORBIDDEN,
+                SystemCodes::UNIT_NOT_FOUND => Response::HTTP_NOT_FOUND,
+                SystemCodes::LABEL_NOT_FOUND => Response::HTTP_NOT_FOUND,
+                SystemCodes::IMAGE_NOT_FOUND => Response::HTTP_NOT_FOUND,
+                SystemCodes::CATEGORY_NOT_FOUND => Response::HTTP_NOT_FOUND,
+                SystemCodes::PERSON_NOT_FOUND => Response::HTTP_NOT_FOUND,
+                SystemCodes::TEMPLATE_NOT_FOUND => Response::HTTP_NOT_FOUND,
+                SystemCodes::LIST_NOT_FOUND => Response::HTTP_NOT_FOUND,
+                SystemCodes::ALREADY_EXISTS => Response::HTTP_NOT_FOUND,
+                SystemCodes::ITEM_NOT_FOUND => Response::HTTP_NOT_FOUND,
+                SystemCodes::POINT_NOT_FOUND => Response::HTTP_NOT_FOUND,
+                default => Response::HTTP_INTERNAL_SERVER_ERROR
+            };
     }
 }

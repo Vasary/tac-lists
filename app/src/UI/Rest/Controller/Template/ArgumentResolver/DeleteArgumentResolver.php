@@ -35,7 +35,7 @@ final class DeleteArgumentResolver extends AbstractArgumentResolver
                 'id' => [
                     new Assert\NotBlank(),
                     new Assert\Uuid(message: 'Template id should looks like UUID'),
-                ]
+                ],
             ])
         ;
     }

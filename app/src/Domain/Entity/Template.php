@@ -11,7 +11,9 @@ use Symfony\Component\String\UnicodeString;
 
 class Template
 {
-    use TimestampedEntity, UUIDIdentifier, RegionCode;
+    use TimestampedEntity;
+    use UUIDIdentifier;
+    use RegionCode;
 
     protected UnicodeString $name;
 

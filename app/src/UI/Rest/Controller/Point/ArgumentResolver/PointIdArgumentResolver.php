@@ -5,14 +5,12 @@ declare(strict_types=1);
 namespace App\UI\Rest\Controller\Point\ArgumentResolver;
 
 use App\UI\Rest\ArgumentResolver\AbstractArgumentResolver;
-use App\UI\Rest\Controller\Label\Argument\LabelId;
 use App\UI\Rest\Controller\Point\Argument\PointId;
 use Generator;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadata;
 use Symfony\Component\Uid\UuidV4;
 use Symfony\Component\Validator\Constraints as Assert;
-use function Symfony\Component\String\u;
 
 final class PointIdArgumentResolver extends AbstractArgumentResolver
 {

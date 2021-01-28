@@ -15,12 +15,14 @@ use function Symfony\Component\String\u;
 
 final class UnitsQueryHandler extends AbstractQueryHandler implements MessageHandlerInterface
 {
-    public function __construct(private UnitProvider $provider) {}
+    public function __construct(private UnitProvider $provider)
+    {
+    }
 
     public function __invoke(UnitsQuery $command): UnitsResponse
     {
         $units = array_map(
-            fn(Unit $unit) => new UnitResponse(
+            fn (Unit $unit) => new UnitResponse(
                 $unit->id(),
                 u($unit->name()),
                 u($unit->shortName()),

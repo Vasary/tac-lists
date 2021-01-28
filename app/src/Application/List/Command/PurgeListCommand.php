@@ -12,7 +12,8 @@ final class PurgeListCommand extends AbstractCommand
     public function __construct(
         private UuidV4 $list,
         private UuidV4 $initiator
-    ) {}
+    ) {
+    }
 
     public function list(): UuidV4
     {

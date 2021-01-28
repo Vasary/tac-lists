@@ -18,7 +18,8 @@ final class CreateCommand extends AbstractCommand
         private UuidV4 $author,
         private UuidV4 $category,
         private array $images
-    ) {}
+    ) {
+    }
 
     public function name(): UnicodeString
     {

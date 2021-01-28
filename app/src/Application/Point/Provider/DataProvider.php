@@ -11,7 +11,9 @@ use Symfony\Component\Uid\UuidV4;
 
 final class DataProvider
 {
-    public function __construct(private PointRepositoryInterface $repository) {}
+    public function __construct(private PointRepositoryInterface $repository)
+    {
+    }
 
     public function get(UuidV4 $id): GeoPoint
     {

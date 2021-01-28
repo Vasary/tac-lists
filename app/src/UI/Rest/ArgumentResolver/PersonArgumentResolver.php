@@ -34,7 +34,7 @@ final class PersonArgumentResolver extends AbstractArgumentResolver
                 'id' => [
                     new Assert\NotBlank(),
                     new Assert\Uuid(message: 'Person id should looks like UUID'),
-                ]
+                ],
             ]);
     }
 }

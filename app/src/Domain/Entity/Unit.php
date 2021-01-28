@@ -10,7 +10,9 @@ use Symfony\Component\String\UnicodeString;
 
 class Unit
 {
-    use TimestampedEntity, UUIDIdentifier, RegionCode;
+    use TimestampedEntity;
+    use UUIDIdentifier;
+    use RegionCode;
 
     protected UnicodeString $name;
 

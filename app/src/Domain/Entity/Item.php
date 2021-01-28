@@ -9,7 +9,8 @@ use Doctrine\Common\Collections\Collection;
 
 class Item
 {
-    use TimestampedEntity, UUIDIdentifier;
+    use TimestampedEntity;
+    use UUIDIdentifier;
 
     protected bool $isPurchased;
 

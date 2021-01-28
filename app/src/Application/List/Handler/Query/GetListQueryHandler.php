@@ -15,7 +15,9 @@ use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 
 final class GetListQueryHandler extends AbstractQueryHandler implements MessageHandlerInterface
 {
-    public function __construct(private Provider $provider) {}
+    public function __construct(private Provider $provider)
+    {
+    }
 
     public function __invoke(GetListQuery $query): ListResponse
     {
@@ -25,7 +27,7 @@ final class GetListQueryHandler extends AbstractQueryHandler implements MessageH
             $list
                 ->members()
                 ->exists(
-                    fn(int $_, Person $person) => $person->id()->toBinary() === $query->person()->toBinary()
+                    fn (int $_, Person $person) => $person->id()->toBinary() === $query->person()->toBinary()
                 )
         ;
 
@@ -37,8 +39,8 @@ final class GetListQueryHandler extends AbstractQueryHandler implements MessageH
             new ListResponse(
                 $list->id(),
                 $list->name(),
-                array_map(fn(Item $item) => $item->id(), $list->items()->toArray()),
-                array_map(fn(Person $person) => $person->id(), $list->members()->toArray()),
+                array_map(fn (Item $item) => $item->id(), $list->items()->toArray()),
+                array_map(fn (Person $person) => $person->id(), $list->members()->toArray()),
                 $list->created(),
                 $list->updated()
             )

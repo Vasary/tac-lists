@@ -8,5 +8,7 @@ use App\Domain\Response\AbstractResponse;
 
 final class UnitsResponse extends AbstractResponse
 {
-    public function __construct(public array $units) {}
+    public function __construct(public array $units)
+    {
+    }
 }

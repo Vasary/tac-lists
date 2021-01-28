@@ -16,5 +16,6 @@ final class UnitResponse extends AbstractResponse
         public UnicodeString $short,
         public UnicodeString $region,
         public array $values
-    ) {}
+    ) {
+    }
 }

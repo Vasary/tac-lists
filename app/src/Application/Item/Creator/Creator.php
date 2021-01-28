@@ -26,7 +26,8 @@ final class Creator
         private ItemRepositoryInterface $itemRepository,
         private PointRepositoryInterface $pointRepository,
         private ItemImageRepositoryInterface $imageRepository,
-    ) {}
+    ) {
+    }
 
     public function create(
         UuidV4 $templateId,

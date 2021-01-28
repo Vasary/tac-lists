@@ -12,7 +12,6 @@ use App\Domain\Handler\AbstractCommandHandler;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 use Symfony\Component\Messenger\HandleTrait;
 use Symfony\Component\Messenger\MessageBusInterface;
-use function Symfony\Component\String\u;
 
 final class CreateShoppingListCommandHandler extends AbstractCommandHandler implements MessageHandlerInterface
 {
@@ -39,7 +38,7 @@ final class CreateShoppingListCommandHandler extends AbstractCommandHandler impl
                 $list->id(),
                 $list->name(),
                 [],
-                array_map(fn(Person $person) => $person->id(), $list->members()->toArray()),
+                array_map(fn (Person $person) => $person->id(), $list->members()->toArray()),
                 $list->created(),
                 $list->updated()
             )

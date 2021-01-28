@@ -16,7 +16,8 @@ final class DataProvider
     public function __construct(
         private TemplateImageRepositoryInterface $templateImageRepository,
         private ItemImageRepositoryInterface $itemImageRepository
-    ) {}
+    ) {
+    }
 
     public function get(UuidV4 $id): ItemImage | TemplateImage
     {

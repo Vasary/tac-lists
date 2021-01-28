@@ -13,7 +13,8 @@ final class ExcludePersonFromListCommand extends AbstractCommand
         private UuidV4 $list,
         private UuidV4 $person,
         private UuidV4 $initiator
-    ) {}
+    ) {
+    }
 
     public function list(): UuidV4
     {

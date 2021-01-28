@@ -17,7 +17,8 @@ final class DataProvider
     public function __construct(
         private TemplateRepositoryInterface $repository,
         private PersonRepositoryInterface $personRepository
-    ) {}
+    ) {
+    }
 
     public function get(UuidV4 $id, UuidV4 $personId): Template
     {

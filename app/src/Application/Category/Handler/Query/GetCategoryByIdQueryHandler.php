@@ -9,7 +9,6 @@ use App\Application\Category\Query\GetCategory;
 use App\Application\Category\Response\GetCategoryResponse;
 use App\Domain\Handler\AbstractQueryHandler;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
-use function Symfony\Component\String\u;
 
 final class GetCategoryByIdQueryHandler extends AbstractQueryHandler implements MessageHandlerInterface
 {

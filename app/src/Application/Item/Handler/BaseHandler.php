@@ -38,7 +38,7 @@ abstract class BaseHandler extends AbstractCommandHandler implements MessageHand
         return
             array_values(
                 array_map(
-                    fn(Label $label) => $label->id(),
+                    fn (Label $label) => $label->id(),
                     $item->labels()->toArray()
                 )
             );
@@ -49,7 +49,7 @@ abstract class BaseHandler extends AbstractCommandHandler implements MessageHand
         return
             array_values(
                 array_map(
-                    fn(ItemImage $image) => $image->id(),
+                    fn (ItemImage $image) => $image->id(),
                     $item->images()->toArray()
                 )
             );
@@ -60,7 +60,7 @@ abstract class BaseHandler extends AbstractCommandHandler implements MessageHand
         return
             array_values(
                 array_map(
-                    fn(GeoPoint $point) => $point->id(),
+                    fn (GeoPoint $point) => $point->id(),
                     $item->points()->toArray()
                 )
             );

@@ -34,7 +34,6 @@ final class AddPersonToListCommandHandler extends AbstractCommandHandler impleme
 
         foreach ($list->members() as $member) {
             /** @var Person $member */
-
             if ($member->id()->equals($command->person())) {
                 throw new AlreadyExistsException($command->person(), $list->id());
             }

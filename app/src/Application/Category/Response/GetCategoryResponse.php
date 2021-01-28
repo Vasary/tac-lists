@@ -18,5 +18,6 @@ final class GetCategoryResponse extends AbstractResponse
         public UnicodeString $region,
         public DateTimeImmutable $created,
         public DateTimeImmutable $updated
-    ) {}
+    ) {
+    }
 }

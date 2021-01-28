@@ -6,8 +6,8 @@ namespace App\Application\Template\Handler\Query;
 
 use App\Application\Template\Provider\DataProvider;
 use App\Application\Template\Query\GetTemplatesQuery;
-use App\Application\Template\Response\TemplatesResponse;
 use App\Application\Template\Response\TemplateResponse;
+use App\Application\Template\Response\TemplatesResponse;
 use App\Domain\Entity\Template;
 use App\Domain\Entity\TemplateImage;
 use App\Domain\Handler\AbstractQueryHandler;
@@ -15,12 +15,14 @@ use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 
 final class GetAllTemplatesQueryHandler extends AbstractQueryHandler implements MessageHandlerInterface
 {
-    public function __construct(private DataProvider $provider) {}
+    public function __construct(private DataProvider $provider)
+    {
+    }
 
     public function __invoke(GetTemplatesQuery $query): TemplatesResponse
     {
         $templates = array_map(
-            fn(Template $template) => new TemplateResponse(
+            fn (Template $template) => new TemplateResponse(
                 $template->id(),
                 $template->name(),
                 $template->region(),

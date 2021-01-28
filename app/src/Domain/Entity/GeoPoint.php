@@ -8,7 +8,8 @@ use Symfony\Component\String\UnicodeString;
 
 class GeoPoint
 {
-    use TimestampedEntity, UUIDIdentifier;
+    use TimestampedEntity;
+    use UUIDIdentifier;
 
     protected float $latitude;
 

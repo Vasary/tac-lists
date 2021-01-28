@@ -8,5 +8,7 @@ use App\Domain\Response\AbstractResponse;
 
 final class TemplatesResponse extends AbstractResponse
 {
-    public function __construct(public array $templates) {}
+    public function __construct(public array $templates)
+    {
+    }
 }

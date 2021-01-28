@@ -9,9 +9,9 @@ use App\UI\Rest\Controller\Template\Argument\Update;
 use Generator;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadata;
+use function Symfony\Component\String\u;
 use Symfony\Component\Uid\UuidV4;
 use Symfony\Component\Validator\Constraints as Assert;
-use function Symfony\Component\String\u;
 
 final class UpdateArgumentResolver extends AbstractArgumentResolver
 {
@@ -69,9 +69,9 @@ final class UpdateArgumentResolver extends AbstractArgumentResolver
                     new Assert\Type('array'),
                     new Assert\Count(min: 1, max: 25),
                     new Assert\All([
-                        new Assert\Url(message: 'Invalid image URL')
-                    ])
-                ]
+                        new Assert\Url(message: 'Invalid image URL'),
+                    ]),
+                ],
             ]);
     }
 }

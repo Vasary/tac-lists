@@ -15,7 +15,8 @@ final class Update
         private UnicodeString $name,
         private UnicodeString $icon,
         private array $images
-    ) {}
+    ) {
+    }
 
     public function id(): UuidV4
     {

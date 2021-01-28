@@ -23,5 +23,6 @@ final class ItemResponse extends AbstractResponse
         public array $points,
         public DateTimeImmutable $created,
         public DateTimeImmutable $updated,
-    ) {}
+    ) {
+    }
 }

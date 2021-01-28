@@ -9,8 +9,8 @@ use App\UI\Rest\Controller\ShoppingList\Argument\Create;
 use Generator;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadata;
-use Symfony\Component\Validator\Constraints as Assert;
 use function Symfony\Component\String\u;
+use Symfony\Component\Validator\Constraints as Assert;
 
 final class CreateArgumentResolver extends AbstractArgumentResolver
 {
@@ -40,9 +40,9 @@ final class CreateArgumentResolver extends AbstractArgumentResolver
                     new Assert\Type('array'),
                     new Assert\Count(min: 0, max: 25),
                     new Assert\All([
-                        new Assert\Uuid(message: 'Invalid person id format')
-                    ])
-                ]
+                        new Assert\Uuid(message: 'Invalid person id format'),
+                    ]),
+                ],
             ]);
     }
 }

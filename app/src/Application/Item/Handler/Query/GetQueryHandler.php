@@ -14,7 +14,9 @@ final class GetQueryHandler extends BaseHandler
 {
     use ObjectAccess;
 
-    public function __construct(private DataProvider $provider) {}
+    public function __construct(private DataProvider $provider)
+    {
+    }
 
     public function __invoke(GetItemQuery $query): ItemResponse
     {

@@ -16,9 +16,9 @@ use App\Domain\Repository\CategoryRepositoryInterface;
 use App\Domain\Repository\PersonRepositoryInterface;
 use App\Domain\Repository\TemplateImageRepositoryInterface;
 use App\Domain\Repository\TemplateRepositoryInterface;
+use function Symfony\Component\String\u;
 use Symfony\Component\String\UnicodeString;
 use Symfony\Component\Uid\UuidV4;
-use function Symfony\Component\String\u;
 
 final class TemplateCreator
 {
@@ -27,7 +27,8 @@ final class TemplateCreator
         private CategoryRepositoryInterface $categoryRepository,
         private TemplateRepositoryInterface $templateRepository,
         private TemplateImageRepositoryInterface $imageRepository,
-    ) {}
+    ) {
+    }
 
     public function create(
         UnicodeString $name,
@@ -83,12 +84,12 @@ final class TemplateCreator
         $template->applyCategory($category);
 
         foreach ($template->images() as $url) {
-            /** @var TemplateImage $url */
+            /* @var TemplateImage $url */
             $this->imageRepository->delete($url);
         }
 
         foreach ($images as $url) {
-            /** @var UnicodeString $url */
+            /* @var UnicodeString $url */
             $template->images()->add($this->imageRepository->create($template, $url));
         }
 

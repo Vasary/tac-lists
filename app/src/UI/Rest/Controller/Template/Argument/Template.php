@@ -8,7 +8,9 @@ use Symfony\Component\Uid\UuidV4;
 
 final class Template
 {
-    public function __construct(private UuidV4 $id) {}
+    public function __construct(private UuidV4 $id)
+    {
+    }
 
     public function id(): UuidV4
     {

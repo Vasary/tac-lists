@@ -31,4 +31,3 @@ trait TimestampedEntity
         $this->updated = new DateTimeImmutable();
     }
 }
-

@@ -18,5 +18,6 @@ final class CreateResponse extends AbstractResponse
         public array $members,
         public DateTimeImmutable $created,
         public DateTimeImmutable $updated
-    ) {}
+    ) {
+    }
 }

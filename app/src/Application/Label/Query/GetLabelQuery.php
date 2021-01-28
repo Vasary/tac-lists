@@ -9,7 +9,9 @@ use Symfony\Component\Uid\UuidV4;
 
 final class GetLabelQuery extends AbstractQuery
 {
-    public function __construct(private UuidV4 $id, private UuidV4 $initiator) {}
+    public function __construct(private UuidV4 $id, private UuidV4 $initiator)
+    {
+    }
 
     public function id(): UuidV4
     {

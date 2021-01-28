@@ -14,7 +14,8 @@ final class Create
         private UuidV4 $category,
         private UnicodeString $icon,
         private array $images
-    ) {}
+    ) {
+    }
 
     public function name(): UnicodeString
     {

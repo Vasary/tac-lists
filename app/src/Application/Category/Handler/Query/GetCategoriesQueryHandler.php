@@ -24,7 +24,7 @@ final class GetCategoriesQueryHandler extends AbstractQueryHandler implements Me
     public function __invoke(GetCategories $query): GetCategoriesResponse
     {
         $categories = array_map(
-            fn(Category $category) => new GetCategoryResponse(
+            fn (Category $category) => new GetCategoryResponse(
                 $category->id(),
                 $category->name(),
                 $category->marker(),

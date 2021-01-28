@@ -13,7 +13,9 @@ use function Symfony\Component\String\u;
 
 final class UnitQueryHandler extends AbstractQueryHandler implements MessageHandlerInterface
 {
-    public function __construct(private UnitProvider $provider) {}
+    public function __construct(private UnitProvider $provider)
+    {
+    }
 
     public function __invoke(UnitQuery $query): UnitResponse
     {

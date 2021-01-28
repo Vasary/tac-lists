@@ -15,7 +15,9 @@ final class GetPointQueryHandler extends AbstractQuery implements MessageHandler
 {
     use ObjectAccess;
 
-    public function __construct(private DataProvider $provider) {}
+    public function __construct(private DataProvider $provider)
+    {
+    }
 
     public function __invoke(GetPointQuery $query): PointResponse
     {

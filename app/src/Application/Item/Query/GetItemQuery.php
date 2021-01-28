@@ -9,7 +9,9 @@ use Symfony\Component\Uid\UuidV4;
 
 final class GetItemQuery extends AbstractQuery
 {
-    public function __construct(private UuidV4 $item, private UuidV4 $initiator){}
+    public function __construct(private UuidV4 $item, private UuidV4 $initiator)
+    {
+    }
 
     public function item(): UuidV4
     {

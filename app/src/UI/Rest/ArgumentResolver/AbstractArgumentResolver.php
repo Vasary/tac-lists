@@ -27,7 +27,7 @@ abstract class AbstractArgumentResolver implements ArgumentValueResolverInterfac
 
         $errors = [];
         foreach ($violations as $violation) {
-            /** @var ConstraintViolation $violation */
+            /* @var ConstraintViolation $violation */
             $errors[$violation->getPropertyPath()][] = $violation->getMessage();
         }
 

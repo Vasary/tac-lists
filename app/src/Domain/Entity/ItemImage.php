@@ -8,7 +8,8 @@ use Symfony\Component\String\UnicodeString;
 
 class ItemImage
 {
-    use TimestampedEntity, UUIDIdentifier;
+    use TimestampedEntity;
+    use UUIDIdentifier;
 
     protected UnicodeString $link;
 

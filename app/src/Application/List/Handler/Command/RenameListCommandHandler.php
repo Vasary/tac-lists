@@ -10,7 +10,6 @@ use App\Application\List\Provider\Provider;
 use App\Application\List\Response\ListResponse;
 use App\Domain\Entity\Item;
 use App\Domain\Entity\Person;
-use App\Domain\Exception\ListNotFoundException;
 use App\Domain\Exception\PermissionDeniedException;
 use App\Domain\Handler\AbstractCommandHandler;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
@@ -37,7 +36,7 @@ final class RenameListCommandHandler extends AbstractCommandHandler implements M
             $list
                 ->members()
                 ->exists(
-                    fn(int $_, Person $person) => $person->id()->toBinary() === $command->initiator()->toBinary()
+                    fn (int $_, Person $person) => $person->id()->toBinary() === $command->initiator()->toBinary()
                 )
             ;
 
@@ -51,8 +50,8 @@ final class RenameListCommandHandler extends AbstractCommandHandler implements M
             new ListResponse(
                 $list->id(),
                 $list->name(),
-                array_map(fn(Item $item) => $item->id(), $list->items()->toArray()),
-                array_map(fn(Person $person) => $person->id(), $list->members()->toArray()),
+                array_map(fn (Item $item) => $item->id(), $list->items()->toArray()),
+                array_map(fn (Person $person) => $person->id(), $list->members()->toArray()),
                 $list->created(),
                 $list->updated()
             )
