@@ -77,6 +77,8 @@
         }
     },
     "require-dev": {
+        "behat/behat": "^3.8",
+        "friends-of-behat/symfony-extension": "^2.1",
         "friendsofphp/php-cs-fixer": "^2.18"
     }
 }

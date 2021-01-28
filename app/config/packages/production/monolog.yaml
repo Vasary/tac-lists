@@ -1,0 +1,17 @@
+monolog:
+    channels: [deprecation]
+    handlers:
+        main:
+            type: stream
+            path: php://stdout
+            level: info
+            channels: ["!event", "!deprecation"]
+        deprecation:
+            type: stream
+            path: php://stdout
+            level: debug
+            channels: ["deprecation"]
+        console:
+            type: console
+            process_psr_3_messages: true
+            channels: ["!event", "!doctrine", "!console"]

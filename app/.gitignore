@@ -7,3 +7,7 @@
 /vendor/
 /.php_cs
 /.php_cs.cache
+
+###> friends-of-behat/symfony-extension ###
+/behat.yml
+###< friends-of-behat/symfony-extension ###
