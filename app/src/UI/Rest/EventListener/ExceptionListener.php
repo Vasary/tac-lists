@@ -36,13 +36,14 @@ final class ExceptionListener
             $data['code'] = SystemCodes::ALREADY_EXISTS;
         }
 
-        $event->setResponse(new JsonResponse($data, $this->resolveStatusCode($exception)));
+        $event->allowCustomResponseCode();
+        $event->setResponse(new JsonResponse($data, $this->resolveStatusCode($data['code'])));
     }
 
-    private function resolveStatusCode(Throwable $exception): int
+    private function resolveStatusCode(int $code): int
     {
         return
-            match ($exception->getCode()) {
+            match ($code) {
                 SystemCodes::SHOPPING_LIST_CREATION_ERROR => Response::HTTP_INTERNAL_SERVER_ERROR,
                 SystemCodes::PERMISSION_DENIED => Response::HTTP_FORBIDDEN,
                 SystemCodes::UNIT_NOT_FOUND => Response::HTTP_NOT_FOUND,
@@ -52,7 +53,7 @@ final class ExceptionListener
                 SystemCodes::PERSON_NOT_FOUND => Response::HTTP_NOT_FOUND,
                 SystemCodes::TEMPLATE_NOT_FOUND => Response::HTTP_NOT_FOUND,
                 SystemCodes::LIST_NOT_FOUND => Response::HTTP_NOT_FOUND,
-                SystemCodes::ALREADY_EXISTS => Response::HTTP_NOT_FOUND,
+                SystemCodes::ALREADY_EXISTS => Response::HTTP_CONFLICT,
                 SystemCodes::ITEM_NOT_FOUND => Response::HTTP_NOT_FOUND,
                 SystemCodes::POINT_NOT_FOUND => Response::HTTP_NOT_FOUND,
                 default => Response::HTTP_INTERNAL_SERVER_ERROR
