@@ -26,4 +26,10 @@ services:
 
     App\UI\Rest\EventListener\ExceptionListener:
         tags:
-            - { name: kernel.event_listener, event: kernel.exception }
+            - { name: kernel.event_listener, event: kernel.exception, method: onKernelException }
+
+    tseho.doctrine_assigned_identity.listener:
+        class: Tseho\DoctrineAssignedIdentity\EventListener\AssignedIdentityListener
+        public: false
+        tags:
+            - { name: doctrine.event_listener, event: prePersist }

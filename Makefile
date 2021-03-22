@@ -29,7 +29,7 @@ start-container:
 	docker run --rm --name $(PROJECT_NAME) --network=$(NETWORK) -it -p 8080:8080 -v $(PWD)/app:/application $(PROJECT_NAME) php -S 0.0.0.0:8080 -t public
 
 start-postgres:
-	docker run --rm --name $(PROJECT_NAME)-db --network=$(NETWORK) -e POSTGRES_PASSWORD=postgres -d -p 5432:5432 -e POSTGRES_DB=lists postgres:13
+	docker run --rm --name $(PROJECT_NAME)-db --network=$(NETWORK) -e POSTGRES_PASSWORD=postgres -d -p 15432:5432 -e POSTGRES_DB=lists postgres:13
 
 shell: create-network
 	docker run -it --rm --name $(PROJECT_NAME) --network=$(NETWORK) -p 8080:8080 -v $(PWD)/app:/application $(PROJECT_NAME) sh

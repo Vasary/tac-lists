@@ -8,7 +8,7 @@ use Symfony\Component\Uid\UuidV4;
 
 interface ShoppingListRepositoryInterface
 {
-    public function create(UnicodeString $name): ShoppingList;
+    public function create(UnicodeString $name, UuidV4 | null $id = null): ShoppingList;
 
     public function get(UuidV4 $id): ShoppingList | null;
 

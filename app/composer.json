@@ -32,6 +32,7 @@
         "symfony/uid": "5.2.*",
         "symfony/validator": "5.2.*",
         "symfony/yaml": "*",
+        "tseho/doctrine-assigned-identity": "^0.1.0",
         "vasary/tracer-bundle": "^0.1.2"
     },
     "config": {
@@ -78,7 +79,10 @@
     },
     "require-dev": {
         "behat/behat": "^3.8",
+        "behatch/contexts": "^3.3",
+        "friends-of-behat/mink-browserkit-driver": "^1.5",
         "friends-of-behat/symfony-extension": "^2.1",
-        "friendsofphp/php-cs-fixer": "^2.18"
+        "friendsofphp/php-cs-fixer": "^2.18",
+        "webmozart/assert": "^1.10"
     }
 }

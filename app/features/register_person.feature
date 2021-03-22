@@ -1,26 +1,42 @@
 Feature:
     Register person
 
-    Scenario: Person registration
+    Background:
         Given clean database
-        Given the parameter "id" with "6d912900-4d2e-4208-8c3c-dc1a4795a845" as "string"
-        Given the parameter "region" with "RU" as "string"
-        When sends a "POST" request to "/api/v1/person"
-        Then the response status code is 200
-        Then the response is valid json
-        Then the response json has "id"
-        Then the response json has "region"
+
+    Scenario: Person registration
+        When I add "Content-Type" header equal to "application/json"
+        And I send a "POST" request to "/api/v1/person" with body:
+        """
+        {
+            "id": "6d912900-4d2e-4208-8c3c-dc1a4795a845",
+            "region": "ru"
+        }
+        """
+        Then the response status code should be 200
+        And the response should be in JSON
+        And the JSON node id should exist
 
     Scenario: Get person
-        Given clear parameters
-        Given the "x-person-id" with "6d912900-4d2e-4208-8c3c-dc1a4795a845"
-        When sends a "GET" request to "/api/v1/person"
-        Then the response is valid json
-        Then the response json "id" equal to "6d912900-4d2e-4208-8c3c-dc1a4795a845"
-        Then the response json "region" equal to "ru"
+        Given person "6d912900-4d2e-4208-8c3c-dc1a4795a845" in ru
+        When I add "Content-Type" header equal to "application/json"
+        And I add "X-Person-Id" header equal to "6d912900-4d2e-4208-8c3c-dc1a4795a845"
+        And I send a "GET" request to "/api/v1/person"
+        Then the response status code should be 200
+        And the response should be in JSON
+        And the JSON node id should exist
+        And the JSON node region should exist
+        And the JSON node lists should exist
+
 
     Scenario: Duplicate person id
-        Given the parameter "id" with "6d912900-4d2e-4208-8c3c-dc1a4795a845" as "string"
-        Given the parameter "region" with "RU" as "string"
-        When sends a "POST" request to "/api/v1/person"
-        Then the response status code is 409
+        Given person "6d912900-4d2e-4208-8c3c-dc1a4795a845" in "ru"
+        When I add "Content-Type" header equal to "application/json"
+        And I send a "POST" request to "/api/v1/person" with body:
+        """
+        {
+            "id": "6d912900-4d2e-4208-8c3c-dc1a4795a845",
+            "region": "ru"
+        }
+        """
+        Then the response status code should be 409
