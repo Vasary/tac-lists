@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Application\Item\Creator;
 
 use App\Domain\Entity\Item;
-use App\Domain\Entity\Template;
 use App\Domain\Exception\ListNotFoundException;
 use App\Domain\Exception\TemplateNotFoundException;
 use App\Domain\Exception\UnitNotFoundException;

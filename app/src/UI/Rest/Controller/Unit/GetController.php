@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace App\UI\Rest\Controller\Unit;
 
 use App\Application\Unit\Query\UnitQuery;
-use App\Domain\ResponseBuilder\ResponseBuilderInterface;
 use App\UI\Rest\Controller\Unit\Argument\UnitId;
+use App\UI\Rest\ResponseBuilder\ResponseBuilderInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Messenger\HandleTrait;

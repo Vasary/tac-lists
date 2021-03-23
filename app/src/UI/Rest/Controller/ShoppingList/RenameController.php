@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace App\UI\Rest\Controller\ShoppingList;
 
 use App\Application\List\Command\RenameListCommand;
-use App\Domain\ResponseBuilder\ResponseBuilderInterface;
 use App\UI\Rest\Argument\Person;
 use App\UI\Rest\Controller\ShoppingList\Argument\Rename;
+use App\UI\Rest\ResponseBuilder\ResponseBuilderInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Messenger\HandleTrait;

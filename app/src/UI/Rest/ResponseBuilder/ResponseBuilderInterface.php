@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\ResponseBuilder;
+namespace App\UI\Rest\ResponseBuilder;
 
 use App\Domain\ValueObject\AbstractValueObjectInterface;
 use Symfony\Component\HttpFoundation\Response;

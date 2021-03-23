@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\UI\Rest\Controller;
 
 use App\Application\Index\Response\IndexResponse;
-use App\Domain\ResponseBuilder\ResponseBuilderInterface;
+use App\UI\Rest\ResponseBuilder\ResponseBuilderInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

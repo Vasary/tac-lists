@@ -6,8 +6,8 @@ namespace App\Tests\Behat\Context;
 
 use App\Domain\Repository\PersonRepositoryInterface;
 use Behat\Behat\Context\Context;
-use Symfony\Component\Uid\UuidV4;
 use function Symfony\Component\String\u;
+use Symfony\Component\Uid\UuidV4;
 
 final class PersonContext implements Context
 {

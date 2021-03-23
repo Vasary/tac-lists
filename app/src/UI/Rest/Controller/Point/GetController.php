@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace App\UI\Rest\Controller\Point;
 
 use App\Application\Point\Query\GetPointQuery;
-use App\Domain\ResponseBuilder\ResponseBuilderInterface;
 use App\UI\Rest\Argument\Person;
 use App\UI\Rest\Controller\Label\Argument\LabelId;
+use App\UI\Rest\ResponseBuilder\ResponseBuilderInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Messenger\HandleTrait;

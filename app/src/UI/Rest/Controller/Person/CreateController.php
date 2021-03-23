@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace App\UI\Rest\Controller\Person;
 
 use App\Application\Person\Command\CreatePersonCommand;
-use App\Domain\ResponseBuilder\ResponseBuilderInterface;
 use App\UI\Rest\Controller\Person\Argument\Create;
+use App\UI\Rest\ResponseBuilder\ResponseBuilderInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Messenger\HandleTrait;

@@ -10,5 +10,5 @@ doctrine:
         mappings:
             App:
                 type: xml
-                dir: '%kernel.project_dir%/src/Infrastructure/Persistence/Mapping'
+                dir: '%kernel.project_dir%/config/doctrine'
                 prefix: App\Domain\Entity

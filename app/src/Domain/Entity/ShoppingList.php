@@ -7,7 +7,6 @@ use App\Domain\Entity\Traits\UUIDIdentifier;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Symfony\Component\String\UnicodeString;
-use Symfony\Component\Uid\UuidV4;
 
 class ShoppingList
 {

@@ -10,7 +10,7 @@ interface UnitRepositoryInterface
 {
     public function create(UnicodeString $name, UnicodeString $short, UnicodeString $region, UuidV4 $id, array $values = []): Unit;
 
-    public function get(UuidV4 $id): Unit|null;
+    public function get(UuidV4 $id): Unit | null;
 
     public function all(): array;
 

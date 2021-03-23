@@ -16,7 +16,8 @@ final class CategoryProvider
     public function __construct(
         private CategoryRepositoryInterface $repository,
         private PersonRepositoryInterface $personRepository
-    ) {}
+    ) {
+    }
 
     public function get(UnicodeString $id): Category
     {

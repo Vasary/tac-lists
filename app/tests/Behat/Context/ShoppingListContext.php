@@ -7,15 +7,16 @@ namespace App\Tests\Behat\Context;
 use App\Domain\Repository\PersonRepositoryInterface;
 use App\Domain\Repository\ShoppingListRepositoryInterface;
 use Behat\Behat\Context\Context;
-use Symfony\Component\Uid\UuidV4;
 use function Symfony\Component\String\u;
+use Symfony\Component\Uid\UuidV4;
 
 final class ShoppingListContext implements Context
 {
     public function __construct(
         private ShoppingListRepositoryInterface $listRepository,
         private PersonRepositoryInterface $personRepository
-    ) {}
+    ) {
+    }
 
     /**
      * @Given /^list (.*) with id (.*)$/

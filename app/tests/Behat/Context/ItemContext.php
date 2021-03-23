@@ -21,7 +21,8 @@ final class ItemContext implements Context
         private ItemRepositoryInterface $itemRepository,
         private TemplateRepositoryInterface $templateRepository,
         private ShoppingListRepositoryInterface $listRepository
-    ) {}
+    ) {
+    }
 
     /**
      * @Given there is a item:
@@ -34,11 +35,11 @@ final class ItemContext implements Context
             $result[$row[0]] = $row[1];
         }
 
-        $id         = UuidV4::fromString($result['id']);
-        $template   = UuidV4::fromString($result['template']);
-        $unit       = UuidV4::fromString($result['unit']);
-        $list       = UuidV4::fromString($result['list']);
-        $value      = (int)$result['value'];
+        $id = UuidV4::fromString($result['id']);
+        $template = UuidV4::fromString($result['template']);
+        $unit = UuidV4::fromString($result['unit']);
+        $list = UuidV4::fromString($result['list']);
+        $value = (int) $result['value'];
 
         $this->itemRepository->create(
             $this->templateRepository->get($template),

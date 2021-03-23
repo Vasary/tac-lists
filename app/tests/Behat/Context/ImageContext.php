@@ -10,8 +10,8 @@ use App\Domain\Repository\TemplateImageRepositoryInterface;
 use App\Domain\Repository\TemplateRepositoryInterface;
 use Behat\Behat\Context\Context;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Component\Uid\UuidV4;
 use function Symfony\Component\String\u;
+use Symfony\Component\Uid\UuidV4;
 
 final class ImageContext implements Context
 {
@@ -21,7 +21,8 @@ final class ImageContext implements Context
         private TemplateRepositoryInterface $templateRepository,
         private ItemRepositoryInterface $itemRepository,
         private EntityManagerInterface $manager
-    ) {}
+    ) {
+    }
 
     /**
      * @Given /^the image (.*) for item (.*) with id (.*)$/

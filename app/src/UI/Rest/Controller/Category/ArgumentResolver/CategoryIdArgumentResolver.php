@@ -9,8 +9,8 @@ use App\UI\Rest\Controller\Category\Argument\CategoryId;
 use Generator;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadata;
-use function Symfony\Component\String\u;
 use Symfony\Component\Validator\Constraints as Assert;
+use function Symfony\Component\String\u;
 
 final class CategoryIdArgumentResolver extends AbstractArgumentResolver
 {

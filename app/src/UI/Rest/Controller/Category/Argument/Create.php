@@ -11,7 +11,8 @@ final class Create
     public function __construct(
         private UnicodeString $name,
         private UnicodeString $color
-    ) {}
+    ) {
+    }
 
     public function name(): UnicodeString
     {

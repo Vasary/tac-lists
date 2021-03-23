@@ -8,8 +8,6 @@ use App\Domain\Entity\Unit;
 use App\Domain\Exception\UnitNotFoundException;
 use App\Domain\Repository\PersonRepositoryInterface;
 use App\Domain\Repository\UnitRepositoryInterface;
-use Symfony\Component\String\UnicodeString;
-use Symfony\Component\Uid\Uuid;
 use Symfony\Component\Uid\UuidV4;
 
 final class UnitProvider

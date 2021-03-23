@@ -9,8 +9,8 @@ use App\Domain\Repository\PointRepositoryInterface;
 use Behat\Behat\Context\Context;
 use Behat\Gherkin\Node\TableNode;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Component\Uid\UuidV4;
 use function Symfony\Component\String\u;
+use Symfony\Component\Uid\UuidV4;
 
 final class PointContext implements Context
 {
@@ -18,7 +18,8 @@ final class PointContext implements Context
         private ItemRepositoryInterface $itemRepository,
         private PointRepositoryInterface $pointRepository,
         private EntityManagerInterface $manager
-    ) {}
+    ) {
+    }
 
     /**
      * @Given there is a point:
@@ -31,11 +32,11 @@ final class PointContext implements Context
             $result[$row[0]] = $row[1];
         }
 
-        $id         = UuidV4::fromString($result['id']);
-        $item       = UuidV4::fromString($result['item']);
-        $longitude  = (float) $result['longitude'];
-        $latitude   = (float) $result['latitude'];
-        $comment    = u($result['comment']);
+        $id = UuidV4::fromString($result['id']);
+        $item = UuidV4::fromString($result['item']);
+        $longitude = (float) $result['longitude'];
+        $latitude = (float) $result['latitude'];
+        $comment = u($result['comment']);
 
         $item = $this->itemRepository->get($item);
         $this->pointRepository->create($longitude, $latitude, $item, $comment, $id);

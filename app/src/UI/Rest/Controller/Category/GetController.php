@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace App\UI\Rest\Controller\Category;
 
 use App\Application\Category\Query\GetCategory;
-use App\Domain\ResponseBuilder\ResponseBuilderInterface;
 use App\UI\Rest\Controller\Category\Argument\CategoryId;
+use App\UI\Rest\ResponseBuilder\ResponseBuilderInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Messenger\HandleTrait;

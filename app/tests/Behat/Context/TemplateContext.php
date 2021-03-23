@@ -9,8 +9,8 @@ use App\Domain\Repository\PersonRepositoryInterface;
 use App\Domain\Repository\TemplateRepositoryInterface;
 use Behat\Behat\Context\Context;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Component\Uid\UuidV4;
 use function Symfony\Component\String\u;
+use Symfony\Component\Uid\UuidV4;
 
 final class TemplateContext implements Context
 {
@@ -19,7 +19,8 @@ final class TemplateContext implements Context
         private CategoryRepositoryInterface $categoryRepository,
         private PersonRepositoryInterface $personRepository,
         private EntityManagerInterface $manager
-    ) {}
+    ) {
+    }
 
     /**
      * @Given /^template (.*) created by (.*) in (.*) category$/

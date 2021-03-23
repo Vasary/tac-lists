@@ -2,9 +2,8 @@
 
 declare(strict_types=1);
 
-namespace App\Infrastructure\ResponseBuilder;
+namespace App\UI\Rest\ResponseBuilder;
 
-use App\Domain\ResponseBuilder\ResponseBuilderInterface;
 use App\Domain\ValueObject\AbstractValueObjectInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Serializer\SerializerInterface;

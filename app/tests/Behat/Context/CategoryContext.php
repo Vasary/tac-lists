@@ -7,15 +7,16 @@ namespace App\Tests\Behat\Context;
 use App\Domain\Repository\CategoryRepositoryInterface;
 use Behat\Behat\Context\Context;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Component\Uid\UuidV4;
 use function Symfony\Component\String\u;
+use Symfony\Component\Uid\UuidV4;
 
 final class CategoryContext implements Context
 {
     public function __construct(
         private CategoryRepositoryInterface $categoryRepository,
         private EntityManagerInterface $manager
-    ) {}
+    ) {
+    }
 
     /**
      * @Given /^category (.*) for ([a-z]{2})$/

@@ -7,15 +7,16 @@ namespace App\Tests\Behat\Context;
 use App\Domain\Repository\UnitRepositoryInterface;
 use Behat\Behat\Context\Context;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Component\Uid\UuidV4;
 use function Symfony\Component\String\u;
+use Symfony\Component\Uid\UuidV4;
 
 final class UnitContext implements Context
 {
     public function __construct(
         private UnitRepositoryInterface $unitRepository,
         private EntityManagerInterface $manager
-    ) {}
+    ) {
+    }
 
     /**
      * @Given /^unit (.*) as ([a-z]{1,2}) for ([a-z]{2})$/
