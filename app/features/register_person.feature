@@ -1,10 +1,10 @@
 Feature:
-    Register person
+    Person
 
     Background:
         Given clean database
 
-    Scenario: Person registration
+    Scenario: Registration
         When I add "Content-Type" header equal to "application/json"
         And I send a "POST" request to "/api/v1/person" with body:
         """
@@ -18,7 +18,7 @@ Feature:
         And the JSON nodes should be equal to:
             | id | 6d912900-4d2e-4208-8c3c-dc1a4795a845 |
 
-    Scenario: Get person
+    Scenario: Get
         Given person "6d912900-4d2e-4208-8c3c-dc1a4795a845" in ru
         When I add "Content-Type" header equal to "application/json"
         And I add "X-Person-Id" header equal to "6d912900-4d2e-4208-8c3c-dc1a4795a845"
@@ -31,7 +31,7 @@ Feature:
         And the JSON node lists should exist
         And the JSON node lists should have 0 element
 
-    Scenario: Duplicate person id
+    Scenario: Duplicate
         Given person "6d912900-4d2e-4208-8c3c-dc1a4795a845" in "ru"
         When I add "Content-Type" header equal to "application/json"
         And I send a "POST" request to "/api/v1/person" with body:

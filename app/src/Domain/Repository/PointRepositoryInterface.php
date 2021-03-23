@@ -11,7 +11,7 @@ interface PointRepositoryInterface
 {
     public function get(UuidV4 $id): GeoPoint | null;
 
-    public function create(float $longitude, float $latitude, Item $item, UnicodeString $comment): GeoPoint;
+    public function create(float $longitude, float $latitude, Item $item, UnicodeString $comment, UuidV4 $id): GeoPoint;
 
     public function delete(GeoPoint $point): void;
 }

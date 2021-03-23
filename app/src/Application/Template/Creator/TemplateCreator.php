@@ -43,7 +43,7 @@ final class TemplateCreator
         $template = $this->templateRepository->create($name, $icon, $category, $person, UuidV4::v4());
 
         foreach ($images as $image) {
-            $template->images()->add(new TemplateImage(u($image), $template));
+            $template->images()->add(new TemplateImage(u($image), $template, UuidV4::v4()));
         }
 
         $this->templateRepository->update($template);
@@ -90,7 +90,7 @@ final class TemplateCreator
 
         foreach ($images as $url) {
             /* @var UnicodeString $url */
-            $template->images()->add($this->imageRepository->create($template, $url));
+            $template->images()->add($this->imageRepository->create($template, $url, UuidV4::v4()));
         }
 
         $this->templateRepository->update($template);

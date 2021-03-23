@@ -5,6 +5,7 @@ namespace App\Domain\Entity;
 use App\Domain\Entity\Traits\TimestampedEntity;
 use App\Domain\Entity\Traits\UUIDIdentifier;
 use Symfony\Component\String\UnicodeString;
+use Symfony\Component\Uid\UuidV4;
 
 class GeoPoint
 {
@@ -12,15 +13,13 @@ class GeoPoint
     use UUIDIdentifier;
 
     protected float $latitude;
-
     protected float $longitude;
-
     protected UnicodeString $comment;
-
     protected Item $item;
 
-    public function __construct(float $latitude, float $longitude, UnicodeString $comment, Item $item)
+    public function __construct(float $latitude, float $longitude, UnicodeString $comment, Item $item, UuidV4 $id)
     {
+        $this->id = $id;
         $this->latitude = $latitude;
         $this->longitude = $longitude;
         $this->comment = $comment;

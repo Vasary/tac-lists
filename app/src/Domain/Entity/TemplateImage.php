@@ -5,6 +5,7 @@ namespace App\Domain\Entity;
 use App\Domain\Entity\Traits\TimestampedEntity;
 use App\Domain\Entity\Traits\UUIDIdentifier;
 use Symfony\Component\String\UnicodeString;
+use Symfony\Component\Uid\UuidV4;
 
 class TemplateImage
 {
@@ -12,11 +13,11 @@ class TemplateImage
     use UUIDIdentifier;
 
     protected UnicodeString $link;
-
     protected Template $template;
 
-    public function __construct(UnicodeString $link, Template $template)
+    public function __construct(UnicodeString $link, Template $template, UuidV4 $id)
     {
+        $this->id = $id;
         $this->link = $link;
         $this->template = $template;
     }
@@ -26,7 +27,7 @@ class TemplateImage
         return $this->link;
     }
 
-    public function template(): string
+    public function template(): Template
     {
         return $this->template;
     }

@@ -21,9 +21,9 @@ final class ItemImageRepository extends ServiceEntityRepository implements ItemI
         $this->manager = $registry;
     }
 
-    public function create(Item $item, UnicodeString $imageURL): ItemImage
+    public function create(Item $item, UnicodeString $imageURL, UuidV4 $id): ItemImage
     {
-        $item = new ItemImage($imageURL, $item);
+        $item = new ItemImage($imageURL, $item, $id);
 
         $this->manager->getManager()->persist($item);
         $this->manager->getManager()->flush();

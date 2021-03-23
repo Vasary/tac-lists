@@ -33,7 +33,6 @@ Feature:
             | author    | 6d912900-4d2e-4208-8c3c-dc1a4795a845  |
             | icon      | fa-default                            |
 
-        @list
     Scenario: Update
         Given category vegetables for ru with id f4d7ac69-e528-43ee-b165-ae2539484ea2
         Given template tomato created by 6d912900-4d2e-4208-8c3c-dc1a4795a845 in a1308cf5-985c-44aa-bb99-7fcf2cfd9940 category with id 7049c634-05f0-4f7a-bad1-accffe0ef634

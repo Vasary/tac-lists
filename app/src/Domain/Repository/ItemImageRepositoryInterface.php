@@ -9,7 +9,7 @@ use Symfony\Component\Uid\UuidV4;
 
 interface ItemImageRepositoryInterface
 {
-    public function create(Item $item, UnicodeString $imageURL): ItemImage;
+    public function create(Item $item, UnicodeString $imageURL, UuidV4 $id): ItemImage;
 
     public function delete(ItemImage $image): void;
 

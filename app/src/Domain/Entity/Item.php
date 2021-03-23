@@ -6,32 +6,25 @@ use App\Domain\Entity\Traits\TimestampedEntity;
 use App\Domain\Entity\Traits\UUIDIdentifier;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Symfony\Component\Uid\UuidV4;
 
 class Item
 {
-    use TimestampedEntity;
-    use UUIDIdentifier;
+    use TimestampedEntity, UUIDIdentifier;
 
     protected bool $isPurchased;
-
     protected int $ordering;
-
     protected int $value;
-
     protected Template $template;
-
     protected ShoppingList $list;
-
     protected Unit $unit;
-
     protected Collection $labels;
-
     protected Collection $geoPoints;
-
     protected Collection $images;
 
-    public function __construct(Template $template, ShoppingList $list, Unit $units, int $value)
+    public function __construct(Template $template, ShoppingList $list, Unit $units, int $value, UuidV4 $id)
     {
+        $this->id = $id;
         $this->template = $template;
         $this->list = $list;
         $this->unit = $units;
@@ -112,5 +105,15 @@ class Item
     public function applyValue(int $value): void
     {
         $this->value = $value;
+    }
+
+    public function applyTemplate(Template $template): void
+    {
+        $this->template = $template;
+    }
+
+    public function applyList(ShoppingList $list): void
+    {
+        $this->list = $list;
     }
 }

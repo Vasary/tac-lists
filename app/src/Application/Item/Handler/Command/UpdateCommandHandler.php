@@ -26,6 +26,14 @@ final class UpdateCommandHandler extends BaseHandler
 
         $this->hasPermission($item->list()->members(), $command->initiator(), $item->id());
 
+        if ($command->template()->toBinary() !== $item->template()->id()->toBinary()) {
+            $this->creator->changeTemplate($item, $command->template());
+        }
+
+        if ($command->list()->toBinary() !== $item->list()->id()->toBinary()) {
+            $this->creator->changeList($item, $command->list());
+        }
+
         if ($command->value() !== $item->value()) {
             $this->creator->changeValue($item, $command->value());
         }

@@ -1,11 +1,11 @@
 Feature:
-    List workflow
+    List
 
     Background:
         Given clean database
         Given person "6d912900-4d2e-4208-8c3c-dc1a4795a845" in ru
 
-    Scenario: Create list
+    Scenario: Create
         When I add "Content-Type" header equal to "application/json"
         And I add "X-Person-Id" header equal to "6d912900-4d2e-4208-8c3c-dc1a4795a845"
         And I send a "POST" request to "/api/v1/list" with body:
@@ -28,7 +28,7 @@ Feature:
         And the JSON nodes should be equal to:
             | members[0] | 6d912900-4d2e-4208-8c3c-dc1a4795a845 |
 
-    Scenario: Rename list by owner
+    Scenario: Rename
         Given list list with id 1b445a09-3ba4-4600-bdaf-c3c5cd108309
         Given add person 6d912900-4d2e-4208-8c3c-dc1a4795a845 to list 1b445a09-3ba4-4600-bdaf-c3c5cd108309
 
@@ -67,7 +67,7 @@ Feature:
             | person | 6d912900-4d2e-4208-8c3c-dc1a4795a845     |
             | status | 0                                        |
 
-    Scenario: List access forbidden
+    Scenario: Access forbidden
         Given list my-list with id 1b445a09-3ba4-4600-bdaf-c3c5cd108309
         When I add "X-Person-Id" header equal to "6d912900-4d2e-4208-8c3c-dc1a4795a845"
         And I send a "GET" request to "/api/v1/list/1b445a09-3ba4-4600-bdaf-c3c5cd108309"

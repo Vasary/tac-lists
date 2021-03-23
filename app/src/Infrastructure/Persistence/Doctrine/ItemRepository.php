@@ -22,9 +22,9 @@ final class ItemRepository extends ServiceEntityRepository implements ItemReposi
         $this->manager = $registry;
     }
 
-    public function create(Template $template, ShoppingList $list, Unit $unit, int $value): Item
+    public function create(Template $template, ShoppingList $list, Unit $unit, int $value, UuidV4 $id): Item
     {
-        $item = new Item($template, $list, $unit, $value);
+        $item = new Item($template, $list, $unit, $value, $id);
 
         $this->manager->getManager()->persist($item);
         $this->manager->getManager()->flush();

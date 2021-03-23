@@ -9,7 +9,7 @@ use Symfony\Component\Uid\UuidV4;
 
 interface TemplateImageRepositoryInterface
 {
-    public function create(Template $template, UnicodeString $url): TemplateImage;
+    public function create(Template $template, UnicodeString $url, UuidV4 $id): TemplateImage;
 
     public function delete(TemplateImage $image): void;
 

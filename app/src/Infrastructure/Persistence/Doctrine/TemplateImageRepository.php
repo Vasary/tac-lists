@@ -21,9 +21,9 @@ final class TemplateImageRepository extends ServiceEntityRepository implements T
         $this->manager = $registry;
     }
 
-    public function create(Template $template, UnicodeString $url): TemplateImage
+    public function create(Template $template, UnicodeString $url, UuidV4 $id): TemplateImage
     {
-        $image = new TemplateImage($url, $template);
+        $image = new TemplateImage($url, $template, $id);
 
         $this->manager->getManager()->persist($image);
         $this->manager->getManager()->flush();

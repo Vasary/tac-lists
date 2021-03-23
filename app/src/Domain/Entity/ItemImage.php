@@ -5,6 +5,7 @@ namespace App\Domain\Entity;
 use App\Domain\Entity\Traits\TimestampedEntity;
 use App\Domain\Entity\Traits\UUIDIdentifier;
 use Symfony\Component\String\UnicodeString;
+use Symfony\Component\Uid\UuidV4;
 
 class ItemImage
 {
@@ -15,8 +16,9 @@ class ItemImage
 
     protected Item $item;
 
-    public function __construct(UnicodeString $link, Item $item)
+    public function __construct(UnicodeString $link, Item $item, UuidV4 $id)
     {
+        $this->id = $id;
         $this->link = $link;
         $this->item = $item;
     }

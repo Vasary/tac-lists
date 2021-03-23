@@ -26,9 +26,9 @@ final class PointRepository extends ServiceEntityRepository implements PointRepo
         return $this->findOneBy(['id' => $id]);
     }
 
-    public function create(float $longitude, float $latitude, Item $item, UnicodeString $comment): GeoPoint
+    public function create(float $longitude, float $latitude, Item $item, UnicodeString $comment, UuidV4 $id): GeoPoint
     {
-        $point = new GeoPoint($latitude, $longitude, $comment, $item);
+        $point = new GeoPoint($latitude, $longitude, $comment, $item, $id);
 
         $this->manager->getManager()->persist($point);
         $this->manager->getManager()->flush();

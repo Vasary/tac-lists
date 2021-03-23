@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Application\Item\Creator;
 
 use App\Domain\Entity\Item;
+use App\Domain\Entity\Template;
 use App\Domain\Exception\ListNotFoundException;
 use App\Domain\Exception\TemplateNotFoundException;
 use App\Domain\Exception\UnitNotFoundException;
@@ -47,7 +48,7 @@ final class Creator
             throw new UnitNotFoundException($unitId);
         }
 
-        return $this->itemRepository->create($template, $list, $unit, $value);
+        return $this->itemRepository->create($template, $list, $unit, $value, UuidV4::v4());
     }
 
     public function changeUnit(Item $item, UuidV4 $unitId): void
@@ -64,6 +65,20 @@ final class Creator
     public function changeOrder(Item $item, int $order): void
     {
         $item->applyOrder($order);
+
+        $this->itemRepository->update($item);
+    }
+
+    public function changeTemplate(Item $item, UuidV4 $template): void
+    {
+        $item->applyTemplate($this->templateRepository->get($template));
+
+        $this->itemRepository->update($item);
+    }
+
+    public function changeList(Item $item, UuidV4 $list): void
+    {
+        $item->applyList($this->listRepository->get($list));
 
         $this->itemRepository->update($item);
     }
@@ -89,7 +104,7 @@ final class Creator
 
     public function addImage(Item $item, UnicodeString $imageURL): void
     {
-        $image = $this->imageRepository->create($item, $imageURL);
+        $image = $this->imageRepository->create($item, $imageURL, UuidV4::v4());
         $item->images()->add($image);
 
         $this->itemRepository->update($item);
@@ -97,7 +112,7 @@ final class Creator
 
     public function addPoint(Item $item, float $latitude, float $longitude, UnicodeString $comment): void
     {
-        $point = $this->pointRepository->create($longitude, $latitude, $item, $comment);
+        $point = $this->pointRepository->create($longitude, $latitude, $item, $comment, UuidV4::v4());
         $item->points()->add($point);
 
         $this->itemRepository->update($item);
