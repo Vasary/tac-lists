@@ -6,6 +6,7 @@ namespace App\UI\Rest\Controller\Unit;
 
 use App\Application\Unit\Query\UnitsQuery;
 use App\Domain\ResponseBuilder\ResponseBuilderInterface;
+use App\UI\Rest\Argument\Person;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Messenger\HandleTrait;
@@ -25,9 +26,9 @@ final class AllController extends AbstractController
     }
 
     #[Route('/api/v1/units', methods: ['GET'])]
-    public function __invoke(): Response
+    public function __invoke(Person $person): Response
     {
-        $query = new UnitsQuery();
+        $query = new UnitsQuery($person->id());
 
         return $this->responseBuilder->build($this->handle($query));
     }

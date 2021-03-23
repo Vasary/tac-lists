@@ -22,9 +22,9 @@ final class TemplateRepository extends ServiceEntityRepository implements Templa
         $this->manager = $registry;
     }
 
-    public function create(UnicodeString $name, UnicodeString $icon, Category $category, Person $person): Template
+    public function create(UnicodeString $name, UnicodeString $icon, Category $category, Person $person, UuidV4 $id): Template
     {
-        $template = new Template($name, $icon, $category, $person, $person->region());
+        $template = new Template($name, $icon, $category, $person, $person->region(), $id);
 
         $this->manager->getManager()->persist($template);
         $this->manager->getManager()->flush();

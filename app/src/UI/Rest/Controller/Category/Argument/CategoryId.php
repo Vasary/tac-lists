@@ -8,11 +8,8 @@ use Symfony\Component\String\UnicodeString;
 
 final class CategoryId
 {
-    private UnicodeString $id;
-
-    public function __construct(UnicodeString $id)
+    public function __construct(private UnicodeString $id)
     {
-        $this->id = $id;
     }
 
     public function id(): UnicodeString

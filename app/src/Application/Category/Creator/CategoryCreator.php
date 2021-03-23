@@ -7,6 +7,7 @@ namespace App\Application\Category\Creator;
 use App\Domain\Entity\Category;
 use App\Domain\Repository\CategoryRepositoryInterface;
 use Symfony\Component\String\UnicodeString;
+use Symfony\Component\Uid\UuidV4;
 
 final class CategoryCreator
 {
@@ -19,6 +20,6 @@ final class CategoryCreator
 
     public function create(UnicodeString $name, UnicodeString $color, UnicodeString $region): Category
     {
-        return $this->repository->create($name, $color, $region);
+        return $this->repository->create($name, $color, $region, UuidV4::v4());
     }
 }

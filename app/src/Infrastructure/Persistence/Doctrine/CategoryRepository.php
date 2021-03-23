@@ -20,9 +20,9 @@ final class CategoryRepository extends ServiceEntityRepository implements Catego
         $this->manager = $registry;
     }
 
-    public function create(UnicodeString $name, UnicodeString $color, UnicodeString $region): Category
+    public function create(UnicodeString $name, UnicodeString $color, UnicodeString $region, UuidV4 $id): Category
     {
-        $category = new Category($name, $color, $region);
+        $category = new Category($name, $color, $region, $id);
 
         $this->manager->getManager()->persist($category);
         $this->manager->getManager()->flush();
@@ -38,5 +38,18 @@ final class CategoryRepository extends ServiceEntityRepository implements Catego
     public function all(): array
     {
         return $this->findBy([], ['created' => 'DESC']);
+    }
+
+    public function regional(UnicodeString $region): \Generator
+    {
+        return
+            $this
+                ->createQueryBuilder('c')
+                ->where('c.region = :region')
+                ->addOrderBy('c.name', 'ASC')
+                ->setParameter('region', $region)
+                ->getQuery()
+                ->toIterable()
+            ;
     }
 }

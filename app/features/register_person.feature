@@ -15,7 +15,8 @@ Feature:
         """
         Then the response status code should be 200
         And the response should be in JSON
-        And the JSON node id should exist
+        And the JSON nodes should be equal to:
+            | id | 6d912900-4d2e-4208-8c3c-dc1a4795a845 |
 
     Scenario: Get person
         Given person "6d912900-4d2e-4208-8c3c-dc1a4795a845" in ru
@@ -24,10 +25,11 @@ Feature:
         And I send a "GET" request to "/api/v1/person"
         Then the response status code should be 200
         And the response should be in JSON
-        And the JSON node id should exist
-        And the JSON node region should exist
+        And the JSON nodes should be equal to:
+            | id | 6d912900-4d2e-4208-8c3c-dc1a4795a845 |
+            | region | ru |
         And the JSON node lists should exist
-
+        And the JSON node lists should have 0 element
 
     Scenario: Duplicate person id
         Given person "6d912900-4d2e-4208-8c3c-dc1a4795a845" in "ru"

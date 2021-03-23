@@ -19,7 +19,7 @@ final class UnitsQueryHandler extends AbstractQueryHandler implements MessageHan
     {
     }
 
-    public function __invoke(UnitsQuery $command): UnitsResponse
+    public function __invoke(UnitsQuery $query): UnitsResponse
     {
         $units = array_map(
             fn (Unit $unit) => new UnitResponse(
@@ -29,7 +29,7 @@ final class UnitsQueryHandler extends AbstractQueryHandler implements MessageHan
                 $unit->region(),
                 $unit->values()
             ),
-            $this->provider->all(),
+            iterator_to_array($this->provider->regional($query->initiator())),
         );
 
         return new UnitsResponse($units);

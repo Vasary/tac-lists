@@ -8,29 +8,23 @@ use App\Domain\Entity\Traits\UUIDIdentifier;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Symfony\Component\String\UnicodeString;
+use Symfony\Component\Uid\UuidV4;
 
 class Template
 {
-    use TimestampedEntity;
-    use UUIDIdentifier;
-    use RegionCode;
+    use TimestampedEntity, UUIDIdentifier, RegionCode;
 
     protected UnicodeString $name;
-
     protected Category $category;
-
     protected UnicodeString $icon;
-
     protected Collection $items;
-
     protected Person $author;
-
     protected bool $isCommon;
-
     protected Collection $images;
 
-    public function __construct(UnicodeString $name, UnicodeString $icon, Category $category, Person $person, UnicodeString $region)
+    public function __construct(UnicodeString $name, UnicodeString $icon, Category $category, Person $person, UnicodeString $region, UuidV4 $id)
     {
+        $this->id = $id;
         $this->name = $name;
         $this->icon = $icon;
 

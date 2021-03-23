@@ -32,8 +32,8 @@ final class PersonArgumentResolver extends AbstractArgumentResolver
         return
             new Assert\Collection([
                 'id' => [
-                    new Assert\NotBlank(),
-                    new Assert\Uuid(message: 'Person id should looks like UUID'),
+                    new Assert\NotBlank(message: 'Person ID should be not blank'),
+                    new Assert\Uuid(message: 'Person ID should looks like UUID'),
                 ],
             ]);
     }

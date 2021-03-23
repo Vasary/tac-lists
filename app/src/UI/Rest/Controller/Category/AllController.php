@@ -6,6 +6,7 @@ namespace App\UI\Rest\Controller\Category;
 
 use App\Application\Category\Query\GetCategories;
 use App\Domain\ResponseBuilder\ResponseBuilderInterface;
+use App\UI\Rest\Argument\Person;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -26,8 +27,8 @@ final class AllController extends AbstractController
     }
 
     #[Route('/api/v1/categories', methods: ['GET'])]
-    public function __invoke(Request $request): Response
+    public function __invoke(Request $request, Person $person): Response
     {
-        return $this->responseBuilder->build($this->handle(new GetCategories()));
+        return $this->responseBuilder->build($this->handle(new GetCategories($person->id())));
     }
 }

@@ -33,7 +33,7 @@ final class ListIdArgumentResolver extends AbstractArgumentResolver
         return
             new Assert\Collection([
                 'id' => [
-                    new Assert\NotBlank(),
+                    new Assert\NotBlank(message: 'List id should be not blank'),
                     new Assert\Uuid(),
                 ],
             ]);

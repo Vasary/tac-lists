@@ -8,6 +8,7 @@ use App\Domain\SystemCodes;
 use App\UI\Rest\Exception\BadRequestException;
 use Doctrine\DBAL\Exception\UniqueConstraintViolationException;
 use DomainException;
+use Psr\Log\LoggerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Event\ExceptionEvent;
@@ -15,6 +16,8 @@ use Throwable;
 
 final class ExceptionListener
 {
+    public function __construct(private LoggerInterface $logger) {}
+
     public function onKernelException(ExceptionEvent $event)
     {
         $exception = $event->getThrowable();
@@ -29,6 +32,8 @@ final class ExceptionListener
 
         if (0 === $exception->getCode() && !($exception instanceof DomainException)) {
             $data['code'] = SystemCodes::SYSTEM_MALFORMED;
+
+            $this->logger->error('Exception trace', $event->getThrowable()->getTrace());
         }
 
         if ($exception->getPrevious() instanceof UniqueConstraintViolationException) {

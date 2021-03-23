@@ -10,7 +10,7 @@ use Symfony\Component\Uid\UuidV4;
 
 interface TemplateRepositoryInterface
 {
-    public function create(UnicodeString $name, UnicodeString $icon, Category $category, Person $person): Template;
+    public function create(UnicodeString $name, UnicodeString $icon, Category $category, Person $person, UuidV4 $id): Template;
 
     public function all(): array;
 

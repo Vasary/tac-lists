@@ -33,7 +33,7 @@ final class CreateArgumentResolver extends AbstractArgumentResolver
         return
             new Assert\Collection([
                 'id' => [
-                    new Assert\NotBlank(),
+                    new Assert\NotBlank(message: 'Person ID should be not blank'),
                     new Assert\Uuid(message: 'ID should looks like UUID'),
                 ],
                 'region' => [

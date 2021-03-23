@@ -32,7 +32,7 @@ final class GetCategoriesQueryHandler extends AbstractQueryHandler implements Me
                 $category->updated(),
                 $category->created()
             ),
-            $this->provider->all(),
+            iterator_to_array($this->provider->regional($query->initiator())),
         );
 
         return new GetCategoriesResponse($categories);

@@ -40,7 +40,7 @@ final class TemplateCreator
         $category = $this->getCategory($categoryId);
         $person = $this->getPerson($personId);
 
-        $template = $this->templateRepository->create($name, $icon, $category, $person);
+        $template = $this->templateRepository->create($name, $icon, $category, $person, UuidV4::v4());
 
         foreach ($images as $image) {
             $template->images()->add(new TemplateImage(u($image), $template));
