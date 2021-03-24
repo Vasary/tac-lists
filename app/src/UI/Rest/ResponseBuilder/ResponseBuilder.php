@@ -17,12 +17,12 @@ final class ResponseBuilder implements ResponseBuilderInterface
         $this->serializer = $serializer;
     }
 
-    public function build(AbstractValueObjectInterface $data): Response
+    public function build(AbstractValueObjectInterface $data, int $responseCode = Response::HTTP_OK): Response
     {
         return
             new Response(
                 $this->serializer->serialize($data, 'json'),
-                Response::HTTP_OK,
+                $responseCode,
                 [
                     'Content-Type' => 'application/json',
                 ]

@@ -29,7 +29,8 @@ final class CreateController extends AbstractController
             $this
                 ->responseBuilder
                     ->build(
-                        $this->handle(new CreatePersonCommand($argument->id(), $argument->region()))
+                        $this->handle(new CreatePersonCommand($argument->id(), $argument->region())),
+                        Response::HTTP_CREATED
                     )
             ;
     }

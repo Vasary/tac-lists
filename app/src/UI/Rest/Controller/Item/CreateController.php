@@ -38,6 +38,6 @@ final class CreateController extends AbstractController
             )
         ;
 
-        return $this->responseBuilder->build($this->handle($command));
+        return $this->responseBuilder->build($this->handle($command), Response::HTTP_CREATED);
     }
 }

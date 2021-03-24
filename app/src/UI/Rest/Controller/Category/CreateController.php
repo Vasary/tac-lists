@@ -31,6 +31,6 @@ final class CreateController extends AbstractController
     {
         $command = new CreateCategoryCommand($argument->name(), $argument->color(), $person->id());
 
-        return $this->responseBuilder->build($this->handle($command));
+        return $this->responseBuilder->build($this->handle($command), Response::HTTP_CREATED);
     }
 }

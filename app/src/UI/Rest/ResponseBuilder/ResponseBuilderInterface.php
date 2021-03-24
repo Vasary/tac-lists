@@ -9,5 +9,5 @@ use Symfony\Component\HttpFoundation\Response;
 
 interface ResponseBuilderInterface
 {
-    public function build(AbstractValueObjectInterface $data): Response;
+    public function build(AbstractValueObjectInterface $data, int $responseCode = Response::HTTP_OK): Response;
 }

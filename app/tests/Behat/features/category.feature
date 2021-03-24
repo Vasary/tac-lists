@@ -15,7 +15,7 @@ Feature:
               "color": "#00FF00"
           }
           """
-        Then the response status code should be 200
+        Then the response status code should be 201
         And the response should be in JSON
         And the JSON nodes should be equal to:
             | name  | vegetables |

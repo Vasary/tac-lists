@@ -18,7 +18,7 @@ Feature:
               "images": ["https://tac.localhost/1.png"]
           }
           """
-        Then the response status code should be 200
+        Then the response status code should be 201
         And the response should be in JSON
         And the JSON node id should exist
         And the JSON node created should exist
