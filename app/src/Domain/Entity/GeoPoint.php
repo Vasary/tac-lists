@@ -9,8 +9,7 @@ use Symfony\Component\Uid\UuidV4;
 
 class GeoPoint
 {
-    use TimestampedEntity;
-    use UUIDIdentifier;
+    use TimestampedEntity, UUIDIdentifier;
 
     protected float $latitude;
     protected float $longitude;

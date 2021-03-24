@@ -10,13 +10,10 @@ use Symfony\Component\String\UnicodeString;
 
 class ShoppingList
 {
-    use TimestampedEntity;
-    use UUIDIdentifier;
+    use TimestampedEntity, UUIDIdentifier;
 
     private UnicodeString $name;
-
     private Collection $items;
-
     private Collection $members;
 
     public function __construct(UnicodeString $name)

@@ -12,9 +12,7 @@ use Symfony\Component\Uid\UuidV4;
 
 class Template
 {
-    use TimestampedEntity;
-    use UUIDIdentifier;
-    use RegionCode;
+    use TimestampedEntity, UUIDIdentifier, RegionCode;
 
     protected UnicodeString $name;
     protected Category $category;

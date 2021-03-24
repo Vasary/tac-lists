@@ -11,16 +11,11 @@ use Symfony\Component\Uid\UuidV4;
 
 class Unit
 {
-    use TimestampedEntity;
-    use UUIDIdentifier;
-    use RegionCode;
+    use TimestampedEntity, UUIDIdentifier, RegionCode;
 
     protected UnicodeString $name;
-
     protected UnicodeString $short;
-
     protected Collection $items;
-
     protected array $values;
 
     public function __construct(UnicodeString $name, UnicodeString $short, UnicodeString $region, UuidV4 $id, array $values)

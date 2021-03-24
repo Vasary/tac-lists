@@ -9,8 +9,7 @@ use Symfony\Component\Uid\UuidV4;
 
 class TemplateImage
 {
-    use TimestampedEntity;
-    use UUIDIdentifier;
+    use TimestampedEntity, UUIDIdentifier;
 
     protected UnicodeString $link;
     protected Template $template;
