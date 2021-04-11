@@ -8,11 +8,10 @@ use App\Application\Image\Provider\DataProvider;
 use App\Application\Image\Query\GetImageQuery;
 use App\Application\Image\Response\ImageResponse;
 use App\Domain\Entity\ItemImage;
-use App\Domain\Query\AbstractQuery;
 use App\Infrastructure\Trait\ObjectAccess;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 
-final class GetImageQueryHandler extends AbstractQuery implements MessageHandlerInterface
+final class GetImageQueryHandler implements MessageHandlerInterface
 {
     use ObjectAccess;
 

@@ -29,6 +29,7 @@ Feature:
         And the response status code should be 403
         And the response should be in JSON
 
+        @list
     Scenario: Get point
         Given add person 6d912900-4d2e-4208-8c3c-dc1a4795a845 to list 4c907523-ef31-470f-b0ab-8b72bc11527e
         Given there is a point:

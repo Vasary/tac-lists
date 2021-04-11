@@ -8,10 +8,9 @@ use App\Application\Person\Provider\DataProvider;
 use App\Application\Person\Query\GetQuery;
 use App\Application\Person\Response\PersonResponse;
 use App\Domain\Entity\ShoppingList;
-use App\Domain\Handler\AbstractQueryHandler;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 
-final class GetQueryHandler extends AbstractQueryHandler implements MessageHandlerInterface
+final class GetQueryHandler implements MessageHandlerInterface
 {
     public function __construct(private DataProvider $provider)
     {

@@ -10,10 +10,9 @@ use App\Application\List\Response\ListResponse;
 use App\Domain\Entity\Item;
 use App\Domain\Entity\Person;
 use App\Domain\Exception\PermissionDeniedException;
-use App\Domain\Handler\AbstractQueryHandler;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 
-final class GetListQueryHandler extends AbstractQueryHandler implements MessageHandlerInterface
+final class GetListQueryHandler implements MessageHandlerInterface
 {
     public function __construct(private Provider $provider)
     {

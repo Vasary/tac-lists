@@ -4,13 +4,12 @@ declare(strict_types=1);
 
 namespace App\Application\Template\Command;
 
-use App\Domain\Command\AbstractCommand;
 use JetBrains\PhpStorm\Immutable;
 use Symfony\Component\String\UnicodeString;
 use Symfony\Component\Uid\UuidV4;
 
 #[Immutable]
-final class UpdateCommand extends AbstractCommand
+final class UpdateCommand
 {
     public function __construct(
         private UuidV4 $id,

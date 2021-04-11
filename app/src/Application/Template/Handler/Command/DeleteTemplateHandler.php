@@ -7,11 +7,10 @@ namespace App\Application\Template\Handler\Command;
 use App\Application\Template\Command\DeleteCommand;
 use App\Application\Template\Creator\TemplateCreator;
 use App\Application\Template\Response\DeleteTemplateResponse;
-use App\Domain\Handler\AbstractCommandHandler;
 use App\Domain\SystemCodes;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 
-final class DeleteTemplateHandler extends AbstractCommandHandler implements MessageHandlerInterface
+final class DeleteTemplateHandler implements MessageHandlerInterface
 {
     public function __construct(private TemplateCreator $creator)
     {

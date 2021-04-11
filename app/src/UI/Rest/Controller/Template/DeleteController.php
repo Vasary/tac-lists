@@ -6,29 +6,16 @@ namespace App\UI\Rest\Controller\Template;
 
 use App\Application\Template\Command\DeleteCommand;
 use App\UI\Rest\Argument\Person;
+use App\UI\Rest\Controller\AbstractController;
 use App\UI\Rest\Controller\Template\Argument\Delete;
-use App\UI\Rest\ResponseBuilder\ResponseBuilderInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Messenger\HandleTrait;
-use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 final class DeleteController extends AbstractController
 {
-    use HandleTrait;
-
-    private ResponseBuilderInterface $responseBuilder;
-
-    public function __construct(MessageBusInterface $messageBus, ResponseBuilderInterface $responseBuilder)
-    {
-        $this->messageBus = $messageBus;
-        $this->responseBuilder = $responseBuilder;
-    }
-
     #[Route('/api/v1/template/{id}', methods: ['DELETE'])]
     public function __invoke(Delete $argument, Person $person): Response
     {
-        return $this->responseBuilder->build($this->handle(new DeleteCommand($argument->id(), $person->id())));
+        return $this->responseBuilder->build($this->execute(new DeleteCommand($argument->id(), $person->id())));
     }
 }

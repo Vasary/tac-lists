@@ -8,12 +8,11 @@ use App\Application\List\Command\CreateShoppingListCommand;
 use App\Application\List\Creator\ShoppingListCreator;
 use App\Application\List\Response\CreateResponse;
 use App\Domain\Entity\Person;
-use App\Domain\Handler\AbstractCommandHandler;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 use Symfony\Component\Messenger\HandleTrait;
 use Symfony\Component\Messenger\MessageBusInterface;
 
-final class CreateShoppingListCommandHandler extends AbstractCommandHandler implements MessageHandlerInterface
+final class CreateShoppingListCommandHandler implements MessageHandlerInterface
 {
     use HandleTrait;
 

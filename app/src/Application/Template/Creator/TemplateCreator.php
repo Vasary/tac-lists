@@ -16,9 +16,9 @@ use App\Domain\Repository\CategoryRepositoryInterface;
 use App\Domain\Repository\PersonRepositoryInterface;
 use App\Domain\Repository\TemplateImageRepositoryInterface;
 use App\Domain\Repository\TemplateRepositoryInterface;
+use function Symfony\Component\String\u;
 use Symfony\Component\String\UnicodeString;
 use Symfony\Component\Uid\UuidV4;
-use function Symfony\Component\String\u;
 
 final class TemplateCreator
 {

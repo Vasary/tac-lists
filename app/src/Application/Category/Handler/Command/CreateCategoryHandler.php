@@ -7,11 +7,10 @@ namespace App\Application\Category\Handler\Command;
 use App\Application\Category\Command\CreateCategoryCommand;
 use App\Application\Category\Creator\CategoryCreator;
 use App\Application\Category\Response\CreateCategoryResponse;
-use App\Domain\Handler\AbstractCommandHandler;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 use function Symfony\Component\String\u;
 
-final class CreateCategoryHandler extends AbstractCommandHandler implements MessageHandlerInterface
+final class CreateCategoryHandler implements MessageHandlerInterface
 {
     private CategoryCreator $creator;
 

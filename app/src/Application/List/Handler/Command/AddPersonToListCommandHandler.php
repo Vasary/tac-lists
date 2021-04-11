@@ -10,13 +10,12 @@ use App\Application\List\Provider\Provider;
 use App\Application\List\Response\AddPersonToListResponse;
 use App\Domain\Entity\Person;
 use App\Domain\Exception\AlreadyExistsException;
-use App\Domain\Handler\AbstractCommandHandler;
 use App\Domain\SystemCodes;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 use Symfony\Component\Messenger\HandleTrait;
 use Symfony\Component\Messenger\MessageBusInterface;
 
-final class AddPersonToListCommandHandler extends AbstractCommandHandler implements MessageHandlerInterface
+final class AddPersonToListCommandHandler implements MessageHandlerInterface
 {
     use HandleTrait;
 

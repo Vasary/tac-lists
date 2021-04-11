@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace App\Application\Category\Query;
 
-use App\Domain\Query\AbstractQuery;
 use Symfony\Component\String\UnicodeString;
 
-final class GetCategory extends AbstractQuery
+final class GetCategory
 {
     private UnicodeString $id;
 

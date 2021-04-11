@@ -7,11 +7,10 @@ namespace App\Application\Point\Handler;
 use App\Application\Point\Provider\DataProvider;
 use App\Application\Point\Query\GetPointQuery;
 use App\Application\Point\Response\PointResponse;
-use App\Domain\Query\AbstractQuery;
 use App\Infrastructure\Trait\ObjectAccess;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 
-final class GetPointQueryHandler extends AbstractQuery implements MessageHandlerInterface
+final class GetPointQueryHandler implements MessageHandlerInterface
 {
     use ObjectAccess;
 

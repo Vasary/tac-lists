@@ -7,11 +7,10 @@ namespace App\Application\Label\Handler;
 use App\Application\Label\Provider\LabelProvider;
 use App\Application\Label\Query\GetLabelQuery;
 use App\Application\Label\Response\GetLabelResponse;
-use App\Domain\Handler\AbstractQueryHandler;
 use App\Infrastructure\Trait\ObjectAccess;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 
-final class GetLabelQueryHandler extends AbstractQueryHandler implements MessageHandlerInterface
+final class GetLabelQueryHandler implements MessageHandlerInterface
 {
     use ObjectAccess;
 

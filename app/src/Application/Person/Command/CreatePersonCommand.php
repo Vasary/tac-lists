@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace App\Application\Person\Command;
 
-use App\Domain\Command\AbstractCommand;
 use Symfony\Component\String\UnicodeString;
 
-final class CreatePersonCommand extends AbstractCommand
+final class CreatePersonCommand
 {
     private UnicodeString $personId;
 

@@ -4,11 +4,10 @@ declare(strict_types=1);
 
 namespace App\Application\Category\Command;
 
-use App\Domain\Command\AbstractCommand;
 use Symfony\Component\String\UnicodeString;
 use Symfony\Component\Uid\UuidV4;
 
-final class CreateCategoryCommand extends AbstractCommand
+final class CreateCategoryCommand
 {
     public function __construct(
         private UnicodeString $name,

@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace App\Application\Image\Query;
 
-use App\Domain\Query\AbstractQuery;
 use Symfony\Component\Uid\UuidV4;
 
-final class GetImageQuery extends AbstractQuery
+final class GetImageQuery
 {
     public function __construct(private UuidV4 $id, private UuidV4 $initiator)
     {

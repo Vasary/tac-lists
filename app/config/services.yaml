@@ -22,8 +22,6 @@ services:
         resource: '../src/UI/Rest/Controller/*Controller*'
         tags: ['controller.service_arguments']
 
-    App\Domain\ResponseBuilder\ResponseBuilderInterface: '@App\Infrastructure\ResponseBuilder\ResponseBuilder'
-
     App\UI\Rest\EventListener\ExceptionListener:
         tags:
             - { name: kernel.event_listener, event: kernel.exception, method: onKernelException }

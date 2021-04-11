@@ -7,11 +7,10 @@ namespace App\Application\Unit\Handler;
 use App\Application\Unit\Provider\UnitProvider;
 use App\Application\Unit\Query\UnitQuery;
 use App\Application\Unit\Response\UnitResponse;
-use App\Domain\Handler\AbstractQueryHandler;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 use function Symfony\Component\String\u;
 
-final class UnitQueryHandler extends AbstractQueryHandler implements MessageHandlerInterface
+final class UnitQueryHandler implements MessageHandlerInterface
 {
     public function __construct(private UnitProvider $provider)
     {

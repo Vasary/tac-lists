@@ -11,12 +11,11 @@ use App\Application\List\Response\ListResponse;
 use App\Domain\Entity\Item;
 use App\Domain\Entity\Person;
 use App\Domain\Exception\PermissionDeniedException;
-use App\Domain\Handler\AbstractCommandHandler;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 use Symfony\Component\Messenger\HandleTrait;
 use Symfony\Component\Messenger\MessageBusInterface;
 
-final class PurgeListCommandHandler extends AbstractCommandHandler implements MessageHandlerInterface
+final class PurgeListCommandHandler implements MessageHandlerInterface
 {
     use HandleTrait;
 

@@ -8,10 +8,9 @@ use App\Application\Template\Provider\DataProvider;
 use App\Application\Template\Query\GetTemplateQuery;
 use App\Application\Template\Response\TemplateResponse;
 use App\Domain\Entity\TemplateImage;
-use App\Domain\Handler\AbstractQueryHandler;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 
-final class GetTemplateQueryHandler extends AbstractQueryHandler implements MessageHandlerInterface
+final class GetTemplateQueryHandler implements MessageHandlerInterface
 {
     public function __construct(private DataProvider $provider)
     {

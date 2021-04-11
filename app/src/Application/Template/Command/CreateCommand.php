@@ -4,11 +4,10 @@ declare(strict_types=1);
 
 namespace App\Application\Template\Command;
 
-use App\Domain\Command\AbstractCommand;
 use Symfony\Component\String\UnicodeString;
 use Symfony\Component\Uid\UuidV4;
 
-final class CreateCommand extends AbstractCommand
+final class CreateCommand
 {
     public function __construct(
         private UnicodeString $name,

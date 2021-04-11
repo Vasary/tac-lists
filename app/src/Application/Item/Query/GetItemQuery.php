@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace App\Application\Item\Query;
 
-use App\Domain\Query\AbstractQuery;
 use Symfony\Component\Uid\UuidV4;
 
-final class GetItemQuery extends AbstractQuery
+final class GetItemQuery
 {
     public function __construct(private UuidV4 $item, private UuidV4 $initiator)
     {

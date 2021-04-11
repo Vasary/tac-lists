@@ -8,10 +8,9 @@ use App\Application\Template\Command\CreateCommand;
 use App\Application\Template\Creator\TemplateCreator;
 use App\Application\Template\Response\TemplateResponse;
 use App\Domain\Entity\TemplateImage;
-use App\Domain\Handler\AbstractCommandHandler;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 
-final class CreateTemplateHandler extends AbstractCommandHandler implements MessageHandlerInterface
+final class CreateTemplateHandler implements MessageHandlerInterface
 {
     public function __construct(private TemplateCreator $creator)
     {

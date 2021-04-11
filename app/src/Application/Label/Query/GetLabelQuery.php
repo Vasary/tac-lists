@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace App\Application\Label\Query;
 
-use App\Domain\Query\AbstractQuery;
 use Symfony\Component\Uid\UuidV4;
 
-final class GetLabelQuery extends AbstractQuery
+final class GetLabelQuery
 {
     public function __construct(private UuidV4 $id, private UuidV4 $initiator)
     {

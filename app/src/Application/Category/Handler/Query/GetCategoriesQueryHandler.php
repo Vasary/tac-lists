@@ -9,10 +9,9 @@ use App\Application\Category\Query\GetCategories;
 use App\Application\Category\Response\GetCategoriesResponse;
 use App\Application\Category\Response\GetCategoryResponse;
 use App\Domain\Entity\Category;
-use App\Domain\Handler\AbstractQueryHandler;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 
-final class GetCategoriesQueryHandler extends AbstractQueryHandler implements MessageHandlerInterface
+final class GetCategoriesQueryHandler implements MessageHandlerInterface
 {
     private CategoryProvider $provider;
 

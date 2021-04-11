@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace App\Application\List\Command;
 
-use App\Domain\Command\AbstractCommand;
 use Symfony\Component\String\UnicodeString;
 
-final class CreateShoppingListCommand extends AbstractCommand
+final class CreateShoppingListCommand
 {
     private UnicodeString $name;
 

@@ -10,10 +10,9 @@ use App\Application\Template\Response\TemplateResponse;
 use App\Application\Template\Response\TemplatesResponse;
 use App\Domain\Entity\Template;
 use App\Domain\Entity\TemplateImage;
-use App\Domain\Handler\AbstractQueryHandler;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 
-final class GetAllTemplatesQueryHandler extends AbstractQueryHandler implements MessageHandlerInterface
+final class GetAllTemplatesQueryHandler implements MessageHandlerInterface
 {
     public function __construct(private DataProvider $provider)
     {

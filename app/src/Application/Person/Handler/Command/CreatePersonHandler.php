@@ -7,11 +7,10 @@ namespace App\Application\Person\Handler\Command;
 use App\Application\Person\Command\CreatePersonCommand;
 use App\Application\Person\Creator\PersonCreator;
 use App\Application\Person\Response\PersonResponse;
-use App\Domain\Handler\AbstractCommandHandler;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 use Symfony\Component\Uid\UuidV4;
 
-final class CreatePersonHandler extends AbstractCommandHandler implements MessageHandlerInterface
+final class CreatePersonHandler implements MessageHandlerInterface
 {
     private PersonCreator $creator;
 

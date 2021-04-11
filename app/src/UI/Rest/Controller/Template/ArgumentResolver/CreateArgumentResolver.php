@@ -9,9 +9,9 @@ use App\UI\Rest\Controller\Template\Argument\Create;
 use Generator;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadata;
+use function Symfony\Component\String\u;
 use Symfony\Component\Uid\UuidV4;
 use Symfony\Component\Validator\Constraints as Assert;
-use function Symfony\Component\String\u;
 
 final class CreateArgumentResolver extends AbstractArgumentResolver
 {

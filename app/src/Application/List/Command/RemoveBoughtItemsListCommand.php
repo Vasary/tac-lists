@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace App\Application\List\Command;
 
-use App\Domain\Command\AbstractCommand;
 use Symfony\Component\Uid\UuidV4;
 
-final class RemoveBoughtItemsListCommand extends AbstractCommand
+final class RemoveBoughtItemsListCommand
 {
     public function __construct(
         private UuidV4 $list,

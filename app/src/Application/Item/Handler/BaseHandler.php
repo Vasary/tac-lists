@@ -9,10 +9,9 @@ use App\Domain\Entity\GeoPoint;
 use App\Domain\Entity\Item;
 use App\Domain\Entity\ItemImage;
 use App\Domain\Entity\Label;
-use App\Domain\Handler\AbstractCommandHandler;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 
-abstract class BaseHandler extends AbstractCommandHandler implements MessageHandlerInterface
+abstract class BaseHandler implements MessageHandlerInterface
 {
     protected function createResponse(Item $item): ItemResponse
     {

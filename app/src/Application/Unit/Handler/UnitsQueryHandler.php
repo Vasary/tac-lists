@@ -9,11 +9,10 @@ use App\Application\Unit\Query\UnitsQuery;
 use App\Application\Unit\Response\UnitResponse;
 use App\Application\Unit\Response\UnitsResponse;
 use App\Domain\Entity\Unit;
-use App\Domain\Handler\AbstractQueryHandler;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 use function Symfony\Component\String\u;
 
-final class UnitsQueryHandler extends AbstractQueryHandler implements MessageHandlerInterface
+final class UnitsQueryHandler implements MessageHandlerInterface
 {
     public function __construct(private UnitProvider $provider)
     {

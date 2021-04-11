@@ -10,7 +10,8 @@ use Symfony\Component\Uid\UuidV4;
 
 class Item
 {
-    use TimestampedEntity, UUIDIdentifier;
+    use TimestampedEntity;
+    use UUIDIdentifier;
 
     protected bool $isPurchased;
     protected int $ordering;

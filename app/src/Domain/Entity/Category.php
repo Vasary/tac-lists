@@ -11,7 +11,9 @@ use Symfony\Component\Uid\UuidV4;
 
 class Category
 {
-    use TimestampedEntity, UUIDIdentifier, RegionCode;
+    use TimestampedEntity;
+    use UUIDIdentifier;
+    use RegionCode;
 
     protected UnicodeString $name;
     protected UnicodeString $marker;

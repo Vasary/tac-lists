@@ -8,13 +8,12 @@ use App\Application\List\Command\ExcludePersonFromListCommand;
 use App\Application\List\Creator\ShoppingListCreator;
 use App\Application\List\Provider\Provider;
 use App\Application\List\Response\ExcludePersonFromListResponse;
-use App\Domain\Handler\AbstractCommandHandler;
 use App\Domain\SystemCodes;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 use Symfony\Component\Messenger\HandleTrait;
 use Symfony\Component\Messenger\MessageBusInterface;
 
-final class ExcludePersonFromListCommandHandler extends AbstractCommandHandler implements MessageHandlerInterface
+final class ExcludePersonFromListCommandHandler implements MessageHandlerInterface
 {
     use HandleTrait;
 

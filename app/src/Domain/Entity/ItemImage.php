@@ -9,7 +9,8 @@ use Symfony\Component\Uid\UuidV4;
 
 class ItemImage
 {
-    use TimestampedEntity, UUIDIdentifier;
+    use TimestampedEntity;
+    use UUIDIdentifier;
 
     protected UnicodeString $link;
 
