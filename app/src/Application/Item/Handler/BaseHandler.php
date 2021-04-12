@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace App\Application\Item\Handler;
 
 use App\Application\Item\Response\ItemResponse;
-use App\Domain\Entity\GeoPoint;
-use App\Domain\Entity\Item;
-use App\Domain\Entity\ItemImage;
-use App\Domain\Entity\Label;
+use App\Domain\GeoPoint\Model\GeoPoint;
+use App\Domain\Item\Model\Item;
+use App\Domain\Item\Model\ItemImage;
+use App\Domain\Label\Model\Label;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 
 abstract class BaseHandler implements MessageHandlerInterface

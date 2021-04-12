@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace App\Tests\Behat\Context;
 
-use App\Domain\Repository\ItemImageRepositoryInterface;
-use App\Domain\Repository\ItemRepositoryInterface;
-use App\Domain\Repository\TemplateImageRepositoryInterface;
-use App\Domain\Repository\TemplateRepositoryInterface;
+use App\Domain\Item\Repository\ItemImageRepositoryInterface;
+use App\Domain\Item\Repository\ItemRepositoryInterface;
+use App\Domain\Template\Repository\TemplateImageRepositoryInterface;
+use App\Domain\Template\Repository\TemplateRepositoryInterface;
 use Behat\Behat\Context\Context;
 use Doctrine\ORM\EntityManagerInterface;
 use function Symfony\Component\String\u;

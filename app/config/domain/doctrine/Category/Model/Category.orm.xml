@@ -1,0 +1,26 @@
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                   https://raw.github.com/doctrine/doctrine2/master/doctrine-mapping.xsd"
+>
+    <entity name="App\Domain\Category\Model\Category" table="items_categories">
+        <id name="id" column="id" type="uuid">
+            <generator strategy="CUSTOM"/>
+            <custom-id-generator class="Symfony\Bridge\Doctrine\IdGenerator\UuidV4Generator"/>
+        </id>
+
+        <field name="created" type="datetime_immutable"/>
+        <field name="updated" type="datetime_immutable"/>
+
+        <field name="region" type="unicode_string" length="2"/>
+        <field name="name" type="unicode_string" length="255"/>
+        <field name="marker" type="unicode_string" length="7"/>
+
+        <one-to-many field="templates" target-entity="App\Domain\Template\Model\Template" mapped-by="category" fetch="EXTRA_LAZY"/>
+
+        <lifecycle-callbacks>
+            <lifecycle-callback type="prePersist" method="onPrePersist" />
+            <lifecycle-callback type="preUpdate" method="onPreUpdate" />
+        </lifecycle-callbacks>
+    </entity>
+</doctrine-mapping>

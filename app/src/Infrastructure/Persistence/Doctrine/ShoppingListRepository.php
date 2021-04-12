@@ -2,8 +2,8 @@
 
 namespace App\Infrastructure\Persistence\Doctrine;
 
-use App\Domain\Entity\ShoppingList;
-use App\Domain\Repository\ShoppingListRepositoryInterface;
+use App\Domain\ShoppingList\Model\ShoppingList;
+use App\Domain\ShoppingList\Repository\ShoppingListRepositoryInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use ReflectionClass;

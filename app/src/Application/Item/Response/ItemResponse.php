@@ -4,11 +4,10 @@ declare(strict_types=1);
 
 namespace App\Application\Item\Response;
 
-use App\Domain\Response\AbstractResponse;
 use DateTimeImmutable;
 use Symfony\Component\Uid\UuidV4;
 
-final class ItemResponse extends AbstractResponse
+final class ItemResponse
 {
     public function __construct(
         public UuidV4 $id,

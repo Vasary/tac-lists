@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace App\Application\List\Response;
 
-use App\Domain\Response\AbstractResponse;
 use Symfony\Component\Uid\UuidV4;
 
-final class ExcludePersonFromListResponse extends AbstractResponse
+final class ExcludePersonFromListResponse
 {
     public function __construct(
         public UuidV4 $list,

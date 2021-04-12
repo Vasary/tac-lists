@@ -8,8 +8,8 @@ use App\Application\Template\Provider\DataProvider;
 use App\Application\Template\Query\GetTemplatesQuery;
 use App\Application\Template\Response\TemplateResponse;
 use App\Application\Template\Response\TemplatesResponse;
-use App\Domain\Entity\Template;
-use App\Domain\Entity\TemplateImage;
+use App\Domain\Template\Model\Template;
+use App\Domain\Template\Model\TemplateImage;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 
 final class GetAllTemplatesQueryHandler implements MessageHandlerInterface

@@ -7,4 +7,5 @@ return [
     Ekreative\HealthCheckBundle\EkreativeHealthCheckBundle::class => ['all' => true],
     Vasary\TracingBundle\TracingBundle::class => ['all' => true],
     FriendsOfBehat\SymfonyExtension\Bundle\FriendsOfBehatSymfonyExtensionBundle::class => ['test' => true],
+    Symfony\Bundle\SecurityBundle\SecurityBundle::class => ['all' => true],
 ];

@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Application\Point\Provider;
 
-use App\Domain\Entity\GeoPoint;
 use App\Domain\Exception\PointNotFoundException;
-use App\Domain\Repository\PointRepositoryInterface;
+use App\Domain\GeoPoint\Model\GeoPoint;
+use App\Domain\GeoPoint\Repository\PointRepositoryInterface;
 use Symfony\Component\Uid\UuidV4;
 
 final class DataProvider

@@ -8,7 +8,7 @@ use App\Application\Unit\Provider\UnitProvider;
 use App\Application\Unit\Query\UnitsQuery;
 use App\Application\Unit\Response\UnitResponse;
 use App\Application\Unit\Response\UnitsResponse;
-use App\Domain\Entity\Unit;
+use App\Domain\Unit\Model\Unit;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 use function Symfony\Component\String\u;
 

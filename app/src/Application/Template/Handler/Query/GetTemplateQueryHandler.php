@@ -7,7 +7,7 @@ namespace App\Application\Template\Handler\Query;
 use App\Application\Template\Provider\DataProvider;
 use App\Application\Template\Query\GetTemplateQuery;
 use App\Application\Template\Response\TemplateResponse;
-use App\Domain\Entity\TemplateImage;
+use App\Domain\Template\Model\TemplateImage;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 
 final class GetTemplateQueryHandler implements MessageHandlerInterface

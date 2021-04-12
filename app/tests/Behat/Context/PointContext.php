@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Tests\Behat\Context;
 
-use App\Domain\Repository\ItemRepositoryInterface;
-use App\Domain\Repository\PointRepositoryInterface;
+use App\Domain\GeoPoint\Repository\PointRepositoryInterface;
+use App\Domain\Item\Repository\ItemRepositoryInterface;
 use Behat\Behat\Context\Context;
 use Behat\Gherkin\Node\TableNode;
 use Doctrine\ORM\EntityManagerInterface;

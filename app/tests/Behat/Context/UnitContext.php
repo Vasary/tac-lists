@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Tests\Behat\Context;
 
-use App\Domain\Repository\UnitRepositoryInterface;
+use App\Domain\Unit\Repository\UnitRepositoryInterface;
 use Behat\Behat\Context\Context;
 use Doctrine\ORM\EntityManagerInterface;
 use function Symfony\Component\String\u;

@@ -7,9 +7,9 @@ namespace App\Application\List\Handler\Query;
 use App\Application\List\Provider\Provider;
 use App\Application\List\Query\GetListQuery;
 use App\Application\List\Response\ListResponse;
-use App\Domain\Entity\Item;
-use App\Domain\Entity\Person;
 use App\Domain\Exception\PermissionDeniedException;
+use App\Domain\Item\Model\Item;
+use App\Domain\Person\Model\Person;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 
 final class GetListQueryHandler implements MessageHandlerInterface

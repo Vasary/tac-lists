@@ -2,10 +2,10 @@
 
 namespace App\Infrastructure\Persistence\Doctrine;
 
-use App\Domain\Entity\Category;
-use App\Domain\Entity\Person;
-use App\Domain\Entity\Template;
-use App\Domain\Repository\TemplateRepositoryInterface;
+use App\Domain\Category\Model\Category;
+use App\Domain\Person\Model\Person;
+use App\Domain\Template\Model\Template;
+use App\Domain\Template\Repository\TemplateRepositoryInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\String\UnicodeString;

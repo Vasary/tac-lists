@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Application\Person\Provider;
 
-use App\Domain\Entity\Person;
 use App\Domain\Exception\PersonNotFoundException;
-use App\Domain\Repository\PersonRepositoryInterface;
+use App\Domain\Person\Model\Person;
+use App\Domain\Person\Repository\PersonRepositoryInterface;
 use Symfony\Component\Uid\UuidV4;
 
 final class DataProvider

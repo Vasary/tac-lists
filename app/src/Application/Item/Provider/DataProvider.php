@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Application\Item\Provider;
 
-use App\Domain\Entity\Item;
 use App\Domain\Exception\ItemNotFoundException;
-use App\Domain\Repository\ItemRepositoryInterface;
+use App\Domain\Item\Model\Item;
+use App\Domain\Item\Repository\ItemRepositoryInterface;
 use Symfony\Component\Uid\UuidV4;
 
 final class DataProvider

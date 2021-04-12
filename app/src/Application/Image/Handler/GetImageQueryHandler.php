@@ -7,7 +7,7 @@ namespace App\Application\Image\Handler;
 use App\Application\Image\Provider\DataProvider;
 use App\Application\Image\Query\GetImageQuery;
 use App\Application\Image\Response\ImageResponse;
-use App\Domain\Entity\ItemImage;
+use App\Domain\Item\Model\ItemImage;
 use App\Infrastructure\Trait\ObjectAccess;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 

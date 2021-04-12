@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace App\Application\Category\Provider;
 
-use App\Domain\Entity\Category;
+use App\Domain\Category\Model\Category;
+use App\Domain\Category\Repository\CategoryRepositoryInterface;
 use App\Domain\Exception\CategoryNotFoundException;
-use App\Domain\Repository\CategoryRepositoryInterface;
-use App\Domain\Repository\PersonRepositoryInterface;
+use App\Domain\Person\Repository\PersonRepositoryInterface;
 use Symfony\Component\String\UnicodeString;
 use Symfony\Component\Uid\UuidV4;
 

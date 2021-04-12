@@ -8,7 +8,51 @@ doctrine:
         naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
         auto_mapping: true
         mappings:
-            App:
+            App\Domain\Category\Model:
+                is_bundle: false
                 type: xml
-                dir: '%kernel.project_dir%/config/doctrine'
-                prefix: App\Domain\Entity
+                dir: '%kernel.project_dir%/config/domain/doctrine/Category/Model'
+                prefix: 'App\Domain\Category\Model'
+                alias: App
+            App\Domain\GeoPoint\Model:
+                is_bundle: false
+                type: xml
+                dir: '%kernel.project_dir%/config/domain/doctrine/GeoPoint/Model'
+                prefix: 'App\Domain\GeoPoint\Model'
+                alias: App
+            App\Domain\Item\Model:
+                is_bundle: false
+                type: xml
+                dir: '%kernel.project_dir%/config/domain/doctrine/Item/Model'
+                prefix: 'App\Domain\Item\Model'
+                alias: App
+            App\Domain\Label\Model:
+                is_bundle: false
+                type: xml
+                dir: '%kernel.project_dir%/config/domain/doctrine/Label/Model'
+                prefix: 'App\Domain\Label\Model'
+                alias: App
+            App\Domain\Person\Model:
+                is_bundle: false
+                type: xml
+                dir: '%kernel.project_dir%/config/domain/doctrine/Person/Model'
+                prefix: 'App\Domain\Person\Model'
+                alias: App
+            App\Domain\ShoppingList\Model:
+                is_bundle: false
+                type: xml
+                dir: '%kernel.project_dir%/config/domain/doctrine/ShoppingList/Model'
+                prefix: 'App\Domain\ShoppingList\Model'
+                alias: App
+            App\Domain\Template\Model:
+                is_bundle: false
+                type: xml
+                dir: '%kernel.project_dir%/config/domain/doctrine/Template/Model'
+                prefix: 'App\Domain\Template\Model'
+                alias: App
+            App\Domain\Unit\Model:
+                is_bundle: false
+                type: xml
+                dir: '%kernel.project_dir%/config/domain/doctrine/Unit/Model'
+                prefix: 'App\Domain\Unit\Model'
+                alias: App

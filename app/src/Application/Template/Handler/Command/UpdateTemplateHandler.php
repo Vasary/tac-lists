@@ -7,7 +7,7 @@ namespace App\Application\Template\Handler\Command;
 use App\Application\Template\Command\UpdateCommand;
 use App\Application\Template\Creator\TemplateCreator;
 use App\Application\Template\Response\TemplateResponse;
-use App\Domain\Entity\TemplateImage;
+use App\Domain\Template\Model\TemplateImage;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 
 final class UpdateTemplateHandler implements MessageHandlerInterface

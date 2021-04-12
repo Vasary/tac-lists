@@ -2,11 +2,11 @@
 
 namespace App\Infrastructure\Persistence\Doctrine;
 
-use App\Domain\Entity\Item;
-use App\Domain\Entity\ShoppingList;
-use App\Domain\Entity\Template;
-use App\Domain\Entity\Unit;
-use App\Domain\Repository\ItemRepositoryInterface;
+use App\Domain\Item\Model\Item;
+use App\Domain\Item\Repository\ItemRepositoryInterface;
+use App\Domain\ShoppingList\Model\ShoppingList;
+use App\Domain\Template\Model\Template;
+use App\Domain\Unit\Model\Unit;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\Uid\UuidV4;

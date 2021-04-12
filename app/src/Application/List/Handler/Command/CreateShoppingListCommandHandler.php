@@ -7,7 +7,7 @@ namespace App\Application\List\Handler\Command;
 use App\Application\List\Command\CreateShoppingListCommand;
 use App\Application\List\Creator\ShoppingListCreator;
 use App\Application\List\Response\CreateResponse;
-use App\Domain\Entity\Person;
+use App\Domain\Person\Model\Person;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 use Symfony\Component\Messenger\HandleTrait;
 use Symfony\Component\Messenger\MessageBusInterface;

@@ -4,18 +4,18 @@ declare(strict_types=1);
 
 namespace App\Application\Template\Creator;
 
-use App\Domain\Entity\Category;
-use App\Domain\Entity\Person;
-use App\Domain\Entity\Template;
-use App\Domain\Entity\TemplateImage;
+use App\Domain\Category\Model\Category;
+use App\Domain\Category\Repository\CategoryRepositoryInterface;
 use App\Domain\Exception\CategoryNotFoundException;
 use App\Domain\Exception\PermissionDeniedException;
 use App\Domain\Exception\PersonNotFoundException;
 use App\Domain\Exception\TemplateNotFoundException;
-use App\Domain\Repository\CategoryRepositoryInterface;
-use App\Domain\Repository\PersonRepositoryInterface;
-use App\Domain\Repository\TemplateImageRepositoryInterface;
-use App\Domain\Repository\TemplateRepositoryInterface;
+use App\Domain\Person\Model\Person;
+use App\Domain\Person\Repository\PersonRepositoryInterface;
+use App\Domain\Template\Model\Template;
+use App\Domain\Template\Model\TemplateImage;
+use App\Domain\Template\Repository\TemplateImageRepositoryInterface;
+use App\Domain\Template\Repository\TemplateRepositoryInterface;
 use function Symfony\Component\String\u;
 use Symfony\Component\String\UnicodeString;
 use Symfony\Component\Uid\UuidV4;

@@ -2,8 +2,8 @@
 
 namespace App\Infrastructure\Persistence\Doctrine;
 
-use App\Domain\Entity\Category;
-use App\Domain\Repository\CategoryRepositoryInterface;
+use App\Domain\Category\Model\Category;
+use App\Domain\Category\Repository\CategoryRepositoryInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\String\UnicodeString;

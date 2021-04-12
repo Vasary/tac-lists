@@ -4,16 +4,16 @@ declare(strict_types=1);
 
 namespace App\Application\Item\Creator;
 
-use App\Domain\Entity\Item;
 use App\Domain\Exception\ListNotFoundException;
 use App\Domain\Exception\TemplateNotFoundException;
 use App\Domain\Exception\UnitNotFoundException;
-use App\Domain\Repository\ItemImageRepositoryInterface;
-use App\Domain\Repository\ItemRepositoryInterface;
-use App\Domain\Repository\PointRepositoryInterface;
-use App\Domain\Repository\ShoppingListRepositoryInterface;
-use App\Domain\Repository\TemplateRepositoryInterface;
-use App\Domain\Repository\UnitRepositoryInterface;
+use App\Domain\GeoPoint\Repository\PointRepositoryInterface;
+use App\Domain\Item\Model\Item;
+use App\Domain\Item\Repository\ItemImageRepositoryInterface;
+use App\Domain\Item\Repository\ItemRepositoryInterface;
+use App\Domain\ShoppingList\Repository\ShoppingListRepositoryInterface;
+use App\Domain\Template\Repository\TemplateRepositoryInterface;
+use App\Domain\Unit\Repository\UnitRepositoryInterface;
 use Symfony\Component\String\UnicodeString;
 use Symfony\Component\Uid\UuidV4;
 

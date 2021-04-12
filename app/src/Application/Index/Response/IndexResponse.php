@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace App\Application\Index\Response;
 
-use App\Domain\Response\AbstractResponse;
-
-final class IndexResponse extends AbstractResponse
+final class IndexResponse
 {
     public function __construct(
         public string $name,

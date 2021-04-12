@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Tests\Behat\Context;
 
-use App\Domain\Repository\PersonRepositoryInterface;
+use App\Domain\Person\Repository\PersonRepositoryInterface;
 use Behat\Behat\Context\Context;
 use function Symfony\Component\String\u;
 use Symfony\Component\Uid\UuidV4;

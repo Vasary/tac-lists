@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Application\Category\Creator;
 
-use App\Domain\Entity\Category;
-use App\Domain\Repository\CategoryRepositoryInterface;
+use App\Domain\Category\Model\Category;
+use App\Domain\Category\Repository\CategoryRepositoryInterface;
 use Symfony\Component\String\UnicodeString;
 use Symfony\Component\Uid\UuidV4;
 

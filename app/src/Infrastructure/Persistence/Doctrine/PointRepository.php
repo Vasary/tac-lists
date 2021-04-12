@@ -2,9 +2,9 @@
 
 namespace App\Infrastructure\Persistence\Doctrine;
 
-use App\Domain\Entity\GeoPoint;
-use App\Domain\Entity\Item;
-use App\Domain\Repository\PointRepositoryInterface;
+use App\Domain\GeoPoint\Model\GeoPoint;
+use App\Domain\GeoPoint\Repository\PointRepositoryInterface;
+use App\Domain\Item\Model\Item;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\String\UnicodeString;

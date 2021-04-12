@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\UI\Rest\Controller;
 
-use App\Domain\Response\AbstractResponse;
 use App\UI\Rest\ResponseBuilder\ResponseBuilderInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController as SymfonyController;
 use Symfony\Component\Messenger\HandleTrait;
@@ -19,7 +18,7 @@ abstract class AbstractController extends SymfonyController
         $this->messageBus = $messageBus;
     }
 
-    protected function execute(object $envelop): AbstractResponse
+    protected function execute(object $envelop): object
     {
         return $this->handle($envelop);
     }

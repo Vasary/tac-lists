@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace App\Application\Unit\Provider;
 
-use App\Domain\Entity\Unit;
 use App\Domain\Exception\UnitNotFoundException;
-use App\Domain\Repository\PersonRepositoryInterface;
-use App\Domain\Repository\UnitRepositoryInterface;
+use App\Domain\Person\Repository\PersonRepositoryInterface;
+use App\Domain\Unit\Model\Unit;
+use App\Domain\Unit\Repository\UnitRepositoryInterface;
 use Symfony\Component\Uid\UuidV4;
 
 final class UnitProvider

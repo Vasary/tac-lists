@@ -8,7 +8,7 @@ use App\Application\Category\Provider\CategoryProvider;
 use App\Application\Category\Query\GetCategories;
 use App\Application\Category\Response\GetCategoriesResponse;
 use App\Application\Category\Response\GetCategoryResponse;
-use App\Domain\Entity\Category;
+use App\Domain\Category\Model\Category;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 
 final class GetCategoriesQueryHandler implements MessageHandlerInterface

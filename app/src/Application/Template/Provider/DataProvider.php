@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace App\Application\Template\Provider;
 
-use App\Domain\Entity\Template;
 use App\Domain\Exception\PermissionDeniedException;
 use App\Domain\Exception\PersonNotFoundException;
 use App\Domain\Exception\TemplateNotFoundException;
-use App\Domain\Repository\PersonRepositoryInterface;
-use App\Domain\Repository\TemplateRepositoryInterface;
+use App\Domain\Person\Repository\PersonRepositoryInterface;
+use App\Domain\Template\Model\Template;
+use App\Domain\Template\Repository\TemplateRepositoryInterface;
 use Symfony\Component\Uid\UuidV4;
 
 final class DataProvider

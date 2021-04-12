@@ -2,8 +2,8 @@
 
 namespace App\Infrastructure\Persistence\Doctrine;
 
-use App\Domain\Entity\Person;
-use App\Domain\Repository\PersonRepositoryInterface;
+use App\Domain\Person\Model\Person;
+use App\Domain\Person\Repository\PersonRepositoryInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\String\UnicodeString;

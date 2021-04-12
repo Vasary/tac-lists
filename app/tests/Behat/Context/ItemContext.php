@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace App\Tests\Behat\Context;
 
-use App\Domain\Repository\ItemRepositoryInterface;
-use App\Domain\Repository\ShoppingListRepositoryInterface;
-use App\Domain\Repository\TemplateRepositoryInterface;
-use App\Domain\Repository\UnitRepositoryInterface;
+use App\Domain\Item\Repository\ItemRepositoryInterface;
+use App\Domain\ShoppingList\Repository\ShoppingListRepositoryInterface;
+use App\Domain\Template\Repository\TemplateRepositoryInterface;
+use App\Domain\Unit\Repository\UnitRepositoryInterface;
 use Behat\Behat\Context\Context;
 use Behat\Gherkin\Node\TableNode;
 use Doctrine\ORM\EntityManagerInterface;

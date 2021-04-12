@@ -3,13 +3,13 @@ services:
     autowire: true
     autoconfigure: true
 
-  App\Domain\Repository\ShoppingListRepositoryInterface: '@App\Infrastructure\Persistence\Doctrine\ShoppingListRepository'
-  App\Domain\Repository\UnitRepositoryInterface: '@App\Infrastructure\Persistence\Doctrine\UnitRepository'
-  App\Domain\Repository\LabelRepositoryInterface: '@App\Infrastructure\Persistence\Doctrine\LabelRepository'
-  App\Domain\Repository\ItemImageRepositoryInterface: '@App\Infrastructure\Persistence\Doctrine\ItemImageRepository'
-  App\Domain\Repository\CategoryRepositoryInterface: '@App\Infrastructure\Persistence\Doctrine\CategoryRepository'
-  App\Domain\Repository\PersonRepositoryInterface: '@App\Infrastructure\Persistence\Doctrine\PersonRepository'
-  App\Domain\Repository\TemplateRepositoryInterface: '@App\Infrastructure\Persistence\Doctrine\TemplateRepository'
-  App\Domain\Repository\TemplateImageRepositoryInterface: '@App\Infrastructure\Persistence\Doctrine\TemplateImageRepository'
-  App\Domain\Repository\ItemRepositoryInterface: '@App\Infrastructure\Persistence\Doctrine\ItemRepository'
-  App\Domain\Repository\PointRepositoryInterface: '@App\Infrastructure\Persistence\Doctrine\PointRepository'
+  App\Domain\ShoppingList\Repository\ShoppingListRepositoryInterface: '@App\Infrastructure\Persistence\Doctrine\ShoppingListRepository'
+  App\Domain\Unit\Repository\UnitRepositoryInterface: '@App\Infrastructure\Persistence\Doctrine\UnitRepository'
+  App\Domain\Label\Repository\LabelRepositoryInterface: '@App\Infrastructure\Persistence\Doctrine\LabelRepository'
+  App\Domain\Item\Repository\ItemImageRepositoryInterface: '@App\Infrastructure\Persistence\Doctrine\ItemImageRepository'
+  App\Domain\Category\Repository\CategoryRepositoryInterface: '@App\Infrastructure\Persistence\Doctrine\CategoryRepository'
+  App\Domain\Person\Repository\PersonRepositoryInterface: '@App\Infrastructure\Persistence\Doctrine\PersonRepository'
+  App\Domain\Template\Repository\TemplateRepositoryInterface: '@App\Infrastructure\Persistence\Doctrine\TemplateRepository'
+  App\Domain\Template\Repository\TemplateImageRepositoryInterface: '@App\Infrastructure\Persistence\Doctrine\TemplateImageRepository'
+  App\Domain\Item\Repository\ItemRepositoryInterface: '@App\Infrastructure\Persistence\Doctrine\ItemRepository'
+  App\Domain\GeoPoint\Repository\PointRepositoryInterface: '@App\Infrastructure\Persistence\Doctrine\PointRepository'

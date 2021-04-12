@@ -18,6 +18,6 @@ final class SystemCodes
     public const ALREADY_EXISTS = 10;
     public const ITEM_NOT_FOUND = 11;
     public const POINT_NOT_FOUND = 12;
-
+    public const ACCESS_DENIED = 20;
     public const SYSTEM_MALFORMED = 1000;
 }

@@ -2,9 +2,9 @@
 
 namespace App\Infrastructure\Persistence\Doctrine;
 
-use App\Domain\Entity\Item;
-use App\Domain\Entity\ItemImage;
-use App\Domain\Repository\ItemImageRepositoryInterface;
+use App\Domain\Item\Model\Item;
+use App\Domain\Item\Model\ItemImage;
+use App\Domain\Item\Repository\ItemImageRepositoryInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\String\UnicodeString;

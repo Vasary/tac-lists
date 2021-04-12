@@ -4,10 +4,8 @@ declare(strict_types=1);
 
 namespace App\Application\Template\Command;
 
-use JetBrains\PhpStorm\Immutable;
 use Symfony\Component\Uid\UuidV4;
 
-#[Immutable]
 final class DeleteCommand
 {
     public function __construct(private UuidV4 $id, private UuidV4 $person)

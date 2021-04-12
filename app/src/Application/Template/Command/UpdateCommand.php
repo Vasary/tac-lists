@@ -4,11 +4,9 @@ declare(strict_types=1);
 
 namespace App\Application\Template\Command;
 
-use JetBrains\PhpStorm\Immutable;
 use Symfony\Component\String\UnicodeString;
 use Symfony\Component\Uid\UuidV4;
 
-#[Immutable]
 final class UpdateCommand
 {
     public function __construct(

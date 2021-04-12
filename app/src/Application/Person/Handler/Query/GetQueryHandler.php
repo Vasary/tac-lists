@@ -7,7 +7,7 @@ namespace App\Application\Person\Handler\Query;
 use App\Application\Person\Provider\DataProvider;
 use App\Application\Person\Query\GetQuery;
 use App\Application\Person\Response\PersonResponse;
-use App\Domain\Entity\ShoppingList;
+use App\Domain\ShoppingList\Model\ShoppingList;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 
 final class GetQueryHandler implements MessageHandlerInterface

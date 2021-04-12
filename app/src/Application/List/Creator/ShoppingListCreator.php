@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace App\Application\List\Creator;
 
-use App\Domain\Entity\Item;
-use App\Domain\Entity\Person;
-use App\Domain\Entity\ShoppingList;
+use App\Domain\Item\Model\Item;
+use App\Domain\Item\Repository\ItemRepositoryInterface;
 use App\Domain\Exception\PersonNotFoundException;
-use App\Domain\Repository\ItemRepositoryInterface;
-use App\Domain\Repository\PersonRepositoryInterface;
+use App\Domain\Person\Model\Person;
+use App\Domain\Person\Repository\PersonRepositoryInterface;
+use App\Domain\ShoppingList\Model\ShoppingList;
 use App\Infrastructure\Persistence\Doctrine\ShoppingListRepository;
 use Symfony\Component\String\UnicodeString;
 use Symfony\Component\Uid\UuidV4;

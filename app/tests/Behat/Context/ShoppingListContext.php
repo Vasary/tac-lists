@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Tests\Behat\Context;
 
-use App\Domain\Repository\PersonRepositoryInterface;
-use App\Domain\Repository\ShoppingListRepositoryInterface;
+use App\Domain\Person\Repository\PersonRepositoryInterface;
+use App\Domain\ShoppingList\Repository\ShoppingListRepositoryInterface;
 use Behat\Behat\Context\Context;
 use function Symfony\Component\String\u;
 use Symfony\Component\Uid\UuidV4;

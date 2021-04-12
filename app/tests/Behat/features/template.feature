@@ -94,6 +94,7 @@ Feature:
             | id      | 7049c634-05f0-4f7a-bad1-accffe0ef634 |
             | code    | 0                                    |
 
+        @api
     Scenario: Delete not own
         Given person "65bed4c8-a5dc-4600-b805-4ee11b130aca" in ru
         Given template tomato created by 6d912900-4d2e-4208-8c3c-dc1a4795a845 in a1308cf5-985c-44aa-bb99-7fcf2cfd9940 category with id 7049c634-05f0-4f7a-bad1-accffe0ef634

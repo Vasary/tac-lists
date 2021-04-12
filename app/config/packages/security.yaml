@@ -1,0 +1,25 @@
+security:
+    providers:
+        persons:
+            id: App\Application\Security\Provider\UserProvider
+
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        registration:
+            pattern: ^/api/v1/person
+            anonymous: true
+            stateless: true
+            security: false
+
+        main:
+            provider: persons
+            stateless: true
+            guard:
+                authenticators:
+                    - App\Application\Security\Authenticator\TokenAuthenticator
+
+    access_control:
+         - { path: ^/api/v1, roles: ROLE_USER }

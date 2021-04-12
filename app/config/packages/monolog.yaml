@@ -1,0 +1,20 @@
+monolog:
+    channels: [deprecation]
+    handlers:
+        main:
+            type: stream
+            path: "%kernel.logs_dir%/%kernel.environment%.main.log"
+            level: info
+            channels: ["!event", "!deprecation"]
+        deprecation_stream:
+            type: stream
+            path: "%kernel.logs_dir%/%kernel.environment%.deprecations.log"
+        deprecation_filter:
+            type: filter
+            handler: deprecation_stream
+            max_level: info
+            channels: ["php"]
+        console:
+            type: console
+            process_psr_3_messages: true
+            channels: ["!event", "!doctrine", "!console"]

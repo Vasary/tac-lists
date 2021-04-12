@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace App\Application\Image\Provider;
 
-use App\Domain\Entity\ItemImage;
-use App\Domain\Entity\TemplateImage;
 use App\Domain\Exception\ImageNotFoundException;
-use App\Domain\Repository\ItemImageRepositoryInterface;
-use App\Domain\Repository\TemplateImageRepositoryInterface;
+use App\Domain\Item\Model\ItemImage;
+use App\Domain\Item\Repository\ItemImageRepositoryInterface;
+use App\Domain\Template\Model\TemplateImage;
+use App\Domain\Template\Repository\TemplateImageRepositoryInterface;
 use Symfony\Component\Uid\UuidV4;
 
 final class DataProvider

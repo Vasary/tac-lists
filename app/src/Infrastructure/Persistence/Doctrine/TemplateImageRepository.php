@@ -2,9 +2,9 @@
 
 namespace App\Infrastructure\Persistence\Doctrine;
 
-use App\Domain\Entity\Template;
-use App\Domain\Entity\TemplateImage;
-use App\Domain\Repository\TemplateImageRepositoryInterface;
+use App\Domain\Template\Model\Template;
+use App\Domain\Template\Model\TemplateImage;
+use App\Domain\Template\Repository\TemplateImageRepositoryInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\String\UnicodeString;

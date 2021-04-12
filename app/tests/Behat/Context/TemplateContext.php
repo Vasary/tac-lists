@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Tests\Behat\Context;
 
-use App\Domain\Repository\CategoryRepositoryInterface;
-use App\Domain\Repository\PersonRepositoryInterface;
-use App\Domain\Repository\TemplateRepositoryInterface;
+use App\Domain\Category\Repository\CategoryRepositoryInterface;
+use App\Domain\Person\Repository\PersonRepositoryInterface;
+use App\Domain\Template\Repository\TemplateRepositoryInterface;
 use Behat\Behat\Context\Context;
 use Doctrine\ORM\EntityManagerInterface;
 use function Symfony\Component\String\u;
